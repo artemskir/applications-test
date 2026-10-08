@@ -5,6 +5,7 @@ import math
 from pathlib import PurePosixPath
 import posixpath
 import re
+import struct
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile, BadZipFile, ZIP_DEFLATED
 from openpyxl import load_workbook
@@ -62,6 +63,12 @@ def validate_archive(snapshot, max_uncompressed_bytes):
             raise NormalizationError('INPUT_LIMIT', 'Превышен лимит распакованной книги или ZIP-частей.', 5)
         if any(i.flag_bits & 1 for i in infos):
             raise invalid('Зашифрованная книга не поддерживается.')
+        for info in infos:
+            offset = info.header_offset
+            if offset < 0 or offset + 30 > len(snapshot) or snapshot[offset:offset+4] != b'PK\x03\x04':
+                raise invalid('Повреждён локальный заголовок ZIP.')
+            if struct.unpack_from('<H', snapshot, offset + 6)[0] & 1:
+                raise invalid('Флаг шифрования в локальном заголовке ZIP не поддерживается.')
         if not {'[Content_Types].xml', '_rels/.rels'}.issubset(names):
             raise invalid('ZIP не является книгой XLSX.')
         if archive.testzip() is not None:

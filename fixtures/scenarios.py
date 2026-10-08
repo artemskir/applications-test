@@ -255,6 +255,14 @@ CASES.extend([
     case('N42','Имя','не знаю','не знаю',['NAME_UNKNOWN'],'Нет подтверждения личного имени','user-review'),
 ])
 
+# Resource QA 1.5: independent expectations are shared by the small regressions and XLSX generator.
+from fixtures.resource_cases import CASES as RESOURCE_CASES
+for item in RESOURCE_CASES:
+    raw = typed('serial', item.value, item.kwargs['number_format']) if item.kwargs else item.value
+    CASES.append(case('RQA-' + item.ident, {'phone':'Телефон','dates':'Дата заявки','names':'Имя'}[item.field_name],
+                      raw, raw if item.canonical is None else item.canonical, list(item.codes),
+                      'Resource QA 1.5; ' + item.category, 'resource-qa'))
+
 # Explicitly distinguish a field failure from diagnostics with a usable phone key.
 for entry in CASES:
     entry["problem_list"] = bool(entry["codes"])

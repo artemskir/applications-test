@@ -1,6 +1,6 @@
 # Очистка заявок XLSX с сохранением исходных данных
 
-Контракт разработки: [docs/SPECIFICATION.md](docs/SPECIFICATION.md), версия **1.4**.
+Контракт разработки: [docs/SPECIFICATION.md](docs/SPECIFICATION.md), версия **1.5**.
 Реализованы обработчик `normalize.py`, восстановление `restore.py`, генератор
 тестовых данных и два экспериментальных стенда.
 Исходники задания — files/task.txt, files/task.pdf; файла zayavki.xlsx в проекте нет.
@@ -57,6 +57,10 @@
 Даты: `09/03/2026` → `2026-03-09` по приоритету день/месяц. Если этот порядок невозможен,
 но месяц/день даёт существующую дату, используется однозначный запасной порядок:
 `09/25/2026` → `2026-09-25`, с записью в аудит. Год-месяц-день не переставляется.
+Согласованы также даты с пробельными разделителями: `09 03 2026` → `2026-03-09`;
+обычные, неразрывные и узкие неразрывные пробелы поддерживаются. Символы внутри
+цифровой записи телефона не удаляются по догадке. Эмодзи/пунктуация вокруг целого
+номера — дополнительный контекст с пометкой; marks и variation selectors у цифр — ошибка.
 Excel serial с форматом только месяца/года/времени остаётся проблемным. Числовые
 NaN/Infinity сохраняются как исходные лексемы с CELL_NUMERIC_INVALID; остальные строки
 обрабатываются. Ошибки CRC/ZIP/XML по-прежнему приводят к контролируемому отказу.
@@ -120,14 +124,14 @@ python -m venv .venv
 ~~~powershell
 .\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-suite --mode suite
 .\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-clean --mode clean --rows 1000 --seed 42
-.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-dirty --mode dirty --rows 181
+.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-dirty --mode dirty --rows 215
 .\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-mixed --mode mixed --rows 48
-.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-1904 --mode dirty --rows 181 --epoch 1904
+.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-1904 --mode dirty --rows 215 --epoch 1904
 ~~~
 
 suite создаёт **14 XLSX**: clean, dirty, mixed, duplicates, две системы дат,
 отсутствующие/повторяющиеся/лишние заголовки, объединённые ячейки, несколько листов,
-только заголовки, пустая книга, повреждённый файл. Полный каталог — **181 сценарий**.
+только заголовки, пустая книга, повреждённый файл. Полный каталог — **215 сценариев**.
 Режим dirty содержит и исправимые значения, и ошибки; при меньшем количестве строк
 он не покрывает весь каталог. --rows допускает 0…100 000, default — 48.
 
@@ -181,7 +185,45 @@ ZIP/XML, недостоверный dimension, CRC, дубли ZIP-частей,
 .\.venv\Scripts\python.exe tools/render_catalog.py
 ~~~
 
-## Массовые проверки нормализатора, версия 1.4
+## Локальная архитектура и проверки версии 1.5
+
+Рабочая цепочка: снимок XLSX → проверка ZIP/XML и типов ячеек → независимые анализаторы
+имени/телефона/даты → первый представитель телефона → пять листов → проверка инвентаризации
+и побайтного восстановления → публикация нового файла. Рабочие зависимости — только
+openpyxl и et-xmlfile плюс включённый справочник имён. Сеть при обработке не используется.
+
+Для текущего локального QA достаточно отдельного минимального набора; DuckDB,
+dateparser и phonenumbers для этих команд не нужны:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m pip install -r research/local-qa-requirements.txt
+.\.venv\Scripts\python.exe tools/run_qa.py --mode all --seed 20261008 --examples 1000 --output-dir generated/my-qa-1.5
+.\.venv\Scripts\python.exe tools/fetch_qa_resources.py --output-dir generated/my-resource-sources
+.\.venv\Scripts\python.exe research/run_resource_qa.py --sources generated/my-resource-sources --output-dir generated/my-resource-qa --seed 20261008 --examples 300
+.\.venv\Scripts\python.exe tools/verify_artifacts.py --resource-qa generated/my-resource-qa
+~~~
+
+Только `fetch_qa_resources.py` обращается к сети: загружает закреплённые Unicode 16.0.0,
+CLDR 47 и метаданные libphonenumber 9.0.41 с лицензиями, проверяет размер и SHA-256
+по [lock-файлу](research/resource_sources.lock.json). Повторные проверки работают полностью
+локально; отсутствующий/изменённый кеш вызывает отказ без автоматической загрузки.
+Все выходные каталоги должны быть новыми. Unicode-корпус сверяется с Python UCD 16.0.0,
+проверенным в Python 3.14.5; другую версию стенд явно отклоняет.
+
+Источники расширяют тестовые входы, а ожидания задаёт спецификация. Стенд проверяет
+Unicode-цифры, marks/невидимые символы, NFC, визуальные двойники, календарные границы,
+RU/KZ и телефонные группировки, комбинации Hypothesis и пары факторов настоящего CLI.
+Проверяются shared/inline/rich text, кодировки, неверный dimension, повреждённые XML,
+отсутствующие части и лимиты; отдельно — пять листов, исходные значения и все байты.
+План и результаты итераций: [RESOURCE_QA_PLAN.md](docs/RESOURCE_QA_PLAN.md),
+[RESOURCE_QA_REPORT.md](docs/RESOURCE_QA_REPORT.md).
+
+Финальная проверка 1.5: **44 основных + 13 расширенных тестов**, 215 эталонных сценариев,
+**112 944 условия ресурсного стенда**, 28 запусков CLI; ошибок проверок нет.
+Сохранность всех исходных строк и байтов проверена у 17 успешно созданных книг.
+Пример результата: [dirty_result.xlsx](generated/normalizer-1.5-final/dirty_result.xlsx).
+
+## Исторические массовые проверки, версия 1.4
 
 План до изменений: [QA_PLAN.md](docs/QA_PLAN.md); дефекты и фактические результаты:
 [QA_REPORT.md](docs/QA_REPORT.md). Базовые тесты не требуют исследовательских зависимостей.
@@ -275,4 +317,4 @@ DTD/ENTITY и повреждённые контейнеры отклоняютс
 гонка публикации на POSIX не испытана. Исторический массовый замер относится к генерации
 и чтению фикстуры; отдельный новый замер 99,789 с относится к полному обработчику.
 Файл заказчика в проект не предоставлен; готовые результаты выше получены из тестовых книг.
-Восемь целевых ручных мутаций обнаружены; это не полный анализ mutation coverage.
+Девять целевых ручных мутаций обнаружены; это не полный анализ mutation coverage.

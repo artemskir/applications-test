@@ -1,0 +1,1049 @@
+{
+  "spec_version": "1.5",
+  "resource_qa": {
+    "spec_version": "1.5",
+    "seed": 20261010,
+    "examples_limit": 300,
+    "seconds": 11.19,
+    "passed": true,
+    "checks": {
+      "minimal-regressions": 34,
+      "unicode-decimal-blocks": 152,
+      "unicode-decimal-blocks-raw": 152,
+      "unicode-every-Nd": 760,
+      "unicode-every-Nd-raw": 760,
+      "unicode-nondecimal": 2302,
+      "unicode-nondecimal-raw": 2302,
+      "unicode-marks": 35014,
+      "unicode-marks-raw": 35014,
+      "unicode-controls": 3150,
+      "unicode-controls-raw": 3150,
+      "unicode-nfc-conformance": 19965,
+      "name-key-nfc": 62,
+      "unicode-confusables": 37,
+      "unicode-confusables-raw": 37,
+      "cldr-months-approved": 58,
+      "cldr-months-approved-raw": 58,
+      "cldr-months-unsupported": 24,
+      "cldr-months-unsupported-raw": 24,
+      "calendar-boundaries": 2400,
+      "calendar-boundaries-raw": 2400,
+      "metadata-phones": 22,
+      "metadata-phones-raw": 22,
+      "metadata-regex-groupings": 1800,
+      "metadata-regex-groupings-raw": 1800,
+      "name-gold-preservation": 41,
+      "hypothesis-resource-valid": 300,
+      "hypothesis-resource-valid-raw": 300,
+      "hypothesis-resource-broken": 300,
+      "hypothesis-resource-broken-raw": 300,
+      "xlsx-cli": 28,
+      "xlsx-input-preservation": 28,
+      "xlsx-five-sheets": 17,
+      "xlsx-row-inventory": 17,
+      "xlsx-raw-values": 17,
+      "xlsx-audit-inventory": 17,
+      "xlsx-human-review": 17,
+      "xlsx-clean-data": 17,
+      "xlsx-no-active-formulas": 17,
+      "xlsx-byte-restoration": 17,
+      "xlsx-no-partial-publication": 11,
+      "pairwise-coverage": 1
+    },
+    "failed": [],
+    "observations": {
+      "unicode_classes": {
+        "Nd_blocks": 76,
+        "Nd_codepoints": 760,
+        "marks": 2501,
+        "nondecimal_numeric": 1151,
+        "nonspace_controls": 225
+      },
+      "normalization": {
+        "official_NFC_vectors": 19965,
+        "cyrillic_key_vectors": 62,
+        "digit_confusable_mutations": 37,
+        "NFKC_used_by_processor": false
+      },
+      "cldr_not_supported": [
+        {
+          "locale": "ru",
+          "month": "1",
+          "text": "\u042f"
+        },
+        {
+          "locale": "ru",
+          "month": "2",
+          "text": "\u0424"
+        },
+        {
+          "locale": "ru",
+          "month": "3",
+          "text": "\u041c"
+        },
+        {
+          "locale": "ru",
+          "month": "4",
+          "text": "\u0410"
+        },
+        {
+          "locale": "ru",
+          "month": "5",
+          "text": "\u041c"
+        },
+        {
+          "locale": "ru",
+          "month": "6",
+          "text": "\u0418"
+        },
+        {
+          "locale": "ru",
+          "month": "7",
+          "text": "\u0418"
+        },
+        {
+          "locale": "ru",
+          "month": "8",
+          "text": "\u0410"
+        },
+        {
+          "locale": "ru",
+          "month": "9",
+          "text": "\u0421"
+        },
+        {
+          "locale": "ru",
+          "month": "10",
+          "text": "\u041e"
+        },
+        {
+          "locale": "ru",
+          "month": "11",
+          "text": "\u041d"
+        },
+        {
+          "locale": "ru",
+          "month": "12",
+          "text": "\u0414"
+        },
+        {
+          "locale": "en",
+          "month": "1",
+          "text": "J"
+        },
+        {
+          "locale": "en",
+          "month": "2",
+          "text": "F"
+        },
+        {
+          "locale": "en",
+          "month": "3",
+          "text": "M"
+        },
+        {
+          "locale": "en",
+          "month": "4",
+          "text": "A"
+        },
+        {
+          "locale": "en",
+          "month": "5",
+          "text": "M"
+        },
+        {
+          "locale": "en",
+          "month": "6",
+          "text": "J"
+        },
+        {
+          "locale": "en",
+          "month": "7",
+          "text": "J"
+        },
+        {
+          "locale": "en",
+          "month": "8",
+          "text": "A"
+        },
+        {
+          "locale": "en",
+          "month": "9",
+          "text": "S"
+        },
+        {
+          "locale": "en",
+          "month": "10",
+          "text": "O"
+        },
+        {
+          "locale": "en",
+          "month": "11",
+          "text": "N"
+        },
+        {
+          "locale": "en",
+          "month": "12",
+          "text": "D"
+        }
+      ],
+      "metadata_examples": {
+        "KZ": [
+          "7123456789",
+          "7511234567",
+          "7710009998",
+          "8001234567",
+          "8081234567",
+          "8091234567"
+        ],
+        "RU": [
+          "3011234567",
+          "8001234567",
+          "8081234567",
+          "8091234567",
+          "9123456789"
+        ]
+      },
+      "metadata_groupings": [
+        {
+          "pattern": "([0-9]{3})([0-9]{2})([0-9]{2})",
+          "format": "$1-$2-$3"
+        },
+        {
+          "pattern": "([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})",
+          "format": "$1 $2 $3 $4"
+        },
+        {
+          "pattern": "([0-9]{5})([0-9])([0-9]{2})([0-9]{2})",
+          "format": "$1 $2 $3 $4"
+        },
+        {
+          "pattern": "([0-9]{3})([0-9]{3})([0-9]{4})",
+          "format": "$1 $2 $3"
+        },
+        {
+          "pattern": "([0-9]{3})([0-9]{3})([0-9]{2})([0-9]{2})",
+          "format": "$1 $2-$3-$4"
+        },
+        {
+          "pattern": "([0-9]{4})([0-9]{4})([0-9]{3})([0-9]{3})",
+          "format": "$1 $2 $3 $4"
+        }
+      ],
+      "name_gold": {
+        "correct": 35,
+        "total": 41,
+        "development_not_holdout": true,
+        "cases": [
+          {
+            "text": "\u0410\u043d\u0434\u0440\u0435\u0439",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0410\u043d\u0434\u0440\u0435\u0439",
+            "codes": []
+          },
+          {
+            "text": "\u0412\u043e\u043b\u043a\u043e\u0432",
+            "label": "LAST_NAME",
+            "classified": "LAST_NAME",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+            "label": "PATRONYMIC",
+            "classified": "PATRONYMIC",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u0418\u0440\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u0418\u0440\u0438\u043d\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u0412\u043e\u043b\u043a\u043e\u0432 \u0415\u0433\u043e\u0440",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u0415\u0433\u043e\u0440",
+            "codes": []
+          },
+          {
+            "text": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+            "codes": []
+          },
+          {
+            "text": "\u041b\u044e\u0431\u043e\u0432\u044c",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041b\u044e\u0431\u043e\u0432\u044c",
+            "codes": []
+          },
+          {
+            "text": "\u0420\u043e\u043c\u0430\u043d",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0420\u043e\u043c\u0430\u043d",
+            "codes": []
+          },
+          {
+            "text": "\u041a\u0438\u043c",
+            "label": "AMBIGUOUS",
+            "note": "\u041b\u0438\u0447\u043d\u043e\u0435 \u0438\u043c\u044f \u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0421\u0430\u0448\u0430",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0421\u0430\u0448\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u0410\u043b\u0438",
+            "label": "AMBIGUOUS",
+            "note": "\u041b\u0438\u0447\u043d\u043e\u0435 \u0438\u043c\u044f \u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c",
+            "codes": []
+          },
+          {
+            "text": "\u0412\u043b\u0430\u0434",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0412\u043b\u0430\u0434",
+            "codes": []
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u0417\u0430\u0439\u0446\u0435\u0432 \u041a\u0438\u0440\u0438\u043b\u043b",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0417\u0430\u0439\u0446\u0435\u0432",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u041a. \u0411\u0435\u043b\u043e\u0443\u0441\u043e\u0432",
+            "label": "UNKNOWN",
+            "note": "\u041f\u043e\u043b\u043d\u043e\u0435 \u043b\u0438\u0447\u043d\u043e\u0435 \u0438\u043c\u044f \u043d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u043e; \u043d\u0435 \u0440\u0430\u0441\u043a\u0440\u044b\u0432\u0430\u0442\u044c \u0438\u043d\u0438\u0446\u0438\u0430\u043b",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_INCOMPLETE"
+            ]
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0417\u0430\u0439\u0446\u0435\u0432 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f",
+            "codes": []
+          },
+          {
+            "text": "\u041b\u0438",
+            "label": "AMBIGUOUS",
+            "note": "\u0418\u043c\u044f \u0438\u043b\u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0418\u0432\u0430\u043d",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0418\u0432\u0430\u043d",
+            "codes": []
+          },
+          {
+            "text": "\u0418\u0432\u0430\u043d\u043e\u0432",
+            "label": "LAST_NAME",
+            "classified": "LAST_NAME",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447",
+            "label": "AMBIGUOUS",
+            "note": "\u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u043b\u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0417\u0430\u0439\u0446\u0435\u0432",
+            "label": "LAST_NAME",
+            "classified": "LAST_NAME",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0418\u0440\u0438\u043d\u0430",
+            "label": "AMBIGUOUS",
+            "note": "\u0414\u0432\u0430 \u043b\u0438\u0447\u043d\u044b\u0445 \u0438\u043c\u0435\u043d\u0438; \u0440\u043e\u043b\u044c \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0431\u0435\u0437 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0430 \u043d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0430",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0414\u0430\u0437\u0434\u0440\u0430\u043f\u0435\u0440\u043c\u0430",
+            "label": "FIRST_NAME",
+            "note": "\u0420\u0435\u0434\u043a\u043e\u0435 \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0438\u043c\u044f",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u042d\u043b\u044c\u043c\u0438\u0440\u0430",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u042d\u043b\u044c\u043c\u0438\u0440\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u041c\u0443\u0445\u0430\u043c\u043c\u0430\u0434",
+            "label": "FIRST_NAME",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u041d\u0433\u0443\u0435\u043d",
+            "label": "AMBIGUOUS",
+            "note": "\u0427\u0430\u0441\u0442\u043e \u0444\u0430\u043c\u0438\u043b\u0438\u044f; \u043f\u043e \u043e\u0434\u043d\u043e\u043c\u0443 \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044e \u043d\u0435\u043b\u044c\u0437\u044f \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0440\u043e\u043b\u044c",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "Jean-Luc",
+            "label": "FIRST_NAME",
+            "note": "\u041d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043b\u0430\u0442\u0438\u043d\u0438\u0446\u0435\u0439; \u0432 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u043c \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_LATIN_SCRIPT"
+            ]
+          },
+          {
+            "text": "\u00c9lodie",
+            "label": "FIRST_NAME",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_LATIN_SCRIPT"
+            ]
+          },
+          {
+            "text": "\u674e",
+            "label": "AMBIGUOUS",
+            "note": "\u041e\u0434\u0438\u043d \u0438\u0435\u0440\u043e\u0433\u043b\u0438\u0444 \u043d\u0435 \u0443\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u0435\u0442 \u0440\u043e\u043b\u044c",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041c\u0430\u0440\u0438\u044f",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041c\u0430\u0440\u0438\u044f",
+            "codes": []
+          },
+          {
+            "text": "\u041e\u041e\u041e \u0420\u043e\u043c\u0430\u0448\u043a\u0430",
+            "label": "UNKNOWN",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u043d\u0435 \u0437\u043d\u0430\u044e",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "89174005219",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_INVALID"
+            ]
+          },
+          {
+            "text": "\u0418\u0432\u0430\u043d123",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_INVALID"
+            ]
+          },
+          {
+            "text": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041a\u043b\u0438\u0435\u043d\u0442 \u041a\u0438\u0440\u0438\u043b\u043b",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041a\u0432\u0430\u0437\u0438\u0431\u0443\u0431\u043b\u0438\u043a",
+            "label": "UNKNOWN",
+            "note": "\u0421\u0438\u043d\u0442\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0441\u043b\u043e\u0432\u043e, \u043d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u043e\u0441\u0442\u044c \u043d\u0435 \u0434\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0438\u043c\u0435\u043d\u0438",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          }
+        ]
+      },
+      "pairwise": {
+        "rows": 11,
+        "covered_pairs": 67,
+        "required_pairs": 67,
+        "limitation": "Rich/shared A2 is written in NFC; NFD survives in the duplicate A3."
+      }
+    },
+    "generated_calls": {
+      "metadata-regex-groupings": 1800,
+      "unicode-phone-combinations": 300
+    },
+    "generated_unique": {
+      "metadata-regex-groupings": 1800,
+      "unicode-phone-combinations": 300
+    },
+    "resource_lock_sha256": "c7d544fbf5881bb26a14d70471a282f1dd277f4678aa37731884b9a3a18b5b04",
+    "resources": [
+      {
+        "file": "UnicodeData.txt",
+        "version": "16.0.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt",
+        "sha256": "ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f",
+        "bytes": 2175362
+      },
+      {
+        "file": "NormalizationTest.txt",
+        "version": "16.0.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/Public/16.0.0/ucd/NormalizationTest.txt",
+        "sha256": "d811971453e7075e1ad56fb1b301eece5aa80757b81f6156e74a1bfb3ae5ceb1",
+        "bytes": 2798671
+      },
+      {
+        "file": "confusables.txt",
+        "version": "16.0.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/Public/security/16.0.0/confusables.txt",
+        "sha256": "95bd0aad6dced5ebc63436f459c06ab21a8d107cd842fb57f5c3a1e91bca8611",
+        "bytes": 722509
+      },
+      {
+        "file": "unicode-LICENSE.txt",
+        "version": "Unicode-3.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/license.txt",
+        "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+        "bytes": 1995
+      },
+      {
+        "file": "cldr-ru.json",
+        "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+        "license": "Unicode-3.0",
+        "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/cldr-json/cldr-dates-full/main/ru/ca-gregorian.json",
+        "sha256": "c2735c56482c92ca7a6bcb2c08e66421e405d02abe0074ca52a3b5ccd10fc916",
+        "bytes": 19021
+      },
+      {
+        "file": "cldr-en.json",
+        "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+        "license": "Unicode-3.0",
+        "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/cldr-json/cldr-dates-full/main/en/ca-gregorian.json",
+        "sha256": "0d0eaf3fa57a60e247de08636fae9071349415b16bd910e18cabaa081d96ab12",
+        "bytes": 18730
+      },
+      {
+        "file": "cldr-LICENSE.txt",
+        "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+        "license": "Unicode-3.0",
+        "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/LICENSE",
+        "sha256": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+        "bytes": 2033
+      },
+      {
+        "file": "PhoneNumberMetadata.xml",
+        "version": "b68df884d42d5e9860fc1956a99ce6afae361100",
+        "license": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/google/libphonenumber/b68df884d42d5e9860fc1956a99ce6afae361100/resources/PhoneNumberMetadata.xml",
+        "sha256": "9d3b07b53c7e8a437ddc316249620b51d4090987026f9e8ffb9743aab4e4d5a6",
+        "bytes": 979442
+      },
+      {
+        "file": "phone-LICENSE.txt",
+        "version": "b68df884d42d5e9860fc1956a99ce6afae361100",
+        "license": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/google/libphonenumber/b68df884d42d5e9860fc1956a99ce6afae361100/LICENSE",
+        "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+        "bytes": 10173
+      }
+    ],
+    "source_hashes": {
+      "normalizer/__init__.py": "3b43e4bbcc14098ca6a9cc711024677391738a31db2e25a84ed9b5d074bb34e6",
+      "normalizer/dates.py": "12e2b11660fdd1cd45eb482be2339dacbfd2b4a91c567f2ea91c0947305b8273",
+      "normalizer/deduplicate.py": "9ee91bcf82b02e9306f1f3dd068dd5a325a239b3d2b0db8225a4a5b3e815e11a",
+      "normalizer/files.py": "6aa9e7d2a3df058a9a6cb03b15202e513baff61290c00fa6f100b15fe5c82d92",
+      "normalizer/invariants.py": "7b0a921ebb818d3e5ae572b67bc4ae314de2a04c25de213b3aafdaf04236fec4",
+      "normalizer/models.py": "7d503d94977cd20e2cdf39a49da4102b732107f21a6f229f3dd46364a4651a9a",
+      "normalizer/name_roles.py": "78416c7efdec4af53372378dd4386464c5977f83f0ecadcda9e2d0a4dbbb5cc4",
+      "normalizer/names.py": "7f29f6a2abd824f815d33e0ed3f8fc3a483e8f2b98ac3f30c97a6531b599a40c",
+      "normalizer/phone.py": "3645a37b79ced9b4d1539c8b8e8c2eddecf76f46b52a1de1e9a35267e6ff484c",
+      "normalizer/pipeline.py": "217de31499c9f381aa58a040bfe9eb02ddff88008de47206c6aa9da1183c54ee",
+      "normalizer/preservation.py": "926a77757c2ebe2604dd6d123535d7dc47d68a49813ab0f4dc4d04ec4378690a",
+      "normalizer/reader.py": "9a82064f26ce9585e3b4c67ea5b314fab1384e5064e2ba57e463660780c879df",
+      "normalizer/report.py": "40dbf05111ffe8a7c4e9a46871cfb8d57277221506b040e1e54258880482545c",
+      "normalizer/data/name_lexicon.json.gz": "1cc36bfe7aef97f53b81a892a32eb089a7f2cb4dbcfdba0b2e37975a19b4d8cf",
+      "normalizer/data/manifest.json": "76bc516516091026048a31bf6843b7e66947fe8c742b13d24c923809db16294c",
+      "docs/SPECIFICATION.md": "a6ac694a4161e1ec521f9559babd1693b5fcbb5e65b78c61800d6c5d170b609e",
+      "research/run_resource_qa.py": "d5b298dc12f235cd3b3c77dc78366e9fd5694aaec5b946c0f2fc238a98ae66a8",
+      "fixtures/resource_cases.py": "73cb07483dbade868afdd7e0187fd29c5e8a47742b4b8d641f86f0e54e3bf189",
+      "research/resource_sources.py": "3267ba1d6fb75ae22f8669971a966521b8de7bc83c7ad490d5d5bb06e7ebebff",
+      "research/name_gold.json": "6f7cecb8bdfdd5c6e243141595a20f0bab55b0c3eb5cc975c4444bb1d3c9721a",
+      "research/local-qa-requirements.txt": "b2ee8b249b3fbeabb3401fad5440e7f02215a80d76de4b1e99ee777c409e8bea",
+      "tools/fetch_qa_resources.py": "ed25ef2dfd849c32c89b5d8abc5c4083a85a843b6e703e7ef3573521e0cd4087",
+      "tools/verify_artifacts.py": "498e1ee5939dc4170f2690ef6f37857355cff29c8b0240de48d98a4feab346e8",
+      "tests/test_resource_regressions.py": "609c96c16a167e6bbac1d467b7a49ba39dc5a2f7cee96f05d84958d524068be2",
+      "tests/test_resource_dependencies.py": "1fff18aa547d72abfcfcaeec0ef0ffbfe5a27355fe485d93e7719cabe8a26c5a",
+      "fixtures/scenarios.py": "8130351ca47a2973539a75ea4b921104c12427e504b4919e81605ed6f7413060",
+      "tools/generate_data.py": "9b1a65c0e530facd9f06421ea34e812973b2f5589ab8ac0398093496ece34581",
+      "research/resource_sources.lock.json": "c7d544fbf5881bb26a14d70471a282f1dd277f4678aa37731884b9a3a18b5b04"
+    },
+    "artifacts": [
+      {
+        "file": "inline.xlsx",
+        "sha256": "42881254bc9246050ff4b1c8966df5d7aaa11317331dee84226a7a9a05bba043",
+        "bytes": 5309
+      },
+      {
+        "file": "inline-result.xlsx",
+        "sha256": "25bb1fcba4acbef00f6cd1a8b8d1613ce76075315a0d14627e0004a57be266c5",
+        "bytes": 17678
+      },
+      {
+        "file": "rich.xlsx",
+        "sha256": "309bfa32387e50edde68a814eac622b3c37ef286c6e1de020eb258832deb7c21",
+        "bytes": 5343
+      },
+      {
+        "file": "rich-result.xlsx",
+        "sha256": "3b06773b3b333ad3eb92193f7ef5fc2ff63ead1a1e56cb865388867532304e87",
+        "bytes": 17693
+      },
+      {
+        "file": "shared.xlsx",
+        "sha256": "00635ab670a2a9ddd66780734ec3ccd2d548ea6fd66058edc29afe79e5bf4334",
+        "bytes": 5624
+      },
+      {
+        "file": "shared-result.xlsx",
+        "sha256": "34cb535184cc5b451cddb8a135bd456363589d2e8f49e649db73ea55e85cdfe1",
+        "bytes": 17961
+      },
+      {
+        "file": "utf16.xlsx",
+        "sha256": "0a53de7b2d3f39888fa779cc51ace45514788f4ca9cd2385029e04a4f484298a",
+        "bytes": 5453
+      },
+      {
+        "file": "utf16-result.xlsx",
+        "sha256": "9ac417718e247b65a58b045af137e63d58dea24b59b17b6751f972ec01730b64",
+        "bytes": 17824
+      },
+      {
+        "file": "utf8-bom.xlsx",
+        "sha256": "e7967350f7c5f894cf4a100155fb715aad291c631e1bfb63f2b4aea6f8f51461",
+        "bytes": 5325
+      },
+      {
+        "file": "utf8-bom-result.xlsx",
+        "sha256": "2cbf12c7e3cb0d69d60bd502b223642d17cc04076186d738f68f2957099ef450",
+        "bytes": 17659
+      },
+      {
+        "file": "false-dimension.xlsx",
+        "sha256": "cd07177455faa3ba87ef4fc0b7ad030f0cb8896c84ee7ab84bbf4c3c3204edfa",
+        "bytes": 5320
+      },
+      {
+        "file": "false-dimension-result.xlsx",
+        "sha256": "411b196f6efca32c93c102b131d4f114dac086002ff77637645f48e6b75a65d3",
+        "bytes": 17678
+      },
+      {
+        "file": "bad-utf8.xlsx",
+        "sha256": "139b71302cf14c4dd5f3841c21c470ab5acf8ff84dbbc438caa863d8c1eff849",
+        "bytes": 5326
+      },
+      {
+        "file": "wrong-encoding.xlsx",
+        "sha256": "aaabd2fbbf53c5a1452da2bffbfa462434d041f60f580d9c2ce9eec1fe4e350c",
+        "bytes": 5349
+      },
+      {
+        "file": "bad-entity.xlsx",
+        "sha256": "e127ba88d82b498e1f35bf967a8920217a7581eed39fb8c86742e4f3ce9c14fb",
+        "bytes": 5336
+      },
+      {
+        "file": "truncated.xlsx",
+        "sha256": "11adf874b49e3261422b796038d6745ce4f2859f6fe696c78fc5bb71037c3de2",
+        "bytes": 5315
+      },
+      {
+        "file": "missing-sheet.xlsx",
+        "sha256": "8dd5d4a9f260bb0b62bfb3558b1d670a904a3347c869387c1c37725f06b32dcc",
+        "bytes": 4447
+      },
+      {
+        "file": "duplicate-cell.xlsx",
+        "sha256": "ceae0c65fb04a468bb1026c98abd27c0b830fe9aedf9eb53aa8e354230a2bd7c",
+        "bytes": 5339
+      },
+      {
+        "file": "invalid-shared-index.xlsx",
+        "sha256": "a15e260fef02da949c50d26afab4d44f4373a8da9d7153174f701fb11badbb4d",
+        "bytes": 5342
+      },
+      {
+        "file": "dtd.xlsx",
+        "sha256": "6b3cd3637d6bfc7075d68b8057240b5c1722bf12cbdf98bdfe3b78eb141b1caa",
+        "bytes": 5355
+      },
+      {
+        "file": "encrypted-local.xlsx",
+        "sha256": "38c13c0e00882b92055c4ca118c9e5daf4beef03434146d4c5b748108a7bb25f",
+        "bytes": 5321
+      },
+      {
+        "file": "encrypted-both.xlsx",
+        "sha256": "adbf8ab9d9e7f887d06d7cd6f8fd99b3ecb28d3f76bfec44f66112c5872c3b6e",
+        "bytes": 5321
+      },
+      {
+        "file": "uncompressed-limit.xlsx",
+        "sha256": "42881254bc9246050ff4b1c8966df5d7aaa11317331dee84226a7a9a05bba043",
+        "bytes": 5309
+      },
+      {
+        "file": "pair-0.xlsx",
+        "sha256": "445e9c52533a96e4f608ac0ec928abd726e9aa9504c8f09644cc315e7cdc5315",
+        "bytes": 5280
+      },
+      {
+        "file": "pair-0-result.xlsx",
+        "sha256": "061d8faddc92fd1ab902ab553c75759ce7e224793f8024b6f90633330c8601c6",
+        "bytes": 17578
+      },
+      {
+        "file": "pair-1.xlsx",
+        "sha256": "7bfe886c5c634fced6c2f75d9621e4af2fdf6c40d9f7300dd49dc2563f65d795",
+        "bytes": 5331
+      },
+      {
+        "file": "pair-1-result.xlsx",
+        "sha256": "aebcf919f27431ccfd5f6a001bcabfa162b950de2205ae91699801f6d4720bf6",
+        "bytes": 17936
+      },
+      {
+        "file": "pair-2.xlsx",
+        "sha256": "0a974b2a4b3741428293e11fcf255a592959d695772701ad83fb8c2c786cc89d",
+        "bytes": 5342
+      },
+      {
+        "file": "pair-2-result.xlsx",
+        "sha256": "18ae439ef3fef82f0e47d0f5c1519f3d4c9c64e4bc014b32ed239880c40ccefc",
+        "bytes": 17941
+      },
+      {
+        "file": "pair-3.xlsx",
+        "sha256": "bd38230f1bbd1244083783a6d10bd60f23d6f42cedb27226c27775a70377331a",
+        "bytes": 5630
+      },
+      {
+        "file": "pair-3-result.xlsx",
+        "sha256": "2165361970d84d9b73678f0470ef1fff8d03baaa0e05fdd68fa601d9258326e2",
+        "bytes": 18049
+      },
+      {
+        "file": "pair-4.xlsx",
+        "sha256": "b2f91d546f631731a7c84ae8e7c7f4049c2a770606e035485abb8c2378424249",
+        "bytes": 5627
+      },
+      {
+        "file": "pair-4-result.xlsx",
+        "sha256": "32107d6f966c3c47ffe2b3f39fe098c34770704355314677b38a49d441c6b7f4",
+        "bytes": 18091
+      },
+      {
+        "file": "pair-5.xlsx",
+        "sha256": "8bf83d4686644e757d2b0b8e7f246a7abfff577eeee4fa321667bdfb9a202418",
+        "bytes": 5613
+      },
+      {
+        "file": "pair-5-result.xlsx",
+        "sha256": "89309b63f22bba7056d48194190814d4540cada4aa010403b0aa0b27e785f5c5",
+        "bytes": 17972
+      },
+      {
+        "file": "pair-6.xlsx",
+        "sha256": "c9d2f3c3be9399c8af06f109728625367d0ba774c7a6b4f0fd9a0c1059bb0fef",
+        "bytes": 5324
+      },
+      {
+        "file": "pair-6-result.xlsx",
+        "sha256": "136518328f52a0eafe85d4c1213b21f8faaad8a112138eadbfa97b9cc5058664",
+        "bytes": 17698
+      },
+      {
+        "file": "pair-7.xlsx",
+        "sha256": "283a861bc9fe0d3af4d0bba1d22dddb85f41cc5e1f951b5fef5c6e1aa21a04a8",
+        "bytes": 5349
+      },
+      {
+        "file": "pair-7-result.xlsx",
+        "sha256": "6a38b258057debc172c4582a8078617452e68d58186dd93219e0784a1ecd427e",
+        "bytes": 17794
+      },
+      {
+        "file": "pair-8.xlsx",
+        "sha256": "d11601a2344ad5581061ee9838dbf64659209df26d4c77a05e25e72869c940b9",
+        "bytes": 5302
+      },
+      {
+        "file": "pair-8-result.xlsx",
+        "sha256": "e1f15976d461de4080f527314e0e9f2ca17a0d6ece85c12de543c6699d1951f7",
+        "bytes": 17735
+      },
+      {
+        "file": "pair-9.xlsx",
+        "sha256": "7b5c7a7dde3c64f2d7675d66fac0882f15f41617c4706d1b23655bc87f861d94",
+        "bytes": 5322
+      },
+      {
+        "file": "pair-9-result.xlsx",
+        "sha256": "0203c9e5afe7401bd6ce31f9049e56456314c5d5215a6d3a72f43d1b0f1cb1a2",
+        "bytes": 17663
+      },
+      {
+        "file": "pair-10.xlsx",
+        "sha256": "13e7f55083cf6d0efb6ee1c29cade6e46d948bff087efbeb8c26849b6c074fbd",
+        "bytes": 5289
+      },
+      {
+        "file": "pair-10-result.xlsx",
+        "sha256": "c31feb4def83e00f05971544b3fd00f4413e67bd8f151bd15abc3937b1201e81",
+        "bytes": 17611
+      }
+    ]
+  },
+  "p0_qa": {
+    "mode": "all",
+    "seed": 20261010,
+    "examples_per_property_limit": 1000,
+    "passed": true,
+    "runs": [
+      {
+        "label": "p0",
+        "command": [
+          "F:\\test-project\\.venv\\Scripts\\python.exe",
+          "-m",
+          "coverage",
+          "run",
+          "--branch",
+          "--source=normalizer",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "seconds": 6.092
+      },
+      {
+        "label": "generated",
+        "command": [
+          "F:\\test-project\\.venv\\Scripts\\python.exe",
+          "-m",
+          "coverage",
+          "run",
+          "--branch",
+          "--source=normalizer",
+          "--append",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests_qa",
+          "-v"
+        ],
+        "exit_code": 0,
+        "seconds": 17.373
+      }
+    ],
+    "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented"
+  },
+  "generated_statistics": {
+    "seed": 20261010,
+    "calls": {
+      "valid_dates": 1000,
+      "excel_types": 12,
+      "invalid_dates": 1000,
+      "invalid_phone_letters": 1000,
+      "missing": 14,
+      "multiple_and_prefix": 1000,
+      "valid_names": 56,
+      "invalid_names": 28,
+      "name_nfc_nfd": 7,
+      "valid_phone": 1000,
+      "sequences": 30
+    },
+    "unique_examples": {
+      "valid_dates": 1000,
+      "excel_types": 12,
+      "invalid_dates": 1000,
+      "invalid_phone_letters": 1000,
+      "missing": 14,
+      "multiple_and_prefix": 1000,
+      "valid_names": 56,
+      "invalid_names": 28,
+      "name_nfc_nfd": 7,
+      "valid_phone": 1000,
+      "sequences": 30
+    },
+    "extra": {
+      "cli_nonfinite_runs": 4,
+      "pairwise_rows": 18,
+      "covered_pairs": 114,
+      "dangerous_triples": 8,
+      "cli_combination_runs": 3,
+      "rows_per_cli": 39
+    }
+  },
+  "coverage": {
+    "covered_lines": 1011,
+    "num_statements": 1103,
+    "percent_covered": 89.57169459962756,
+    "percent_covered_display": "90",
+    "missing_lines": 92,
+    "excluded_lines": 0,
+    "percent_statements_covered": 91.65911151405258,
+    "percent_statements_covered_display": "92",
+    "num_branches": 508,
+    "num_partial_branches": 72,
+    "covered_branches": 432,
+    "missing_branches": 76,
+    "percent_branches_covered": 85.03937007874016,
+    "percent_branches_covered_display": "85"
+  },
+  "files": {
+    "generated/qa-1.5-published/results.json": "e487a79f5a44eddf1ee897f8661a0fe86dbfae2b844230903edf2550f804791f",
+    "generated/qa-1.5-published/p0.log": "743ba4c69ec310655bfe7e27ad6c1548fe5b3b9cb0f2677ee50acccb063700f5",
+    "generated/qa-1.5-published/generated.log": "5a9ecb65c8af6d95b6b8435764dcdbd5fa3fc4d5e847b79ebae0e2c41872176b",
+    "generated/qa-1.5-published/generated-statistics.json": "0dac15170fd07f4f9895b040003f398c13408f69b303d05165fc8ee4d434063b",
+    "generated/qa-1.5-published/coverage.json": "2cba02540e51ac84c68dd8d7b50bd3dd74c980c459e0d89d3b5e0cfbf0b85343",
+    "generated/qa-1.5-verified-mutations/results.json": "d47a1b05aa809c6353b1ab6fed53eb4fef26292987a97a59138b2d9f8f7b128e",
+    "generated/resource-qa-1.5-verified/results.json": "d181ab9286b3ac703aff1c43ffb40cfc42e11603a3302ebe2055cf2041ce9796",
+    "generated/resource-baseline/cases.json": "372cc27b3d669bdfed713ef0c00add9c4587039140c52d20c8b9203e2a988066",
+    "generated/resource-baseline/prefix-cases.json": "5332ae4afa609ab40a602a00a144d10853808595031ed471ed78f3a0b6716df4",
+    "generated/resource-sources-verified/download.json": "633d94998d172830043ecc17763caf654594610675b35e741d78f800c6a31aac",
+    "generated/spec-1.5-final-suite/manifest.json": "fa3a5846e054db92924c609adac03f40c3cfbb9d3d765dc7cf99c28436f5c578",
+    "generated/normalizer-1.5-final/dirty_result.xlsx": "2b470f05f1842a6e5962041b2fb4208bd946f69bed0d7468f1104525374c99c1",
+    "generated/normalizer-1.5-final/dirty_restored.xlsx": "8859cd449926b91e087063274f3f3465ff420df8a4c44112a57fd68c9c7045c5"
+  },
+  "cli_restore_exact": true
+}

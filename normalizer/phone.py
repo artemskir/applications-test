@@ -48,6 +48,23 @@ def has_main(text):
     return any(shape(m[0]) for m in scans(text))
 
 
+def digit_mark_attached(text):
+    return any(unicodedata.category(char).startswith('M') and
+               (i > 0 and text[i-1] in '+0123456789' or
+                i+1 < len(text) and text[i+1] in '+0123456789')
+               for i, char in enumerate(text))
+
+
+def prefix_boundary(text, match, previous):
+    # A broken digit run's suffix is not a newly written telephone prefix.
+    if previous is None:
+        return True
+    end = previous.end()
+    gap = text[end:match.start()]
+    return not (end and text[end-1] in '0123456789' and gap and
+                not any(c.isspace() or c in '/,;' for c in gap))
+
+
 def analyze(cell):
     issue = common(cell, 'PHONE')
     if issue:
@@ -82,11 +99,16 @@ def analyze(cell):
     marker = EXT.search(text)
     if marker and not has_main(text[:marker.start()]):
         return failure(cell, 'PHONE_CONTEXT_UNSAFE')
+    damaged_extension = False
     if marker:
         tail = text[marker.end():].strip()
-        if re.fullmatch(r'[0-9]{1,6}(?:\s*[-‐‑‒–—−,;]\s*[0-9]{1,6})*', tail):
+        full_phone = any(re.fullmatch(r'(?:[0-9]{10,11}|\+[0-9]{8,15})', re.sub('[' + SEPARATORS + ']', '', part))
+                         for part in re.split('[,;]', tail))
+        if not full_phone and re.fullmatch(r'[0-9]{1,6}(?:\s*[-‐‑‒–—−,;]\s*[0-9]{1,6})*', tail):
             context.append({'start': marker.start(), 'end': len(text), 'value': str(value)[marker.start():]})
             text = text[:marker.start()] + ' ' * (len(text) - marker.start())
+        elif not full_phone:
+            damaged_extension = True
     candidates = scans(text)
     keys, complete = [], []
     invalid, adjacency = False, False
@@ -114,13 +136,15 @@ def analyze(cell):
     if adjacency or UNSAFE.search(text):
         return failure(cell, 'PHONE_CONTEXT_UNSAFE')
     # Foreign prefixes remain foreign even when their suffix contains letters.
-    if re.search(r'\+(?!7)[0-9]', text) or any(re.sub('[' + SEPARATORS + ']', '', m[0]).startswith(('00', '810')) for m in candidates):
+    if re.search(r'\+(?!7)[0-9]', text) or any(
+            re.sub('[' + SEPARATORS + ']', '', m[0]).startswith(('00', '810')) and
+            prefix_boundary(text, m, candidates[i-1] if i else None) for i, m in enumerate(candidates)):
         return failure(cell, 'PHONE_UNSUPPORTED_PREFIX')
     residue = list(text)
     for match in candidates:
         residue[match.start():match.end()] = ' ' * len(match[0])
     outside = ''.join(residue)
-    if '+' in outside or any(c.isnumeric() for c in outside) or invalid or not keys:
+    if '+' in outside or any(c.isnumeric() for c in outside) or invalid or not keys or damaged_extension or digit_mark_attached(original):
         return failure(cell, 'PHONE_INVALID')
     extra = bool(context or outside.strip(' \t\r\n/,;:'))
     actions = [{'kind': 'PHONE_CONTEXT_EXTRACTED', 'details': {'original': value, 'contexts': context, 'remaining_text': outside,

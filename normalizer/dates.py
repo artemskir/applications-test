@@ -12,7 +12,9 @@ EN = ['january jan', 'february feb', 'march mar', 'april apr', 'may', 'june jun'
       'september sep sept', 'october oct', 'november nov', 'december dec']
 MONTHS = {word: i for forms in (RU, EN) for i, names in enumerate(forms, 1) for word in names.split()}
 TIME = r'([0-9]{2}):([0-9]{2})(?::([0-9]{2})(?:\.([0-9]+))?)?'
-NUMERIC_DATE = r'(?:[0-9]{4}[./-][0-9]{1,2}[./-][0-9]{1,2}|[0-9]{1,2}[./-][0-9]{1,2}[./-][0-9]{4})'
+NUMERIC_SEPARATOR = r'(?:\s*[./-]\s*|\s+)'
+NUMERIC_DATE = (r'(?<![0-9])(?:[0-9]{4}' + NUMERIC_SEPARATOR + r'[0-9]{1,2}' + NUMERIC_SEPARATOR +
+                r'[0-9]{1,2}|[0-9]{1,2}' + NUMERIC_SEPARATOR + r'[0-9]{1,2}' + NUMERIC_SEPARATOR + r'[0-9]{4})(?![0-9])')
 
 
 def output(cell, parsed, context=None, order=None):
@@ -26,8 +28,9 @@ def full_calendar_format(number_format):
     # Literals, spacing/repetition directives and bracket metadata are not date components.
     fmt = re.sub(r'"[^"]*"|\\.|\[[^\]]*\]|[_*].', '', number_format).split(';', 1)[0].lower()
     tokens = re.findall(r'd+|m+|y+|h+|s+', fmt)
-    month = any(t.startswith('m') and not (i > 0 and tokens[i-1].startswith('h'))
-                and not (i+1 < len(tokens) and tokens[i+1].startswith('s')) for i,t in enumerate(tokens))
+    month = any(t.startswith('m') and len(t) <= 5 and
+                (len(t) >= 3 or not (i > 0 and tokens[i-1].startswith('h'))
+                 and not (i+1 < len(tokens) and tokens[i+1].startswith('s'))) for i,t in enumerate(tokens))
     return any(t in ('d', 'dd') for t in tokens) and month and any(t.startswith('y') for t in tokens)
 
 
@@ -87,6 +90,8 @@ def analyze(cell):
             context, text = {'original': value, 'time': suffix[2]}, suffix[1]
     allow_mdy = False
     order = None
+    if re.fullmatch(r'(?:[0-9]{4}\s+[0-9]{1,2}\s+[0-9]{1,2}|[0-9]{1,2}\s+[0-9]{1,2}\s+[0-9]{4})', text):
+        text = re.sub(r'\s+', '/', text)
     match = re.fullmatch(r'([0-9]{1,2})\s*([./-])\s*([0-9]{1,2})\s*\2\s*([0-9]{4})', text)
     if match:
         day, _, month, year = match.groups()
@@ -109,6 +114,8 @@ def analyze(cell):
                     incomplete = (re.fullmatch(r'[0-9]{4}', text) or
                                   re.fullmatch(r'[0-9]{1,2}[./-][0-9]{1,2}[./-][0-9]{1,3}', text) or
                                   re.fullmatch(r'[0-9]{1,2}[./-][0-9]{4}', text) or
+                                  re.fullmatch(r'[0-9]{4}' + NUMERIC_SEPARATOR + r'[0-9]{1,2}', text) or
+                                  re.fullmatch(r'[0-9]{1,2}\s+[0-9]{1,2}\s+[0-9]{1,3}', text) or
                                   re.fullmatch(TIME, text))
                     words = text.casefold().replace('.', '').split()
                     if len(words) == 2 and (words[0] in MONTHS or words[1] in MONTHS) and any(w.isdecimal() for w in words):

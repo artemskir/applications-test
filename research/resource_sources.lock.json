@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "sources": [
+    {
+      "file": "UnicodeData.txt",
+      "version": "16.0.0",
+      "license": "Unicode-3.0",
+      "url": "https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt",
+      "sha256": "ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f",
+      "bytes": 2175362
+    },
+    {
+      "file": "NormalizationTest.txt",
+      "version": "16.0.0",
+      "license": "Unicode-3.0",
+      "url": "https://www.unicode.org/Public/16.0.0/ucd/NormalizationTest.txt",
+      "sha256": "d811971453e7075e1ad56fb1b301eece5aa80757b81f6156e74a1bfb3ae5ceb1",
+      "bytes": 2798671
+    },
+    {
+      "file": "confusables.txt",
+      "version": "16.0.0",
+      "license": "Unicode-3.0",
+      "url": "https://www.unicode.org/Public/security/16.0.0/confusables.txt",
+      "sha256": "95bd0aad6dced5ebc63436f459c06ab21a8d107cd842fb57f5c3a1e91bca8611",
+      "bytes": 722509
+    },
+    {
+      "file": "unicode-LICENSE.txt",
+      "version": "Unicode-3.0",
+      "license": "Unicode-3.0",
+      "url": "https://www.unicode.org/license.txt",
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "bytes": 1995
+    },
+    {
+      "file": "cldr-ru.json",
+      "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+      "license": "Unicode-3.0",
+      "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/cldr-json/cldr-dates-full/main/ru/ca-gregorian.json",
+      "sha256": "c2735c56482c92ca7a6bcb2c08e66421e405d02abe0074ca52a3b5ccd10fc916",
+      "bytes": 19021
+    },
+    {
+      "file": "cldr-en.json",
+      "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+      "license": "Unicode-3.0",
+      "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/cldr-json/cldr-dates-full/main/en/ca-gregorian.json",
+      "sha256": "0d0eaf3fa57a60e247de08636fae9071349415b16bd910e18cabaa081d96ab12",
+      "bytes": 18730
+    },
+    {
+      "file": "cldr-LICENSE.txt",
+      "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+      "license": "Unicode-3.0",
+      "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/LICENSE",
+      "sha256": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+      "bytes": 2033
+    },
+    {
+      "file": "PhoneNumberMetadata.xml",
+      "version": "b68df884d42d5e9860fc1956a99ce6afae361100",
+      "license": "Apache-2.0",
+      "url": "https://raw.githubusercontent.com/google/libphonenumber/b68df884d42d5e9860fc1956a99ce6afae361100/resources/PhoneNumberMetadata.xml",
+      "sha256": "9d3b07b53c7e8a437ddc316249620b51d4090987026f9e8ffb9743aab4e4d5a6",
+      "bytes": 979442
+    },
+    {
+      "file": "phone-LICENSE.txt",
+      "version": "b68df884d42d5e9860fc1956a99ce6afae361100",
+      "license": "Apache-2.0",
+      "url": "https://raw.githubusercontent.com/google/libphonenumber/b68df884d42d5e9860fc1956a99ce6afae361100/LICENSE",
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+      "bytes": 10173
+    }
+  ]
+}

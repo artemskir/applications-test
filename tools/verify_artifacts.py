@@ -63,16 +63,38 @@ def verify_experiment(directory):
     return {'directory': str(directory), 'verified_checks': len(checks)}
 
 
+def verify_resource_qa(directory):
+    result = read(directory / 'results.json')
+    if result['spec_version'] != SPEC_VERSION or result['passed'] is not True or result['failed']:
+        raise ValueError('Resource QA failed or belongs to another specification')
+    if not result['checks'] or any(type(n) is not int or n < 1 for n in result['checks'].values()):
+        raise ValueError('Empty/invalid resource QA counters')
+    for name, expected in result['source_hashes'].items():
+        path = (ROOT / name).resolve()
+        if not path.is_relative_to(ROOT) or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError('Resource QA source changed: ' + name)
+    lock = ROOT / 'research/resource_sources.lock.json'
+    if hashlib.sha256(lock.read_bytes()).hexdigest() != result['resource_lock_sha256']:
+        raise ValueError('Resource lock changed')
+    if read(lock)['sources'] != result['resources']:
+        raise ValueError('Resource manifest differs')
+    verify_hashes(directory, result['artifacts'])
+    return {'directory':str(directory), 'checks':sum(result['checks'].values()),
+            'verified_artifacts':len(result['artifacts'])}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--suite', type=Path)
     parser.add_argument('--experiment', type=Path, action='append', default=[])
+    parser.add_argument('--resource-qa', type=Path, action='append', default=[])
     args = parser.parse_args()
-    if not args.suite and not args.experiment:
-        parser.error('Supply --suite or --experiment')
+    if not args.suite and not args.experiment and not args.resource_qa:
+        parser.error('Supply --suite, --experiment or --resource-qa')
     try:
         summaries = ([verify_suite(args.suite)] if args.suite else [])
         summaries.extend(verify_experiment(directory) for directory in args.experiment)
+        summaries.extend(verify_resource_qa(directory) for directory in args.resource_qa)
     except (OSError, ValueError, KeyError, StopIteration) as exc:
         print('Verification failed: ' + str(exc), file=sys.stderr)
         return 1

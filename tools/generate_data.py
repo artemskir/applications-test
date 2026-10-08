@@ -16,7 +16,7 @@ from fixtures.scenarios import CASES, HEADERS, materialize
 from openpyxl import Workbook
 from openpyxl.utils.datetime import CALENDAR_MAC_1904, to_excel
 
-SPEC_VERSION = "1.4"
+SPEC_VERSION = "1.5"
 
 
 def clean_rows(count, seed):
