@@ -1,0 +1,4037 @@
+{
+  "status": "P0 PASS",
+  "spec_version": "1.6",
+  "baseline_commit": "f1a1bde",
+  "verifications": [
+    {
+      "directory": "generated\\formal-1.6-release",
+      "sequences": 112945,
+      "verified_artifacts": 40
+    },
+    {
+      "directory": "generated\\resource-qa-1.6-release",
+      "checks": 112944,
+      "verified_artifacts": 45
+    },
+    {
+      "directory": "generated\\spec-1.6-final-suite",
+      "verified_files": 14,
+      "cases": 216
+    }
+  ],
+  "formal_summary": {
+    "passed": true,
+    "status": "P0 PASS",
+    "seed": 20261008,
+    "failed": [],
+    "steps": {
+      "exhaustive": true,
+      "fields": true,
+      "stateful": true,
+      "preservation": true,
+      "critical-conditions": true,
+      "publication-faults": true,
+      "names": true,
+      "mutations": true,
+      "symbolic": true
+    },
+    "source_sha256": {
+      "normalizer\\dates.py": "12e2b11660fdd1cd45eb482be2339dacbfd2b4a91c567f2ea91c0947305b8273",
+      "normalizer\\deduplicate.py": "9ee91bcf82b02e9306f1f3dd068dd5a325a239b3d2b0db8225a4a5b3e815e11a",
+      "normalizer\\files.py": "6aa9e7d2a3df058a9a6cb03b15202e513baff61290c00fa6f100b15fe5c82d92",
+      "normalizer\\invariants.py": "930ab37bec147d627d64dc5b887213a8225b6ca8581e45bf68b9547431d79a68",
+      "normalizer\\models.py": "7d503d94977cd20e2cdf39a49da4102b732107f21a6f229f3dd46364a4651a9a",
+      "normalizer\\names.py": "1b868dc3bc155bfe8ad0d4865df35edfe3e6e4ea8def3ca7afbc3377c1e1e702",
+      "normalizer\\name_roles.py": "78416c7efdec4af53372378dd4386464c5977f83f0ecadcda9e2d0a4dbbb5cc4",
+      "normalizer\\phone.py": "3645a37b79ced9b4d1539c8b8e8c2eddecf76f46b52a1de1e9a35267e6ff484c",
+      "normalizer\\pipeline.py": "217de31499c9f381aa58a040bfe9eb02ddff88008de47206c6aa9da1183c54ee",
+      "normalizer\\preservation.py": "926a77757c2ebe2604dd6d123535d7dc47d68a49813ab0f4dc4d04ec4378690a",
+      "normalizer\\reader.py": "9a82064f26ce9585e3b4c67ea5b314fab1384e5064e2ba57e463660780c879df",
+      "normalizer\\report.py": "40dbf05111ffe8a7c4e9a46871cfb8d57277221506b040e1e54258880482545c",
+      "normalizer\\__init__.py": "53acbcbbb0a6e31291534da9d7b2ebc3c4938e02abba458f545d231f698b7cc3",
+      "normalizer\\data\\manifest.json": "76bc516516091026048a31bf6843b7e66947fe8c742b13d24c923809db16294c",
+      "normalizer\\data\\name_lexicon.json.gz": "1cc36bfe7aef97f53b81a892a32eb089a7f2cb4dbcfdba0b2e37975a19b4d8cf",
+      "normalizer\\data\\nen-imena-dataset-LICENSE.txt": "21a0f9b22b65dc3e280367b142cc719f3d2d02c1de550a1d00833873012ba2c6",
+      "normalizer\\data\\README.md": "b8c81d121c9e4418ef264a1e50ed93312a3d4821c8dea19455d2082d1d898a93",
+      "normalizer\\data\\russiannames-LICENSE.txt": "611034a0fcc7239acb6fb18dc1f13de3ce0ba81722b569ac18f7cc796af19dbf",
+      "verification\\adapter.py": "a8ae9ba1ded924d47575128dec3337c389847a238ba59ca2fa3413ba3b2da8bb",
+      "verification\\exhaustive.py": "f3dafff16d60a2a2d6f2ae27c14c0c6ade7a1d3f9a11d4dcb07a30fc158ae06c",
+      "verification\\inventory.py": "9fe5ce75d0888067786255d90f31a69eb041a031c57429784ddc37f60c992f4c",
+      "verification\\name_benchmark.json": "0226252d83b11f648ccfcc38efeea36a3c147db98869aad6df5a5d06dbda5330",
+      "verification\\name_quality.py": "ac204ca9a55c249004659ac314dde67a5e274fe6d5af069974c8131658d89898",
+      "verification\\p0_registry.json": "5ec7d64f99b94cdd5b548a0319a8e9d00129bc70ba0c6faa7239afa329dd9649",
+      "verification\\practical.py": "6955b20b61125988c7ebdd311f88650880ceb904ccf04c03c488153c9de6e5ba",
+      "verification\\PYTROVICH_LICENSE.txt": "7eafb96f03bae009fb6a8a374165a5228da6e24e74304f3ff958472b7c239e92",
+      "verification\\reference.py": "67460a4691679d6b7ae4e1755c667dea9730eb87080541523a96b0ceedcb8cfb",
+      "verification\\stateful.py": "2219b4fd943648bf6bbae878e15baf41215e7208b8a0e57232d066c2964b68b7",
+      "verification\\symbolic_contracts.py": "4eb070d431bb90f503a612a4b1f1e1b6d1456657388d016641ebf08c94969b70",
+      "verification\\test_driver.py": "96510538af5b4138bdfd582ea6e59675750c0a1762843aac3913d2de2ed70c55",
+      "verification\\__init__.py": "3f3dc376023f88028d5b695943888582a82fded65bd256cc2f38c3783af7803e",
+      "docs/SPECIFICATION.md": "6ecedb9af69c6438ba6daaddd76841921f42df2febdd8c86be06ce434d5c5db2",
+      "fixtures\\resource_cases.py": "73cb07483dbade868afdd7e0187fd29c5e8a47742b4b8d641f86f0e54e3bf189",
+      "fixtures\\scenarios.py": "95e967c0c92c7e5bbff24e0d6966fa388f0f0e620b511dcacfe1531aec45d7d0",
+      "tests\\test_formal.py": "991fca1788db9e8238734b0973811d2883dfeed0c91a1ec908987d8aab95d35c",
+      "tests\\test_generator.py": "f2b2d90d441eb26296a850e4bc8edad35249286af909b56120186f0b6d7017a6",
+      "tests\\test_normalizer.py": "cc23def011d97b8a3be1c73719b6709c0ed9d83895257a478f2202b5efd492f7",
+      "tests\\test_qa_gate.py": "9cbd7f3ed9b396f851581b61d6031d4c0ac489f3ecfd82c0ddf19b43b50f50eb",
+      "tests\\test_regressions.py": "b66630a3e129600676506276e569779f464ae7d3644f257f8e02ee920db9ca2e",
+      "tests\\test_resource_dependencies.py": "1fff18aa547d72abfcfcaeec0ef0ffbfe5a27355fe485d93e7719cabe8a26c5a",
+      "tests\\test_resource_regressions.py": "609c96c16a167e6bbac1d467b7a49ba39dc5a2f7cee96f05d84958d524068be2",
+      "tests_qa\\test_generated.py": "ecdfc05055e41ea4490cdb58a2ba2ebc148177d3fddafbc65a2c5baf65fbf2b6",
+      "tools/run_formal_qa.py": "e84fe75b921ba76a982d2e9870225a50207cb3fbb4e0117b3f4496d5d2ca850e",
+      "tools/run_qa.py": "210fe315a360988997747fa784a8a06d49230c171563533b3838a4be15759ec1",
+      "tools/verify_artifacts.py": "a9d9cedf9e7b8ac3c7966a6f82f8e57be6510913cf599fb9924c421bc1be11db",
+      "tools/generate_data.py": "8405ba07626ad0eddebd3db7e2dc3ad434585f0e8e4292fb55878ae036002554",
+      "research/local-qa-requirements.txt": "b2ee8b249b3fbeabb3401fad5440e7f02215a80d76de4b1e99ee777c409e8bea",
+      "research/symbolic-qa-requirements.txt": "2dca1f9d12dfc9dbd62574f7fafbe7f21e0f4da9ae8c6ac522c64849f93797a1"
+    },
+    "artifact_sha256": {
+      "critical-conditions.json": "337f19b909e71d1507906e35253257e6f9a588affe5fe28a85478929659a0ce6",
+      "exhaustive.json": "e759019a1ac674a19f495a0d2c879806054ffdbcc53da278a1b6abd78c75486f",
+      "fields.json": "30b9e0c260dc752192e1bca58eaf9863353f2056dcb513c5b4b299dcd6a678e8",
+      "mutations.json": "10afdf7ad5c3dccbbe17306913c614545e9dffabf525b84a2c739265cda26dc0",
+      "names.json": "2222eef799d0100480dc9a9e09d694f259e1b56dab8719e07e7288430b3e7b51",
+      "preservation.json": "c106db224fd73463796029c3b58fd5e0e5898b76c820ae91c1ae677e76d0e3fd",
+      "publication-faults.json": "e8561123ada600c5f5f8155b4693e2bbc726099e7fd828033395b00d8ccc4e22",
+      "stateful.json": "5b11e1dd4ae453bb34ead227c43cacefd35f3e1c35579282d78003cdebec8d16",
+      "symbolic-deliberately_last_index.log": "2a44008e5d8bdcbf95d1097987ff1e87b9144594cd2eabdeb6eea1fa04297baa",
+      "symbolic-first_index.log": "d2ddf86b48ad54ead3921884eeaf99fcb229e30a7a5baf0b379b3cba8c392d15",
+      "symbolic.json": "3567c77275ca1d2ba3c86286da72a4637c33d02b9053c40cb2fb679bdb635664",
+      "mutants\\corrupt-change-old.xlsx": "8168ae5df05b7d2b0c11793a6a29af4ffb0cf667fb462ef8864fb70b499e8f4f",
+      "mutants\\corrupt-chunk.xlsx": "f2402d005e7cdc902fd165a03d7af5ee6a8dee34917dfaeec6d7b6c3a79aaea0",
+      "mutants\\corrupt-data.xlsx": "3141b4406125cffeb2ff8cb595e5c85ea04213072b5864a754f90c75287258e1",
+      "mutants\\corrupt-metadata.xlsx": "9ce129b86758ef88439c47aebed02a4a7fd7a2806598aad840bbee91b4a3ea68",
+      "mutants\\drop-ROW.xlsx": "5b82e3124d541dc24afceb22150dc8deaace92666c3d13687f5577967b2f204e",
+      "mutants\\duplicate-row-id.xlsx": "ba6e0d9e98aea19654d9368ab1fbed9000466109eb16f83199da9608e2c362d4",
+      "mutants\\overwrite-original.xlsx": "459888a9f74f8e5bea2ee8dbff740742537f7f4a9cedca746394ad948a30491a",
+      "publication-faults\\input.xlsx": "e1aad4adfb2973e278577a77f1fdb38542c7d3e42ed694cf6bfd0c53d8e084bf",
+      "xlsx\\abstract-48-input.xlsx": "983b84442337aa02462c951d4d656459d7bb6235e74ab5db1e2efa6f079f9673",
+      "xlsx\\abstract-48-output.xlsx": "1a49145f88d31e5508a47083761cfcfdaa9c8aa1e1492ff098e3340de9f74ce7",
+      "xlsx\\abstract-48.log": "4face04e38975c062a3d5d9e3e20f28a410fdfc9e9533d1ba4288187744b3f99",
+      "xlsx\\bad-dimension-48-input.xlsx": "8f1fc61169647b35d49122e08bd1b75cd426ffe172e9add6f6463d45595ca37d",
+      "xlsx\\bad-dimension-48-output.xlsx": "041d09d919aaeb3600870161d8f52f67010c805dd01a3ba5f6641b9c45c20d79",
+      "xlsx\\bad-dimension-48.log": "7c01fe83bb235b83b653f0a0ac7082ffa6296bfecf502d0d847011b51a51923c",
+      "xlsx\\epoch-1904-input.xlsx": "5a1c4dfcf9cdef2a5dbd0ed45397b227bcb96155f97a3b48feb513722552d75d",
+      "xlsx\\epoch-1904-output.xlsx": "e95d407c5005833bd89ae1b2da235cc71ec86c2bd33b6fa5f47fd5de083dc654",
+      "xlsx\\epoch-1904.log": "036b4c7ea8d8b76f65bfccc7189ed15ece7baeb40fc315fc3bd5d9a666e0f15c",
+      "xlsx\\metadata-chunks-input.xlsx": "bf35b5becd7df1c8eb0f512738b934f730034b2c390d7b49a56b411152cb10b6",
+      "xlsx\\metadata-chunks-output.xlsx": "75df61e5c873d5ec57ca638f26b600f2421809717855eb397731f51c69c98367",
+      "xlsx\\metadata-chunks.log": "5c98c90546f039dcaeb00176fabb2ba1cfb27b4221f3d47122b9fa7f4c18f1f9",
+      "xlsx\\metadata-edge-input.xlsx": "6494b8a6573569e4bb02f40c443f6b910750b2704d9aad7c37625d9f25b6438b",
+      "xlsx\\metadata-edge-output.xlsx": "171f7f8037a912edf3ebc28a5b68fb55f7e318dd705aaa9676a7265428da904f",
+      "xlsx\\metadata-edge.log": "c897f15ef72f81a71ed4c78fb2f494df0d867fd88e6014fe88e8af865da654bd",
+      "xlsx\\nonfinite-input.xlsx": "798ff1a3b4002c738406782250b02261fd8c9c64396ba7b4dc885dab36bca579",
+      "xlsx\\nonfinite-output.xlsx": "fc4d60aeab24b2ec311cdff90e29d398cf6a1384fa3519f94460faf10f961ef9",
+      "xlsx\\nonfinite.log": "147c5a84449d124c0105e4931671e427d7bca8ee71212c55e1cd58114f3af8fb",
+      "xlsx\\user-5-input.xlsx": "4b7b0e77b05c4240e4122862ce8f04bb8bed0c1c0f696ed698de17ed84c58218",
+      "xlsx\\user-5-output.xlsx": "55f134aebb21cc46b716c82881b65fdc38f583b71f31930dc2029ce23926ed83",
+      "xlsx\\user-5.log": "aac2cbf1320d8b661f589a86da1a5267b2fab9b55daddc1f7bba1391a6565a34"
+    }
+  },
+  "formal_steps": {
+    "exhaustive": {
+      "passed": true,
+      "alphabet": 48,
+      "parser_bridge_states": 48,
+      "counts": {
+        "0": 1,
+        "1": 48,
+        "2": 2304,
+        "3": 110592
+      },
+      "total_sequences": 112945,
+      "enumeration_sha256": "ea4ad410a4044e2bbf7c40d2693592e90ae7c77b6da5407242b78ef802334697",
+      "interactions": {
+        "2": {
+          "covered": 44,
+          "required": 44
+        },
+        "3": {
+          "covered": 76,
+          "required": 76
+        }
+      },
+      "counterexamples": [],
+      "scope": "grouping on abstract fields; length <= 3",
+      "seconds": 5.417
+    },
+    "fields": {
+      "passed": true,
+      "gregorian_cycle_calendar_cases": 168000,
+      "valid_days": 146097,
+      "extra_date_cases": 7,
+      "phone_cases": 600,
+      "seconds": 1.63
+    },
+    "stateful": {
+      "passed": true,
+      "seed": 20261008,
+      "example_limit": 300,
+      "step_limit": 30,
+      "calls": {
+        "programs": 369,
+        "invariant": 8845,
+        "append": 3076,
+        "reverse": 2441,
+        "replace": 1623,
+        "remove": 1336
+      },
+      "lengths": {
+        "0": 774,
+        "1": 1502,
+        "2": 2253,
+        "3": 1268,
+        "4": 750,
+        "5": 476,
+        "6": 318,
+        "7": 202,
+        "8": 225,
+        "9": 219,
+        "10": 286,
+        "11": 127,
+        "12": 445
+      },
+      "trace_sha256": "576cd50e318af1ca48296b5d576d2edac296ab89fbf73efb91f7d7aa581a22c9",
+      "seconds": 3.629
+    },
+    "preservation": {
+      "passed": true,
+      "books": [
+        {
+          "rows": 48,
+          "input_inventory_sha256": "de9aacf8b1e6d90835d533551dffea81f09068992f5edc64b089ff0023aa6b33",
+          "output_sha256": "1a49145f88d31e5508a47083761cfcfdaa9c8aa1e1492ff098e3340de9f74ce7",
+          "restored_sha256": "983b84442337aa02462c951d4d656459d7bb6235e74ab5db1e2efa6f079f9673",
+          "data_rows": 0,
+          "duplicates": 34,
+          "metadata_cells": 192,
+          "field_changes": 12,
+          "semantic_fields": 60,
+          "passed": true,
+          "id": "abstract-48",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\abstract-48-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\abstract-48-output.xlsx"
+        },
+        {
+          "rows": 5,
+          "input_inventory_sha256": "fbbc7c4364ef8ecf7504018619b34ffa93bab6a749c25f1fc509a74914b3e0ec",
+          "output_sha256": "55f134aebb21cc46b716c82881b65fdc38f583b71f31930dc2029ce23926ed83",
+          "restored_sha256": "4b7b0e77b05c4240e4122862ce8f04bb8bed0c1c0f696ed698de17ed84c58218",
+          "data_rows": 5,
+          "duplicates": 0,
+          "metadata_cells": 20,
+          "field_changes": 15,
+          "semantic_fields": 9,
+          "passed": true,
+          "id": "user-5",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\user-5-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\user-5-output.xlsx"
+        },
+        {
+          "rows": 12,
+          "input_inventory_sha256": "91b222aca51b1cb00c1fcf7a1823a2ddad25438b738ac2d7e8cdd567a21787f3",
+          "output_sha256": "171f7f8037a912edf3ebc28a5b68fb55f7e318dd705aaa9676a7265428da904f",
+          "restored_sha256": "6494b8a6573569e4bb02f40c443f6b910750b2704d9aad7c37625d9f25b6438b",
+          "data_rows": 4,
+          "duplicates": 3,
+          "metadata_cells": 48,
+          "field_changes": 9,
+          "semantic_fields": 14,
+          "passed": true,
+          "id": "metadata-edge",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\metadata-edge-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\metadata-edge-output.xlsx"
+        },
+        {
+          "rows": 12,
+          "input_inventory_sha256": "b72b40ec4c6d7f0ef3f51815430098e715c8a7b899db552335ca0c3b2a447db2",
+          "output_sha256": "e95d407c5005833bd89ae1b2da235cc71ec86c2bd33b6fa5f47fd5de083dc654",
+          "restored_sha256": "5a1c4dfcf9cdef2a5dbd0ed45397b227bcb96155f97a3b48feb513722552d75d",
+          "data_rows": 4,
+          "duplicates": 3,
+          "metadata_cells": 48,
+          "field_changes": 9,
+          "semantic_fields": 14,
+          "passed": true,
+          "id": "epoch-1904",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\epoch-1904-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\epoch-1904-output.xlsx"
+        },
+        {
+          "rows": 48,
+          "input_inventory_sha256": "de9aacf8b1e6d90835d533551dffea81f09068992f5edc64b089ff0023aa6b33",
+          "output_sha256": "041d09d919aaeb3600870161d8f52f67010c805dd01a3ba5f6641b9c45c20d79",
+          "restored_sha256": "8f1fc61169647b35d49122e08bd1b75cd426ffe172e9add6f6463d45595ca37d",
+          "data_rows": 0,
+          "duplicates": 34,
+          "metadata_cells": 192,
+          "field_changes": 12,
+          "semantic_fields": 60,
+          "passed": true,
+          "id": "bad-dimension-48",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\bad-dimension-48-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\bad-dimension-48-output.xlsx"
+        },
+        {
+          "rows": 12,
+          "input_inventory_sha256": "65f53b713a449fdef3576b0d51cc85ed4c2d8c807563a501bd507dca04f1f77a",
+          "output_sha256": "fc4d60aeab24b2ec311cdff90e29d398cf6a1384fa3519f94460faf10f961ef9",
+          "restored_sha256": "798ff1a3b4002c738406782250b02261fd8c9c64396ba7b4dc885dab36bca579",
+          "data_rows": 4,
+          "duplicates": 2,
+          "metadata_cells": 48,
+          "field_changes": 9,
+          "semantic_fields": 14,
+          "passed": true,
+          "id": "nonfinite",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\nonfinite-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\nonfinite-output.xlsx"
+        },
+        {
+          "rows": 2,
+          "input_inventory_sha256": "354935fec9ff4a91e6433b4b2a39b8dbd77d0f452e0dd799bd7b87e2d407a297",
+          "output_sha256": "75df61e5c873d5ec57ca638f26b600f2421809717855eb397731f51c69c98367",
+          "restored_sha256": "bf35b5becd7df1c8eb0f512738b934f730034b2c390d7b49a56b411152cb10b6",
+          "data_rows": 1,
+          "duplicates": 0,
+          "metadata_cells": 8,
+          "field_changes": 0,
+          "semantic_fields": 2,
+          "passed": true,
+          "id": "metadata-chunks",
+          "cli_exit_code": 0,
+          "input": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\metadata-chunks-input.xlsx",
+          "output": "F:\\test-project\\generated\\formal-1.6-release\\xlsx\\metadata-chunks-output.xlsx"
+        }
+      ],
+      "rows": 139,
+      "scope": "ZIP/XML fixtures, styles/epoch/formula/links/blank/hidden/NaN/dimensions; not all OOXML dialects",
+      "seconds": 2.566
+    },
+    "critical-conditions": {
+      "passed": true,
+      "decision": "RowResult.admitted",
+      "unique_cause_pairs": 5,
+      "witnesses": [
+        {
+          "atoms": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "decision": true
+        },
+        {
+          "atoms": [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "decision": false
+        },
+        {
+          "atoms": [
+            true,
+            false,
+            true,
+            true,
+            true
+          ],
+          "decision": false
+        },
+        {
+          "atoms": [
+            true,
+            true,
+            false,
+            true,
+            true
+          ],
+          "decision": false
+        },
+        {
+          "atoms": [
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
+          "decision": false
+        },
+        {
+          "atoms": [
+            true,
+            true,
+            true,
+            true,
+            false
+          ],
+          "decision": false
+        }
+      ],
+      "limitation": "Five unit-level atoms only; synthetic states; no whole-program MC/DC claim",
+      "seconds": 0.0
+    },
+    "publication-faults": {
+      "passed": true,
+      "faults": [
+        {
+          "id": "metadata",
+          "detected": true,
+          "output_published": false,
+          "reason": "INVARIANT_FAILED: \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u044b \u0438\u0441\u0445\u043e\u0434\u043d\u044b\u0435 \u043c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u0432 \u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u0435."
+        },
+        {
+          "id": "change-old",
+          "detected": true,
+          "output_published": false,
+          "reason": "INVARIANT_FAILED: \u041d\u0435\u0432\u0435\u0440\u043d\u043e\u0435 \u0438\u0441\u0445\u043e\u0434\u043d\u043e\u0435/\u0438\u0442\u043e\u0433\u043e\u0432\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 FIELD_CHANGE."
+        },
+        {
+          "id": "ROW-details",
+          "detected": true,
+          "output_published": false,
+          "reason": "INVARIANT_FAILED: \u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0435 \u0434\u0435\u0442\u0430\u043b\u0438 ROW."
+        },
+        {
+          "id": "duplicate-link",
+          "detected": true,
+          "output_published": false,
+          "reason": "INVARIANT_FAILED: \u041f\u043e\u0432\u0442\u043e\u0440\u044f\u044e\u0449\u0430\u044f\u0441\u044f \u0441\u0432\u044f\u0437\u044c \u0434\u0443\u0431\u043b\u044f."
+        },
+        {
+          "id": "problem-raw",
+          "detected": true,
+          "output_published": false,
+          "reason": "INVARIANT_FAILED: \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u044b \u0438\u0441\u0445\u043e\u0434\u043d\u044b\u0435/\u043e\u0431\u0440\u0430\u0431\u043e\u0442\u0430\u043d\u043d\u044b\u0435 \u043f\u043e\u043b\u044f \u0432 \u041f\u0440\u043e\u0431\u043b\u0435\u043c\u0430\u0445."
+        },
+        {
+          "id": "raw-bool-type",
+          "detected": true,
+          "output_published": false,
+          "reason": "INVARIANT_FAILED: \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u044b \u0438\u0441\u0445\u043e\u0434\u043d\u044b\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f/\u0442\u0438\u043f\u044b \u0432 \u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u0435."
+        }
+      ],
+      "detected": 6,
+      "total": 6,
+      "seconds": 0.315
+    },
+    "names": {
+      "passed": true,
+      "lexicon_sha256": "1cc36bfe7aef97f53b81a892a32eb089a7f2cb4dbcfdba0b2e37975a19b4d8cf",
+      "external_provenance": {
+        "url": "https://github.com/petrovich/pytrovich/blob/1f33dc81ec795155fa040707a1a39ccd9ac9692a/tests/test_maker.py",
+        "commit": "1f33dc81ec795155fa040707a1a39ccd9ac9692a",
+        "source_file_sha256": "26cc9ccb37593e4f931ba5cc62045e17bbb3fa43da614a705150b17b028297d7",
+        "scope": "15 original_name arguments in test_common_names; roles explicitly supplied by author as NamePart, not inferred from gender",
+        "license": "MIT; Copyright (c) 2020-2026 Petrovich Developers",
+        "limitation": "Small external role-annotated developer corpus; may overlap production dictionaries; not a random population sample"
+      },
+      "policy_overrides": [
+        {
+          "token": "\u0430\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0430\u043b\u0435\u043a\u0441\u0435\u0439",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0430\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0430\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430",
+          "raw_roles": [
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0430\u043d\u0434\u0440\u0435\u0439",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0430\u043d\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0432\u043b\u0430\u0434",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0432\u043b\u0430\u0434\u0438\u043c\u0438\u0440",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0432\u043e\u043b\u043a\u043e\u0432",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "LAST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0434\u043c\u0438\u0442\u0440\u0438\u0439",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0435\u0433\u043e\u0440",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0435\u043a\u0430\u0442\u0435\u0440\u0438\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0435\u043b\u0435\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0437\u0430\u0439\u0446\u0435\u0432",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "LAST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0438\u0432\u0430\u043d",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0438\u0432\u0430\u043d\u043e\u0432",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "LAST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0438\u0432\u0430\u043d\u043e\u0432\u0438\u0447",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0438\u0432\u0430\u043d\u043e\u0432\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0438\u0433\u043e\u0440\u044c",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0438\u0440\u0438\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u043b\u044c\u0432\u043e\u0432\u0438\u0447",
+          "raw_roles": [
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u043c\u0430\u0440\u0438\u044f",
+          "raw_roles": [
+            "FIRST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u043c\u0438\u0445\u0430\u0438\u043b",
+          "raw_roles": [
+            "FIRST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u043d\u0438\u043a\u043e\u043b\u0430\u0439",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u043e\u043b\u044c\u0433\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u043f\u0430\u0432\u0435\u043b",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u043f\u0430\u0432\u043b\u043e\u0432",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "LAST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u043f\u0435\u0442\u0440\u043e\u0432",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "LAST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u043f\u0435\u0442\u0440\u043e\u0432\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0440\u043e\u043c\u0430\u043d",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0441\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0441\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430",
+          "raw_roles": [
+            "LAST_NAME",
+            "PATRONYMIC"
+          ],
+          "policy_roles": [
+            "PATRONYMIC"
+          ],
+          "raw_assignments": [
+            [
+              "LAST_NAME"
+            ],
+            [
+              "PATRONYMIC"
+            ]
+          ]
+        },
+        {
+          "token": "\u0441\u0435\u0440\u0433\u0435\u0439",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        },
+        {
+          "token": "\u0442\u0430\u0442\u044c\u044f\u043d\u0430",
+          "raw_roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "policy_roles": [
+            "FIRST_NAME"
+          ],
+          "raw_assignments": [
+            [
+              "FIRST_NAME"
+            ],
+            [
+              "LAST_NAME"
+            ]
+          ]
+        }
+      ],
+      "nen_missing_first_members": 28658,
+      "nen_missing_decisions": {
+        "AMBIGUOUS": 2343,
+        "UNKNOWN": 26315
+      },
+      "nen_missing_examples": [
+        {
+          "token": "",
+          "roles": [
+            "FIRST_NAME",
+            "PATRONYMIC"
+          ],
+          "ambiguous": true
+        },
+        {
+          "token": "(\u044e\u043f\u0438)",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": ",\u0430\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "-(\u0430\u043d\u0434\u0440\u0435\u0435\u0432\u0430).",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "-\u0430\u0444\u0430\u043d\u0430\u0441\u044c\u0435\u0432\u0430",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "-\u043c\u0438\u0441\u043d\u0438\u043a",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "-\u043e\u043b\u044c\u0445\u043e\u0432\u0441\u043a\u0430\u044f",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "-\u0441\u0430\u043b\u0430\u0432\u0430\u0442\u043e\u0432\u0430",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "-\u0441\u0435\u0440\u0433\u0435\u0435\u0432\u0430",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": ".\u0433\u0430\u043b\u0438\u043d\u0430",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": ".\u043b\u044e\u0434\u043c\u0438\u043b\u0430",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "0\u043b\u0435\u0441\u044f",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "0\u043b\u044c\u0433\u0430",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "35404",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "3\u043e\u044f",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "abbas",
+          "roles": [
+            "FIRST_NAME",
+            "LAST_NAME"
+          ],
+          "ambiguous": true
+        },
+        {
+          "token": "abbasi",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "abd",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "abdelsalam musbeh musa",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        },
+        {
+          "token": "abdulhafid",
+          "roles": [
+            "FIRST_NAME"
+          ],
+          "ambiguous": false
+        }
+      ],
+      "measurements": [
+        {
+          "dataset": "external_author_roles",
+          "n": 15,
+          "correct_role": 9,
+          "confusion": [
+            {
+              "expected": "FIRST_NAME",
+              "predicted": "AMBIGUOUS",
+              "count": 1
+            },
+            {
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "count": 3
+            },
+            {
+              "expected": "FIRST_NAME",
+              "predicted": "UNKNOWN",
+              "count": 1
+            },
+            {
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "count": 5
+            },
+            {
+              "expected": "PATRONYMIC",
+              "predicted": "AMBIGUOUS",
+              "count": 4
+            },
+            {
+              "expected": "PATRONYMIC",
+              "predicted": "PATRONYMIC",
+              "count": 1
+            }
+          ],
+          "false_first_name_acceptance": 0,
+          "first_name_abstention": 2,
+          "wrong_confident_role": 0,
+          "unknown": 1,
+          "ambiguous": 5,
+          "examples": [
+            {
+              "text": "\u041c\u0430\u0440\u0438\u044f",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u041c\u0430\u0440\u0438\u044f",
+              "codes": [],
+              "raw_roles": {
+                "\u041c\u0430\u0440\u0438\u044f": [
+                  "FIRST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0412\u0430\u0441\u0438\u043b\u0438\u0439",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0412\u0430\u0441\u0438\u043b\u0438\u0439",
+              "codes": [],
+              "raw_roles": {
+                "\u0412\u0430\u0441\u0438\u043b\u0438\u0439": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0441\u044e\u0448\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u041a\u0441\u044e\u0448\u0430": []
+              }
+            },
+            {
+              "text": "\u041f\u0430\u0448\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041f\u0430\u0448\u0430": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0415\u043b\u0435\u043d\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0415\u043b\u0435\u043d\u0430",
+              "codes": [],
+              "raw_roles": {
+                "\u0415\u043b\u0435\u043d\u0430": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0413\u0435\u043d\u043d\u0430\u0434\u0438\u0435\u0432\u043d\u0430",
+              "expected": "PATRONYMIC",
+              "predicted": "PATRONYMIC",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0413\u0435\u043d\u043d\u0430\u0434\u0438\u0435\u0432\u043d\u0430": [
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447",
+              "expected": "PATRONYMIC",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u043d\u0430",
+              "expected": "PATRONYMIC",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u043d\u0430": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u041f\u0430\u0432\u043b\u043e\u0432\u0438\u0447",
+              "expected": "PATRONYMIC",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041f\u0430\u0432\u043b\u043e\u0432\u0438\u0447": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u041f\u0430\u0432\u043b\u043e\u0432\u043d\u0430",
+              "expected": "PATRONYMIC",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041f\u0430\u0432\u043b\u043e\u0432\u043d\u0430": [
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0426\u0432\u0435\u0442\u0430\u0435\u0432\u0430",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0426\u0432\u0435\u0442\u0430\u0435\u0432\u0430": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0422\u043e\u043b\u0441\u0442\u043e\u0439",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0422\u043e\u043b\u0441\u0442\u043e\u0439": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0410\u0445\u043c\u0430\u0442\u043e\u0432\u0430",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0410\u0445\u043c\u0430\u0442\u043e\u0432\u0430": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041b\u0435\u0440\u043c\u043e\u043d\u0442\u043e\u0432",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u041b\u0435\u0440\u043c\u043e\u043d\u0442\u043e\u0432": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0411\u0430\u0440\u043a\u043e\u0432\u0430",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0411\u0430\u0440\u043a\u043e\u0432\u0430": [
+                  "LAST_NAME"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "dataset": "development_gold",
+          "n": 41,
+          "correct_role": 35,
+          "confusion": [
+            {
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "count": 6
+            },
+            {
+              "expected": "AMBIGUOUS",
+              "predicted": "UNKNOWN",
+              "count": 1
+            },
+            {
+              "expected": "FIRST_NAME",
+              "predicted": "AMBIGUOUS",
+              "count": 1
+            },
+            {
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "count": 13
+            },
+            {
+              "expected": "FIRST_NAME",
+              "predicted": "UNKNOWN",
+              "count": 3
+            },
+            {
+              "expected": "FULL_NAME",
+              "predicted": "FULL_NAME",
+              "count": 5
+            },
+            {
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "count": 3
+            },
+            {
+              "expected": "PATRONYMIC",
+              "predicted": "PATRONYMIC",
+              "count": 1
+            },
+            {
+              "expected": "UNKNOWN",
+              "predicted": "AMBIGUOUS",
+              "count": 1
+            },
+            {
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "count": 7
+            }
+          ],
+          "false_first_name_acceptance": 0,
+          "first_name_abstention": 4,
+          "wrong_confident_role": 0,
+          "unknown": 11,
+          "ambiguous": 8,
+          "examples": [
+            {
+              "text": "\u0410\u043d\u0434\u0440\u0435\u0439",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0410\u043d\u0434\u0440\u0435\u0439",
+              "codes": [],
+              "raw_roles": {
+                "\u0410\u043d\u0434\u0440\u0435\u0439": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0412\u043e\u043b\u043a\u043e\u0432",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0412\u043e\u043b\u043a\u043e\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+              "expected": "PATRONYMIC",
+              "predicted": "PATRONYMIC",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0418\u0440\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430",
+              "expected": "FULL_NAME",
+              "predicted": "FULL_NAME",
+              "canonical": "\u0418\u0440\u0438\u043d\u0430",
+              "codes": [],
+              "raw_roles": {
+                "\u0418\u0440\u0438\u043d\u0430": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ],
+                "\u041b\u044c\u0432\u043e\u0432\u043d\u0430": [
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0412\u043e\u043b\u043a\u043e\u0432 \u0415\u0433\u043e\u0440",
+              "expected": "FULL_NAME",
+              "predicted": "FULL_NAME",
+              "canonical": "\u0415\u0433\u043e\u0440",
+              "codes": [],
+              "raw_roles": {
+                "\u0412\u043e\u043b\u043a\u043e\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ],
+                "\u0415\u0433\u043e\u0440": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+              "codes": [],
+              "raw_roles": {
+                "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041b\u044e\u0431\u043e\u0432\u044c",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u041b\u044e\u0431\u043e\u0432\u044c",
+              "codes": [],
+              "raw_roles": {
+                "\u041b\u044e\u0431\u043e\u0432\u044c": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0420\u043e\u043c\u0430\u043d",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0420\u043e\u043c\u0430\u043d",
+              "codes": [],
+              "raw_roles": {
+                "\u0420\u043e\u043c\u0430\u043d": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0438\u043c",
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041a\u0438\u043c": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0421\u0430\u0448\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0421\u0430\u0448\u0430",
+              "codes": [],
+              "raw_roles": {
+                "\u0421\u0430\u0448\u0430": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0410\u043b\u0438",
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u0410\u043b\u0438": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c",
+              "codes": [],
+              "raw_roles": {
+                "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0412\u043b\u0430\u0434",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0412\u043b\u0430\u0434",
+              "codes": [],
+              "raw_roles": {
+                "\u0412\u043b\u0430\u0434": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0438\u0440\u0438\u043b\u043b",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+              "codes": [],
+              "raw_roles": {
+                "\u041a\u0438\u0440\u0438\u043b\u043b": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0417\u0430\u0439\u0446\u0435\u0432 \u041a\u0438\u0440\u0438\u043b\u043b",
+              "expected": "FULL_NAME",
+              "predicted": "FULL_NAME",
+              "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+              "codes": [],
+              "raw_roles": {
+                "\u0417\u0430\u0439\u0446\u0435\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ],
+                "\u041a\u0438\u0440\u0438\u043b\u043b": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0417\u0430\u0439\u0446\u0435\u0432",
+              "expected": "FULL_NAME",
+              "predicted": "FULL_NAME",
+              "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+              "codes": [],
+              "raw_roles": {
+                "\u041a\u0438\u0440\u0438\u043b\u043b": [
+                  "FIRST_NAME"
+                ],
+                "\u0417\u0430\u0439\u0446\u0435\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a. \u0411\u0435\u043b\u043e\u0443\u0441\u043e\u0432",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_INCOMPLETE"
+              ],
+              "raw_roles": {
+                "\u041a.": [],
+                "\u0411\u0435\u043b\u043e\u0443\u0441\u043e\u0432": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0417\u0430\u0439\u0446\u0435\u0432 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+              "expected": "FULL_NAME",
+              "predicted": "FULL_NAME",
+              "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+              "codes": [],
+              "raw_roles": {
+                "\u041a\u0438\u0440\u0438\u043b\u043b": [
+                  "FIRST_NAME"
+                ],
+                "\u0417\u0430\u0439\u0446\u0435\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ],
+                "\u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f",
+              "codes": [],
+              "raw_roles": {
+                "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041b\u0438",
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041b\u0438": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0418\u0432\u0430\u043d",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u0418\u0432\u0430\u043d",
+              "codes": [],
+              "raw_roles": {
+                "\u0418\u0432\u0430\u043d": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0418\u0432\u0430\u043d\u043e\u0432",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0418\u0432\u0430\u043d\u043e\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447",
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u0417\u0430\u0439\u0446\u0435\u0432",
+              "expected": "LAST_NAME",
+              "predicted": "LAST_NAME",
+              "canonical": null,
+              "codes": [
+                "NAME_NOT_FIRST"
+              ],
+              "raw_roles": {
+                "\u0417\u0430\u0439\u0446\u0435\u0432": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0418\u0440\u0438\u043d\u0430",
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041a\u0438\u0440\u0438\u043b\u043b": [
+                  "FIRST_NAME"
+                ],
+                "\u0418\u0440\u0438\u043d\u0430": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u0414\u0430\u0437\u0434\u0440\u0430\u043f\u0435\u0440\u043c\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u0414\u0430\u0437\u0434\u0440\u0430\u043f\u0435\u0440\u043c\u0430": []
+              }
+            },
+            {
+              "text": "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430",
+              "codes": [],
+              "raw_roles": {
+                "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u042d\u043b\u044c\u043c\u0438\u0440\u0430",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u042d\u043b\u044c\u043c\u0438\u0440\u0430",
+              "codes": [],
+              "raw_roles": {
+                "\u042d\u043b\u044c\u043c\u0438\u0440\u0430": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041c\u0443\u0445\u0430\u043c\u043c\u0430\u0434",
+              "expected": "FIRST_NAME",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041c\u0443\u0445\u0430\u043c\u043c\u0430\u0434": [
+                  "FIRST_NAME",
+                  "LAST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u041d\u0433\u0443\u0435\u043d",
+              "expected": "AMBIGUOUS",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041d\u0433\u0443\u0435\u043d": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "Jean-Luc",
+              "expected": "FIRST_NAME",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_LATIN_SCRIPT"
+              ],
+              "raw_roles": {
+                "Jean-Luc": []
+              }
+            },
+            {
+              "text": "\u00c9lodie",
+              "expected": "FIRST_NAME",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_LATIN_SCRIPT"
+              ],
+              "raw_roles": {
+                "\u00c9lodie": []
+              }
+            },
+            {
+              "text": "\u674e",
+              "expected": "AMBIGUOUS",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u674e": []
+              }
+            },
+            {
+              "text": "\u041c\u0430\u0440\u0438\u044f",
+              "expected": "FIRST_NAME",
+              "predicted": "FIRST_NAME",
+              "canonical": "\u041c\u0430\u0440\u0438\u044f",
+              "codes": [],
+              "raw_roles": {
+                "\u041c\u0430\u0440\u0438\u044f": [
+                  "FIRST_NAME",
+                  "PATRONYMIC"
+                ]
+              }
+            },
+            {
+              "text": "\u041e\u041e\u041e \u0420\u043e\u043c\u0430\u0448\u043a\u0430",
+              "expected": "UNKNOWN",
+              "predicted": "AMBIGUOUS",
+              "canonical": null,
+              "codes": [
+                "NAME_AMBIGUOUS"
+              ],
+              "raw_roles": {
+                "\u041e\u041e\u041e": [
+                  "FIRST_NAME",
+                  "LAST_NAME"
+                ],
+                "\u0420\u043e\u043c\u0430\u0448\u043a\u0430": [
+                  "LAST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u043d\u0435 \u0437\u043d\u0430\u044e",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u043d\u0435": [
+                  "LAST_NAME"
+                ],
+                "\u0437\u043d\u0430\u044e": []
+              }
+            },
+            {
+              "text": "89174005219",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_INVALID"
+              ],
+              "raw_roles": {
+                "89174005219": []
+              }
+            },
+            {
+              "text": "\u0418\u0432\u0430\u043d123",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_INVALID"
+              ],
+              "raw_roles": {
+                "\u0418\u0432\u0430\u043d123": []
+              }
+            },
+            {
+              "text": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440": []
+              }
+            },
+            {
+              "text": "\u041a\u043b\u0438\u0435\u043d\u0442 \u041a\u0438\u0440\u0438\u043b\u043b",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u041a\u043b\u0438\u0435\u043d\u0442": [],
+                "\u041a\u0438\u0440\u0438\u043b\u043b": [
+                  "FIRST_NAME"
+                ]
+              }
+            },
+            {
+              "text": "\u041a\u0432\u0430\u0437\u0438\u0431\u0443\u0431\u043b\u0438\u043a",
+              "expected": "UNKNOWN",
+              "predicted": "UNKNOWN",
+              "canonical": null,
+              "codes": [
+                "NAME_UNKNOWN"
+              ],
+              "raw_roles": {
+                "\u041a\u0432\u0430\u0437\u0438\u0431\u0443\u0431\u043b\u0438\u043a": []
+              }
+            }
+          ]
+        }
+      ],
+      "boundary_examples": [
+        {
+          "text": "\u0418\u0432\u0430\u043d \u0418\u0432\u0430\u043d\u043e\u0432 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447",
+          "classification": "AMBIGUOUS",
+          "canonical": "\u0418\u0432\u0430\u043d",
+          "codes": [
+            "NAME_AMBIGUOUS"
+          ]
+        },
+        {
+          "text": "\u0418\u0432\u0430\u043d \u0418\u0432\u0430\u043d\u043e\u0432 \u041a\u0438\u0440\u0438\u043b\u043b",
+          "classification": "AMBIGUOUS",
+          "canonical": null,
+          "codes": [
+            "NAME_AMBIGUOUS"
+          ]
+        },
+        {
+          "text": "\u0410\u0440\u0437\u0443 \u041b\u0443\u0442\u0444\u0438\u044f\u0440 \u043a\u044b\u0437\u044b",
+          "classification": "UNKNOWN",
+          "canonical": null,
+          "codes": [
+            "NAME_UNKNOWN"
+          ]
+        },
+        {
+          "text": "\u0420\u0430\u043c\u0438\u0437 \u0420\u0443\u0441\u0442\u0430\u043c \u043e\u0433\u043b\u044b",
+          "classification": "AMBIGUOUS",
+          "canonical": null,
+          "codes": [
+            "NAME_AMBIGUOUS"
+          ]
+        },
+        {
+          "text": "\u0418\u0432\u0430\u043d \u0418\u0432\u0430\u043d\u043e\u0432 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447 \u0421\u0442\u0430\u0440\u0448\u0438\u0439",
+          "classification": "UNKNOWN",
+          "canonical": null,
+          "codes": [
+            "NAME_UNKNOWN"
+          ]
+        },
+        {
+          "text": "\u041d\u0433\u0443\u0435\u043d",
+          "classification": "AMBIGUOUS",
+          "canonical": null,
+          "codes": [
+            "NAME_AMBIGUOUS"
+          ]
+        },
+        {
+          "text": "\u042d\u0434\u0432\u0430\u0440\u0434",
+          "classification": "FIRST_NAME",
+          "canonical": "\u042d\u0434\u0432\u0430\u0440\u0434",
+          "codes": []
+        },
+        {
+          "text": "\u041d\u0443\u0440\u043b\u0430\u043d",
+          "classification": "FIRST_NAME",
+          "canonical": "\u041d\u0443\u0440\u043b\u0430\u043d",
+          "codes": []
+        },
+        {
+          "text": "\u041e\u0433\u043b\u044b",
+          "classification": "AMBIGUOUS",
+          "canonical": null,
+          "codes": [
+            "NAME_AMBIGUOUS"
+          ]
+        },
+        {
+          "text": "\u041a\u043b\u0438\u0435\u043d\u0442 \u041a\u0438\u0440\u0438\u043b\u043b",
+          "classification": "UNKNOWN",
+          "canonical": null,
+          "codes": [
+            "NAME_UNKNOWN"
+          ]
+        },
+        {
+          "text": "\u041e\u041e\u041e \u0420\u043e\u043c\u0430\u0448\u043a\u0430",
+          "classification": "AMBIGUOUS",
+          "canonical": null,
+          "codes": [
+            "NAME_AMBIGUOUS"
+          ]
+        }
+      ],
+      "quality_gate": "descriptive; no population precision claim; no dictionary changes",
+      "seconds": 0.255
+    },
+    "mutations": {
+      "passed": true,
+      "detected": 11,
+      "total": 11,
+      "mutations": [
+        {
+          "id": "swap-date-order",
+          "detected": true,
+          "method": "independent semantic assertion, memory-only mutation"
+        },
+        {
+          "id": "last-duplicate",
+          "detected": true,
+          "method": "independent semantic assertion, memory-only mutation"
+        },
+        {
+          "id": "partial-phone",
+          "detected": true,
+          "method": "independent semantic assertion, memory-only mutation"
+        },
+        {
+          "id": "disable-calendar",
+          "detected": true,
+          "method": "independent semantic assertion, memory-only mutation"
+        },
+        {
+          "id": "drop-ROW",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "ROW bijection",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\drop-ROW.xlsx",
+          "sha256": "5b82e3124d541dc24afceb22150dc8deaace92666c3d13687f5577967b2f204e"
+        },
+        {
+          "id": "duplicate-row-id",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "ROW bijection",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\duplicate-row-id.xlsx",
+          "sha256": "ba6e0d9e98aea19654d9368ab1fbed9000466109eb16f83199da9608e2c362d4"
+        },
+        {
+          "id": "overwrite-original",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "original raw values/types",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\overwrite-original.xlsx",
+          "sha256": "459888a9f74f8e5bea2ee8dbff740742537f7f4a9cedca746394ad948a30491a"
+        },
+        {
+          "id": "corrupt-metadata",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "metadata s1:r2 \u0418\u043c\u044f style_id",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\corrupt-metadata.xlsx",
+          "sha256": "9ce129b86758ef88439c47aebed02a4a7fd7a2806598aad840bbee91b4a3ea68"
+        },
+        {
+          "id": "corrupt-change-old",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "FIELD_CHANGE old value/types",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\corrupt-change-old.xlsx",
+          "sha256": "8168ae5df05b7d2b0c11793a6a29af4ffb0cf667fb462ef8864fb70b499e8f4f"
+        },
+        {
+          "id": "corrupt-chunk",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "byte-exact restoration",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\corrupt-chunk.xlsx",
+          "sha256": "f2402d005e7cdc902fd165a03d7af5ee6a8dee34917dfaeec6d7b6c3a79aaea0"
+        },
+        {
+          "id": "corrupt-data",
+          "detected": true,
+          "method": "independent output reconciliation",
+          "reason": "Data values match complete change trail",
+          "artifact": "F:\\test-project\\generated\\formal-1.6-release\\mutants\\corrupt-data.xlsx",
+          "sha256": "3141b4406125cffeb2ff8cb595e5c85ea04213072b5864a754f90c75287258e1"
+        }
+      ],
+      "seconds": 0.282
+    },
+    "symbolic": {
+      "passed": true,
+      "runs": [
+        {
+          "function": "first_index",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-X",
+            "utf8",
+            "-m",
+            "crosshair",
+            "check",
+            "verification.symbolic_contracts.first_index",
+            "--analysis_kind",
+            "PEP316",
+            "--report_all",
+            "--per_condition_timeout",
+            "10",
+            "--per_path_timeout",
+            "2"
+          ],
+          "exit_code": 0,
+          "passed": true
+        },
+        {
+          "function": "deliberately_last_index",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-X",
+            "utf8",
+            "-m",
+            "crosshair",
+            "check",
+            "verification.symbolic_contracts.deliberately_last_index",
+            "--analysis_kind",
+            "PEP316",
+            "--report_all",
+            "--per_condition_timeout",
+            "10",
+            "--per_path_timeout",
+            "2"
+          ],
+          "exit_code": 1,
+          "passed": true
+        }
+      ],
+      "scope": "bounded three-key arithmetic; no XLSX or name completeness proof",
+      "seconds": 0.623
+    }
+  },
+  "qa_summary": {
+    "mode": "all",
+    "seed": 20261008,
+    "examples_per_property_limit": 1000,
+    "passed": true,
+    "runs": [
+      {
+        "command": [
+          "F:\\test-project\\.venv\\Scripts\\python.exe",
+          "-X",
+          "utf8",
+          "-m",
+          "coverage",
+          "run",
+          "-m",
+          "verification.test_driver",
+          "--suite",
+          "p0",
+          "--ledger",
+          "F:\\test-project\\generated\\qa-1.6-final\\p0-tests.json"
+        ],
+        "exit_code": 0,
+        "seconds": 10.723,
+        "label": "p0",
+        "gate": {
+          "passed": true,
+          "missing": [],
+          "unexpected": [],
+          "nonpassing": []
+        },
+        "tests_run": 54
+      },
+      {
+        "command": [
+          "F:\\test-project\\.venv\\Scripts\\python.exe",
+          "-X",
+          "utf8",
+          "-m",
+          "coverage",
+          "run",
+          "-m",
+          "verification.test_driver",
+          "--suite",
+          "generated",
+          "--ledger",
+          "F:\\test-project\\generated\\qa-1.6-final\\generated-tests.json"
+        ],
+        "exit_code": 0,
+        "seconds": 27.313,
+        "label": "generated",
+        "gate": {
+          "passed": true,
+          "missing": [],
+          "unexpected": [],
+          "nonpassing": []
+        },
+        "tests_run": 13,
+        "generation_verified": true
+      }
+    ],
+    "coverage_steps": [
+      {
+        "command": [
+          "F:\\test-project\\.venv\\Scripts\\python.exe",
+          "-m",
+          "coverage",
+          "combine",
+          "F:\\test-project\\generated\\qa-1.6-final"
+        ],
+        "exit_code": 0,
+        "seconds": 0.187
+      },
+      {
+        "command": [
+          "F:\\test-project\\.venv\\Scripts\\python.exe",
+          "-m",
+          "coverage",
+          "json",
+          "-o",
+          "F:\\test-project\\generated\\qa-1.6-final\\coverage.json"
+        ],
+        "exit_code": 0,
+        "seconds": 0.235
+      }
+    ],
+    "cli_executed_lines": {
+      "normalize.py": 34,
+      "restore.py": 26
+    },
+    "coverage_limitation": "Parent and Python subprocess coverage; branch coverage is not MC/DC",
+    "adversarial_included": true,
+    "adversarial_test_ids": [
+      "test_normalizer.FieldTests.test_all_catalog_oracles",
+      "test_normalizer.FieldTests.test_all_month_dictionary_forms_and_existing_calendar",
+      "test_normalizer.FieldTests.test_no_calendar_rollover_at_fractional_serial_boundary",
+      "test_normalizer.FieldTests.test_valid_phone_with_damaged_or_second_extension_not_rescued",
+      "test_normalizer.PipelineTests.test_actual_suite_valid_inputs_and_structural_refusals",
+      "test_normalizer.PipelineTests.test_bad_dimension_actual_rows_and_renamed_worksheet_part",
+      "test_normalizer.PipelineTests.test_cli_codes_existing_output_limits_and_restore_corruption",
+      "test_normalizer.PipelineTests.test_duplicate_zip_parts_crc_corruption_and_duplicate_xml_row_refused",
+      "test_normalizer.PipelineTests.test_failed_save_and_racing_destination_preserve_source_and_output",
+      "test_normalizer.PipelineTests.test_hyperlink_formula_bool_serial_metadata_preserved",
+      "test_normalizer.PipelineTests.test_metadata_chunks_and_safe_long_literal_no_truncation",
+      "test_normalizer.PipelineTests.test_nfc_names_do_not_create_false_conflict_latin_names_stay_raw",
+      "test_normalizer.PipelineTests.test_one_phone_context_still_deduplicates_first_without_filling",
+      "test_normalizer.PipelineTests.test_output_overlong_xml_value_refused_and_explicit_sheet_selection",
+      "test_normalizer.PipelineTests.test_permuted_columns_blank_and_hidden_rows_unknown_sources",
+      "test_normalizer.PipelineTests.test_rich_text_big_numeric_precision_and_other_sheet_restore",
+      "test_normalizer.PipelineTests.test_two_actual_cli_publishers_only_one_output_and_exact_restore",
+      "test_normalizer.PipelineTests.test_user_examples_four_sheets_problem_context_and_restore"
+    ],
+    "registry_sha256": "5ec7d64f99b94cdd5b548a0319a8e9d00129bc70ba0c6faa7239afa329dd9649"
+  },
+  "executed_tests": {
+    "p0": {
+      "suite": "p0",
+      "tests": [
+        {
+          "id": "test_formal.FormalContracts.test_bounded_exhaustive_pairs",
+          "outcome": "PASS",
+          "seconds": 0.218813
+        },
+        {
+          "id": "test_formal.FormalContracts.test_corrupted_stage_is_never_published",
+          "outcome": "PASS",
+          "seconds": 0.377861
+        },
+        {
+          "id": "test_formal.FormalContracts.test_independent_field_oracles",
+          "outcome": "PASS",
+          "seconds": 0.001857
+        },
+        {
+          "id": "test_formal.FormalContracts.test_independent_inventory_and_plain_review",
+          "outcome": "PASS",
+          "seconds": 0.11941
+        },
+        {
+          "id": "test_formal.FormalContracts.test_petrovich_partial_name_requires_review_and_full_conflict",
+          "outcome": "PASS",
+          "seconds": 0.083347
+        },
+        {
+          "id": "test_formal.FormalContracts.test_stateful_seed_controls_executed_trace",
+          "outcome": "PASS",
+          "seconds": 0.681003
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_1904_adjusts_date_fixture_and_expectation",
+          "outcome": "PASS",
+          "seconds": 0.044179
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_clean_has_unique_text_phones_and_calendar_dates",
+          "outcome": "PASS",
+          "seconds": 0.029792
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_dirty_catalog_types_and_every_case",
+          "outcome": "PASS",
+          "seconds": 0.056372
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_existing_destination_never_changes",
+          "outcome": "PASS",
+          "seconds": 0.001571
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_long_cell_refused_without_truncation_or_publication",
+          "outcome": "PASS",
+          "seconds": 0.001607
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_native_timezone_date_refused_before_partial_save",
+          "outcome": "PASS",
+          "seconds": 0.001556
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_nonfinite_numeric_values_refused_without_silent_blank",
+          "outcome": "PASS",
+          "seconds": 0.003632
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_seed_reproduces_values_and_labels",
+          "outcome": "PASS",
+          "seconds": 0.112625
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_suite_epochs_structural_errors_and_duplicate_expectations",
+          "outcome": "PASS",
+          "seconds": 0.13625
+        },
+        {
+          "id": "test_generator.GeneratorTests.test_writer_preserves_existing_file",
+          "outcome": "PASS",
+          "seconds": 0.000909
+        },
+        {
+          "id": "test_normalizer.FieldTests.test_all_catalog_oracles",
+          "outcome": "PASS",
+          "seconds": 0.018781
+        },
+        {
+          "id": "test_normalizer.FieldTests.test_all_month_dictionary_forms_and_existing_calendar",
+          "outcome": "PASS",
+          "seconds": 0.006662
+        },
+        {
+          "id": "test_normalizer.FieldTests.test_no_calendar_rollover_at_fractional_serial_boundary",
+          "outcome": "PASS",
+          "seconds": 0.000157
+        },
+        {
+          "id": "test_normalizer.FieldTests.test_valid_phone_with_damaged_or_second_extension_not_rescued",
+          "outcome": "PASS",
+          "seconds": 0.000688
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_actual_suite_valid_inputs_and_structural_refusals",
+          "outcome": "PASS",
+          "seconds": 2.322173
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_bad_dimension_actual_rows_and_renamed_worksheet_part",
+          "outcome": "PASS",
+          "seconds": 0.064751
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_cli_codes_existing_output_limits_and_restore_corruption",
+          "outcome": "PASS",
+          "seconds": 2.310872
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_duplicate_zip_parts_crc_corruption_and_duplicate_xml_row_refused",
+          "outcome": "PASS",
+          "seconds": 0.061571
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_failed_save_and_racing_destination_preserve_source_and_output",
+          "outcome": "PASS",
+          "seconds": 0.088647
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_hyperlink_formula_bool_serial_metadata_preserved",
+          "outcome": "PASS",
+          "seconds": 0.115931
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_metadata_chunks_and_safe_long_literal_no_truncation",
+          "outcome": "PASS",
+          "seconds": 0.186565
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_nfc_names_do_not_create_false_conflict_latin_names_stay_raw",
+          "outcome": "PASS",
+          "seconds": 0.086553
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_one_phone_context_still_deduplicates_first_without_filling",
+          "outcome": "PASS",
+          "seconds": 0.097939
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_output_overlong_xml_value_refused_and_explicit_sheet_selection",
+          "outcome": "PASS",
+          "seconds": 0.114935
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_permuted_columns_blank_and_hidden_rows_unknown_sources",
+          "outcome": "PASS",
+          "seconds": 0.09492
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_rich_text_big_numeric_precision_and_other_sheet_restore",
+          "outcome": "PASS",
+          "seconds": 0.13039
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_two_actual_cli_publishers_only_one_output_and_exact_restore",
+          "outcome": "PASS",
+          "seconds": 0.655731
+        },
+        {
+          "id": "test_normalizer.PipelineTests.test_user_examples_four_sheets_problem_context_and_restore",
+          "outcome": "PASS",
+          "seconds": 0.129465
+        },
+        {
+          "id": "test_qa_gate.QAGate.test_empty_missing_duplicate_and_skip_fail_gate",
+          "outcome": "PASS",
+          "seconds": 0.000212
+        },
+        {
+          "id": "test_qa_gate.QAGate.test_real_subprocess_crash_is_recorded_as_failure",
+          "outcome": "PASS",
+          "seconds": 0.150486
+        },
+        {
+          "id": "test_qa_gate.QAGate.test_subtest_failure_cannot_be_reported_as_success",
+          "outcome": "PASS",
+          "seconds": 0.001503
+        },
+        {
+          "id": "test_qa_gate.QAGate.test_timeout_and_cli_failure_fail_gate",
+          "outcome": "PASS",
+          "seconds": 0.001393
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_clean_sheet_and_plain_review_preserve_every_problem",
+          "outcome": "PASS",
+          "seconds": 0.103383
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_diagnostic_codes_are_explicit_without_erasing_errors",
+          "outcome": "PASS",
+          "seconds": 0.000302
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_different_surnames_cannot_hide_behind_same_extracted_name",
+          "outcome": "PASS",
+          "seconds": 0.083308
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_incomplete_serial_formats_never_invent_full_date",
+          "outcome": "PASS",
+          "seconds": 0.001096
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_nonfinite_numeric_lexeme_in_each_column_keeps_all_rows",
+          "outcome": "PASS",
+          "seconds": 1.254434
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_personal_name_extraction_and_conservative_abstention",
+          "outcome": "PASS",
+          "seconds": 0.002088
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_real_numeric_style_is_preserved",
+          "outcome": "PASS",
+          "seconds": 0.014546
+        },
+        {
+          "id": "test_regressions.ReviewRegressions.test_unambiguous_mdy_only_and_audit_action",
+          "outcome": "PASS",
+          "seconds": 0.00045
+        },
+        {
+          "id": "test_resource_dependencies.ResourceDependencies.test_digest_rejects_equal_length_replacement",
+          "outcome": "PASS",
+          "seconds": 0.000163
+        },
+        {
+          "id": "test_resource_dependencies.ResourceDependencies.test_offline_reader_rejects_missing_or_changed_payload",
+          "outcome": "PASS",
+          "seconds": 0.002519
+        },
+        {
+          "id": "test_resource_regressions.ResourceRegressions.test_encryption_flag_in_either_zip_header_rejects_without_publication",
+          "outcome": "PASS",
+          "seconds": 0.060272
+        },
+        {
+          "id": "test_resource_regressions.ResourceRegressions.test_five_sheets_do_not_hide_bad_duplicate_behind_extension",
+          "outcome": "PASS",
+          "seconds": 0.096082
+        },
+        {
+          "id": "test_resource_regressions.ResourceRegressions.test_independent_agent_and_boundary_cases",
+          "outcome": "PASS",
+          "seconds": 0.003586
+        },
+        {
+          "id": "test_resource_regressions.ResourceRegressions.test_plain_space_dates_follow_calendar_and_order_contract",
+          "outcome": "PASS",
+          "seconds": 0.001544
+        },
+        {
+          "id": "test_resource_regressions.ResourceRegressions.test_reject_other_full_phone_in_extension_under_every_marker",
+          "outcome": "PASS",
+          "seconds": 0.00473
+        },
+        {
+          "id": "test_resource_regressions.ResourceRegressions.test_unicode_marks_cannot_modify_digits_at_any_position",
+          "outcome": "PASS",
+          "seconds": 0.006352
+        }
+      ],
+      "tests_run": 54,
+      "gate": {
+        "passed": true,
+        "missing": [],
+        "unexpected": [],
+        "nonpassing": []
+      }
+    },
+    "generated": {
+      "suite": "generated",
+      "tests": [
+        {
+          "id": "test_generated.CombinatorialCLI.test_nonfinite_cells_are_preserved_without_losing_valid_rows",
+          "outcome": "PASS",
+          "seconds": 1.874907
+        },
+        {
+          "id": "test_generated.CombinatorialCLI.test_pairwise_coverage_and_dangerous_three_way_cli_inventory",
+          "outcome": "PASS",
+          "seconds": 2.259569
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_date_format_metamorphism_and_idempotence",
+          "outcome": "PASS",
+          "seconds": 1.075947
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_excel_types_never_coerce_to_valid_field",
+          "outcome": "PASS",
+          "seconds": 0.011314
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_invalid_calendar_never_rolls",
+          "outcome": "PASS",
+          "seconds": 1.141415
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_letter_mutation_cannot_create_phone",
+          "outcome": "PASS",
+          "seconds": 1.03544
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_missing_required_fields_preserve_value",
+          "outcome": "PASS",
+          "seconds": 0.013547
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_multiple_and_unsupported_prefixes",
+          "outcome": "PASS",
+          "seconds": 1.325721
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_name_case_spaces_and_idempotence",
+          "outcome": "PASS",
+          "seconds": 0.060644
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_name_mutations_are_not_accepted",
+          "outcome": "PASS",
+          "seconds": 0.026115
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_nfc_nfd_name_equivalence",
+          "outcome": "PASS",
+          "seconds": 0.006039
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_phone_format_metamorphism_and_idempotence",
+          "outcome": "PASS",
+          "seconds": 1.524688
+        },
+        {
+          "id": "test_generated.GeneratedProperties.test_sequence_integrity_independent_additions_duplicates_and_order",
+          "outcome": "PASS",
+          "seconds": 16.32746
+        }
+      ],
+      "tests_run": 13,
+      "gate": {
+        "passed": true,
+        "missing": [],
+        "unexpected": [],
+        "nonpassing": []
+      }
+    }
+  },
+  "generation_statistics": {
+    "seed": 20261008,
+    "calls": {
+      "valid_dates": 1000,
+      "excel_types": 12,
+      "invalid_dates": 1000,
+      "invalid_phone_letters": 1000,
+      "missing": 14,
+      "multiple_and_prefix": 1000,
+      "valid_names": 56,
+      "invalid_names": 28,
+      "name_nfc_nfd": 7,
+      "valid_phone": 1000,
+      "sequences": 30
+    },
+    "unique_examples": {
+      "valid_dates": 1000,
+      "excel_types": 12,
+      "invalid_dates": 1000,
+      "invalid_phone_letters": 1000,
+      "missing": 14,
+      "multiple_and_prefix": 1000,
+      "valid_names": 56,
+      "invalid_names": 28,
+      "name_nfc_nfd": 7,
+      "valid_phone": 1000,
+      "sequences": 29
+    },
+    "extra": {
+      "cli_nonfinite_runs": 4,
+      "pairwise_rows": 18,
+      "covered_pairs": 114,
+      "dangerous_triples": 8,
+      "cli_combination_runs": 3,
+      "rows_per_cli": 39
+    }
+  },
+  "coverage_totals": {
+    "covered_lines": 1126,
+    "num_statements": 1220,
+    "percent_covered": 90.3078677309008,
+    "percent_covered_display": "90",
+    "missing_lines": 94,
+    "excluded_lines": 0,
+    "percent_statements_covered": 92.29508196721312,
+    "percent_statements_covered_display": "92",
+    "num_branches": 534,
+    "num_partial_branches": 72,
+    "covered_branches": 458,
+    "missing_branches": 76,
+    "percent_branches_covered": 85.76779026217228,
+    "percent_branches_covered_display": "86"
+  },
+  "resource_summary": {
+    "spec_version": "1.6",
+    "seed": 20261008,
+    "examples_limit": 300,
+    "seconds": 11.263,
+    "passed": true,
+    "checks": {
+      "minimal-regressions": 34,
+      "unicode-decimal-blocks": 152,
+      "unicode-decimal-blocks-raw": 152,
+      "unicode-every-Nd": 760,
+      "unicode-every-Nd-raw": 760,
+      "unicode-nondecimal": 2302,
+      "unicode-nondecimal-raw": 2302,
+      "unicode-marks": 35014,
+      "unicode-marks-raw": 35014,
+      "unicode-controls": 3150,
+      "unicode-controls-raw": 3150,
+      "unicode-nfc-conformance": 19965,
+      "name-key-nfc": 62,
+      "unicode-confusables": 37,
+      "unicode-confusables-raw": 37,
+      "cldr-months-approved": 58,
+      "cldr-months-approved-raw": 58,
+      "cldr-months-unsupported": 24,
+      "cldr-months-unsupported-raw": 24,
+      "calendar-boundaries": 2400,
+      "calendar-boundaries-raw": 2400,
+      "metadata-phones": 22,
+      "metadata-phones-raw": 22,
+      "metadata-regex-groupings": 1800,
+      "metadata-regex-groupings-raw": 1800,
+      "name-gold-preservation": 41,
+      "hypothesis-resource-valid": 300,
+      "hypothesis-resource-valid-raw": 300,
+      "hypothesis-resource-broken": 300,
+      "hypothesis-resource-broken-raw": 300,
+      "xlsx-cli": 28,
+      "xlsx-input-preservation": 28,
+      "xlsx-five-sheets": 17,
+      "xlsx-row-inventory": 17,
+      "xlsx-raw-values": 17,
+      "xlsx-audit-inventory": 17,
+      "xlsx-human-review": 17,
+      "xlsx-clean-data": 17,
+      "xlsx-no-active-formulas": 17,
+      "xlsx-byte-restoration": 17,
+      "xlsx-no-partial-publication": 11,
+      "pairwise-coverage": 1
+    },
+    "failed": [],
+    "observations": {
+      "unicode_classes": {
+        "Nd_blocks": 76,
+        "Nd_codepoints": 760,
+        "marks": 2501,
+        "nondecimal_numeric": 1151,
+        "nonspace_controls": 225
+      },
+      "normalization": {
+        "official_NFC_vectors": 19965,
+        "cyrillic_key_vectors": 62,
+        "digit_confusable_mutations": 37,
+        "NFKC_used_by_processor": false
+      },
+      "cldr_not_supported": [
+        {
+          "locale": "ru",
+          "month": "1",
+          "text": "\u042f"
+        },
+        {
+          "locale": "ru",
+          "month": "2",
+          "text": "\u0424"
+        },
+        {
+          "locale": "ru",
+          "month": "3",
+          "text": "\u041c"
+        },
+        {
+          "locale": "ru",
+          "month": "4",
+          "text": "\u0410"
+        },
+        {
+          "locale": "ru",
+          "month": "5",
+          "text": "\u041c"
+        },
+        {
+          "locale": "ru",
+          "month": "6",
+          "text": "\u0418"
+        },
+        {
+          "locale": "ru",
+          "month": "7",
+          "text": "\u0418"
+        },
+        {
+          "locale": "ru",
+          "month": "8",
+          "text": "\u0410"
+        },
+        {
+          "locale": "ru",
+          "month": "9",
+          "text": "\u0421"
+        },
+        {
+          "locale": "ru",
+          "month": "10",
+          "text": "\u041e"
+        },
+        {
+          "locale": "ru",
+          "month": "11",
+          "text": "\u041d"
+        },
+        {
+          "locale": "ru",
+          "month": "12",
+          "text": "\u0414"
+        },
+        {
+          "locale": "en",
+          "month": "1",
+          "text": "J"
+        },
+        {
+          "locale": "en",
+          "month": "2",
+          "text": "F"
+        },
+        {
+          "locale": "en",
+          "month": "3",
+          "text": "M"
+        },
+        {
+          "locale": "en",
+          "month": "4",
+          "text": "A"
+        },
+        {
+          "locale": "en",
+          "month": "5",
+          "text": "M"
+        },
+        {
+          "locale": "en",
+          "month": "6",
+          "text": "J"
+        },
+        {
+          "locale": "en",
+          "month": "7",
+          "text": "J"
+        },
+        {
+          "locale": "en",
+          "month": "8",
+          "text": "A"
+        },
+        {
+          "locale": "en",
+          "month": "9",
+          "text": "S"
+        },
+        {
+          "locale": "en",
+          "month": "10",
+          "text": "O"
+        },
+        {
+          "locale": "en",
+          "month": "11",
+          "text": "N"
+        },
+        {
+          "locale": "en",
+          "month": "12",
+          "text": "D"
+        }
+      ],
+      "metadata_examples": {
+        "KZ": [
+          "7123456789",
+          "7511234567",
+          "7710009998",
+          "8001234567",
+          "8081234567",
+          "8091234567"
+        ],
+        "RU": [
+          "3011234567",
+          "8001234567",
+          "8081234567",
+          "8091234567",
+          "9123456789"
+        ]
+      },
+      "metadata_groupings": [
+        {
+          "pattern": "([0-9]{3})([0-9]{2})([0-9]{2})",
+          "format": "$1-$2-$3"
+        },
+        {
+          "pattern": "([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})",
+          "format": "$1 $2 $3 $4"
+        },
+        {
+          "pattern": "([0-9]{5})([0-9])([0-9]{2})([0-9]{2})",
+          "format": "$1 $2 $3 $4"
+        },
+        {
+          "pattern": "([0-9]{3})([0-9]{3})([0-9]{4})",
+          "format": "$1 $2 $3"
+        },
+        {
+          "pattern": "([0-9]{3})([0-9]{3})([0-9]{2})([0-9]{2})",
+          "format": "$1 $2-$3-$4"
+        },
+        {
+          "pattern": "([0-9]{4})([0-9]{4})([0-9]{3})([0-9]{3})",
+          "format": "$1 $2 $3 $4"
+        }
+      ],
+      "name_gold": {
+        "correct": 35,
+        "total": 41,
+        "development_not_holdout": true,
+        "cases": [
+          {
+            "text": "\u0410\u043d\u0434\u0440\u0435\u0439",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0410\u043d\u0434\u0440\u0435\u0439",
+            "codes": []
+          },
+          {
+            "text": "\u0412\u043e\u043b\u043a\u043e\u0432",
+            "label": "LAST_NAME",
+            "classified": "LAST_NAME",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+            "label": "PATRONYMIC",
+            "classified": "PATRONYMIC",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u0418\u0440\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u0418\u0440\u0438\u043d\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u0412\u043e\u043b\u043a\u043e\u0432 \u0415\u0433\u043e\u0440",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u0415\u0433\u043e\u0440",
+            "codes": []
+          },
+          {
+            "text": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440",
+            "codes": []
+          },
+          {
+            "text": "\u041b\u044e\u0431\u043e\u0432\u044c",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041b\u044e\u0431\u043e\u0432\u044c",
+            "codes": []
+          },
+          {
+            "text": "\u0420\u043e\u043c\u0430\u043d",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0420\u043e\u043c\u0430\u043d",
+            "codes": []
+          },
+          {
+            "text": "\u041a\u0438\u043c",
+            "label": "AMBIGUOUS",
+            "note": "\u041b\u0438\u0447\u043d\u043e\u0435 \u0438\u043c\u044f \u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0421\u0430\u0448\u0430",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0421\u0430\u0448\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u0410\u043b\u0438",
+            "label": "AMBIGUOUS",
+            "note": "\u041b\u0438\u0447\u043d\u043e\u0435 \u0438\u043c\u044f \u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0416\u0430\u043d-\u041f\u043e\u043b\u044c",
+            "codes": []
+          },
+          {
+            "text": "\u0412\u043b\u0430\u0434",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0412\u043b\u0430\u0434",
+            "codes": []
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u0417\u0430\u0439\u0446\u0435\u0432 \u041a\u0438\u0440\u0438\u043b\u043b",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0417\u0430\u0439\u0446\u0435\u0432",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u041a. \u0411\u0435\u043b\u043e\u0443\u0441\u043e\u0432",
+            "label": "UNKNOWN",
+            "note": "\u041f\u043e\u043b\u043d\u043e\u0435 \u043b\u0438\u0447\u043d\u043e\u0435 \u0438\u043c\u044f \u043d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u043e; \u043d\u0435 \u0440\u0430\u0441\u043a\u0440\u044b\u0432\u0430\u0442\u044c \u0438\u043d\u0438\u0446\u0438\u0430\u043b",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_INCOMPLETE"
+            ]
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0417\u0430\u0439\u0446\u0435\u0432 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
+            "label": "FULL_NAME",
+            "classified": "FULL_NAME",
+            "canonical": "\u041a\u0438\u0440\u0438\u043b\u043b",
+            "codes": []
+          },
+          {
+            "text": "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0410\u043d\u043d\u0430-\u041c\u0430\u0440\u0438\u044f",
+            "codes": []
+          },
+          {
+            "text": "\u041b\u0438",
+            "label": "AMBIGUOUS",
+            "note": "\u0418\u043c\u044f \u0438\u043b\u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0418\u0432\u0430\u043d",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u0418\u0432\u0430\u043d",
+            "codes": []
+          },
+          {
+            "text": "\u0418\u0432\u0430\u043d\u043e\u0432",
+            "label": "LAST_NAME",
+            "classified": "LAST_NAME",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447",
+            "label": "AMBIGUOUS",
+            "note": "\u041e\u0442\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u043b\u0438 \u0444\u0430\u043c\u0438\u043b\u0438\u044f",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0417\u0430\u0439\u0446\u0435\u0432",
+            "label": "LAST_NAME",
+            "classified": "LAST_NAME",
+            "canonical": null,
+            "codes": [
+              "NAME_NOT_FIRST"
+            ]
+          },
+          {
+            "text": "\u041a\u0438\u0440\u0438\u043b\u043b \u0418\u0440\u0438\u043d\u0430",
+            "label": "AMBIGUOUS",
+            "note": "\u0414\u0432\u0430 \u043b\u0438\u0447\u043d\u044b\u0445 \u0438\u043c\u0435\u043d\u0438; \u0440\u043e\u043b\u044c \u043a\u0430\u0436\u0434\u043e\u0433\u043e \u0431\u0435\u0437 \u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0430 \u043d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0430",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u0414\u0430\u0437\u0434\u0440\u0430\u043f\u0435\u0440\u043c\u0430",
+            "label": "FIRST_NAME",
+            "note": "\u0420\u0435\u0434\u043a\u043e\u0435 \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0438\u043c\u044f",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041e\u043a\u0442\u044f\u0431\u0440\u0438\u043d\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u042d\u043b\u044c\u043c\u0438\u0440\u0430",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u042d\u043b\u044c\u043c\u0438\u0440\u0430",
+            "codes": []
+          },
+          {
+            "text": "\u041c\u0443\u0445\u0430\u043c\u043c\u0430\u0434",
+            "label": "FIRST_NAME",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u041d\u0433\u0443\u0435\u043d",
+            "label": "AMBIGUOUS",
+            "note": "\u0427\u0430\u0441\u0442\u043e \u0444\u0430\u043c\u0438\u043b\u0438\u044f; \u043f\u043e \u043e\u0434\u043d\u043e\u043c\u0443 \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044e \u043d\u0435\u043b\u044c\u0437\u044f \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0440\u043e\u043b\u044c",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "Jean-Luc",
+            "label": "FIRST_NAME",
+            "note": "\u041d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043b\u0430\u0442\u0438\u043d\u0438\u0446\u0435\u0439; \u0432 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u043c \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_LATIN_SCRIPT"
+            ]
+          },
+          {
+            "text": "\u00c9lodie",
+            "label": "FIRST_NAME",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_LATIN_SCRIPT"
+            ]
+          },
+          {
+            "text": "\u674e",
+            "label": "AMBIGUOUS",
+            "note": "\u041e\u0434\u0438\u043d \u0438\u0435\u0440\u043e\u0433\u043b\u0438\u0444 \u043d\u0435 \u0443\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u0435\u0442 \u0440\u043e\u043b\u044c",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041c\u0430\u0440\u0438\u044f",
+            "label": "FIRST_NAME",
+            "classified": "FIRST_NAME",
+            "canonical": "\u041c\u0430\u0440\u0438\u044f",
+            "codes": []
+          },
+          {
+            "text": "\u041e\u041e\u041e \u0420\u043e\u043c\u0430\u0448\u043a\u0430",
+            "label": "UNKNOWN",
+            "classified": "AMBIGUOUS",
+            "canonical": null,
+            "codes": [
+              "NAME_AMBIGUOUS"
+            ]
+          },
+          {
+            "text": "\u043d\u0435 \u0437\u043d\u0430\u044e",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "89174005219",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_INVALID"
+            ]
+          },
+          {
+            "text": "\u0418\u0432\u0430\u043d123",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_INVALID"
+            ]
+          },
+          {
+            "text": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041a\u043b\u0438\u0435\u043d\u0442 \u041a\u0438\u0440\u0438\u043b\u043b",
+            "label": "UNKNOWN",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          },
+          {
+            "text": "\u041a\u0432\u0430\u0437\u0438\u0431\u0443\u0431\u043b\u0438\u043a",
+            "label": "UNKNOWN",
+            "note": "\u0421\u0438\u043d\u0442\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0441\u043b\u043e\u0432\u043e, \u043d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u043e\u0441\u0442\u044c \u043d\u0435 \u0434\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0438\u043c\u0435\u043d\u0438",
+            "classified": "UNKNOWN",
+            "canonical": null,
+            "codes": [
+              "NAME_UNKNOWN"
+            ]
+          }
+        ]
+      },
+      "pairwise": {
+        "rows": 11,
+        "covered_pairs": 67,
+        "required_pairs": 67,
+        "limitation": "Rich/shared A2 is written in NFC; NFD survives in the duplicate A3."
+      }
+    },
+    "generated_calls": {
+      "metadata-regex-groupings": 1800,
+      "unicode-phone-combinations": 300
+    },
+    "generated_unique": {
+      "metadata-regex-groupings": 1800,
+      "unicode-phone-combinations": 300
+    },
+    "resource_lock_sha256": "c7d544fbf5881bb26a14d70471a282f1dd277f4678aa37731884b9a3a18b5b04",
+    "resources": [
+      {
+        "file": "UnicodeData.txt",
+        "version": "16.0.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/Public/16.0.0/ucd/UnicodeData.txt",
+        "sha256": "ff58e5823bd095166564a006e47d111130813dcf8bf234ef79fa51a870edb48f",
+        "bytes": 2175362
+      },
+      {
+        "file": "NormalizationTest.txt",
+        "version": "16.0.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/Public/16.0.0/ucd/NormalizationTest.txt",
+        "sha256": "d811971453e7075e1ad56fb1b301eece5aa80757b81f6156e74a1bfb3ae5ceb1",
+        "bytes": 2798671
+      },
+      {
+        "file": "confusables.txt",
+        "version": "16.0.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/Public/security/16.0.0/confusables.txt",
+        "sha256": "95bd0aad6dced5ebc63436f459c06ab21a8d107cd842fb57f5c3a1e91bca8611",
+        "bytes": 722509
+      },
+      {
+        "file": "unicode-LICENSE.txt",
+        "version": "Unicode-3.0",
+        "license": "Unicode-3.0",
+        "url": "https://www.unicode.org/license.txt",
+        "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+        "bytes": 1995
+      },
+      {
+        "file": "cldr-ru.json",
+        "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+        "license": "Unicode-3.0",
+        "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/cldr-json/cldr-dates-full/main/ru/ca-gregorian.json",
+        "sha256": "c2735c56482c92ca7a6bcb2c08e66421e405d02abe0074ca52a3b5ccd10fc916",
+        "bytes": 19021
+      },
+      {
+        "file": "cldr-en.json",
+        "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+        "license": "Unicode-3.0",
+        "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/cldr-json/cldr-dates-full/main/en/ca-gregorian.json",
+        "sha256": "0d0eaf3fa57a60e247de08636fae9071349415b16bd910e18cabaa081d96ab12",
+        "bytes": 18730
+      },
+      {
+        "file": "cldr-LICENSE.txt",
+        "version": "16f6b8578ba5fe98959034706f337674f816fc3f",
+        "license": "Unicode-3.0",
+        "url": "https://raw.githubusercontent.com/unicode-org/cldr-json/16f6b8578ba5fe98959034706f337674f816fc3f/LICENSE",
+        "sha256": "220ba0e1c43b99530d2d5bdb892a99dca0989414f51ab695ecd90163eaa1ec3b",
+        "bytes": 2033
+      },
+      {
+        "file": "PhoneNumberMetadata.xml",
+        "version": "b68df884d42d5e9860fc1956a99ce6afae361100",
+        "license": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/google/libphonenumber/b68df884d42d5e9860fc1956a99ce6afae361100/resources/PhoneNumberMetadata.xml",
+        "sha256": "9d3b07b53c7e8a437ddc316249620b51d4090987026f9e8ffb9743aab4e4d5a6",
+        "bytes": 979442
+      },
+      {
+        "file": "phone-LICENSE.txt",
+        "version": "b68df884d42d5e9860fc1956a99ce6afae361100",
+        "license": "Apache-2.0",
+        "url": "https://raw.githubusercontent.com/google/libphonenumber/b68df884d42d5e9860fc1956a99ce6afae361100/LICENSE",
+        "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+        "bytes": 10173
+      }
+    ],
+    "source_hashes": {
+      "normalizer/__init__.py": "53acbcbbb0a6e31291534da9d7b2ebc3c4938e02abba458f545d231f698b7cc3",
+      "normalizer/dates.py": "12e2b11660fdd1cd45eb482be2339dacbfd2b4a91c567f2ea91c0947305b8273",
+      "normalizer/deduplicate.py": "9ee91bcf82b02e9306f1f3dd068dd5a325a239b3d2b0db8225a4a5b3e815e11a",
+      "normalizer/files.py": "6aa9e7d2a3df058a9a6cb03b15202e513baff61290c00fa6f100b15fe5c82d92",
+      "normalizer/invariants.py": "930ab37bec147d627d64dc5b887213a8225b6ca8581e45bf68b9547431d79a68",
+      "normalizer/models.py": "7d503d94977cd20e2cdf39a49da4102b732107f21a6f229f3dd46364a4651a9a",
+      "normalizer/name_roles.py": "78416c7efdec4af53372378dd4386464c5977f83f0ecadcda9e2d0a4dbbb5cc4",
+      "normalizer/names.py": "1b868dc3bc155bfe8ad0d4865df35edfe3e6e4ea8def3ca7afbc3377c1e1e702",
+      "normalizer/phone.py": "3645a37b79ced9b4d1539c8b8e8c2eddecf76f46b52a1de1e9a35267e6ff484c",
+      "normalizer/pipeline.py": "217de31499c9f381aa58a040bfe9eb02ddff88008de47206c6aa9da1183c54ee",
+      "normalizer/preservation.py": "926a77757c2ebe2604dd6d123535d7dc47d68a49813ab0f4dc4d04ec4378690a",
+      "normalizer/reader.py": "9a82064f26ce9585e3b4c67ea5b314fab1384e5064e2ba57e463660780c879df",
+      "normalizer/report.py": "40dbf05111ffe8a7c4e9a46871cfb8d57277221506b040e1e54258880482545c",
+      "normalizer/data/name_lexicon.json.gz": "1cc36bfe7aef97f53b81a892a32eb089a7f2cb4dbcfdba0b2e37975a19b4d8cf",
+      "normalizer/data/manifest.json": "76bc516516091026048a31bf6843b7e66947fe8c742b13d24c923809db16294c",
+      "docs/SPECIFICATION.md": "6ecedb9af69c6438ba6daaddd76841921f42df2febdd8c86be06ce434d5c5db2",
+      "research/run_resource_qa.py": "d5b298dc12f235cd3b3c77dc78366e9fd5694aaec5b946c0f2fc238a98ae66a8",
+      "fixtures/resource_cases.py": "73cb07483dbade868afdd7e0187fd29c5e8a47742b4b8d641f86f0e54e3bf189",
+      "research/resource_sources.py": "3267ba1d6fb75ae22f8669971a966521b8de7bc83c7ad490d5d5bb06e7ebebff",
+      "research/name_gold.json": "6f7cecb8bdfdd5c6e243141595a20f0bab55b0c3eb5cc975c4444bb1d3c9721a",
+      "research/local-qa-requirements.txt": "b2ee8b249b3fbeabb3401fad5440e7f02215a80d76de4b1e99ee777c409e8bea",
+      "tools/fetch_qa_resources.py": "ed25ef2dfd849c32c89b5d8abc5c4083a85a843b6e703e7ef3573521e0cd4087",
+      "tools/verify_artifacts.py": "a9d9cedf9e7b8ac3c7966a6f82f8e57be6510913cf599fb9924c421bc1be11db",
+      "tests/test_resource_regressions.py": "609c96c16a167e6bbac1d467b7a49ba39dc5a2f7cee96f05d84958d524068be2",
+      "tests/test_resource_dependencies.py": "1fff18aa547d72abfcfcaeec0ef0ffbfe5a27355fe485d93e7719cabe8a26c5a",
+      "fixtures/scenarios.py": "95e967c0c92c7e5bbff24e0d6966fa388f0f0e620b511dcacfe1531aec45d7d0",
+      "tools/generate_data.py": "8405ba07626ad0eddebd3db7e2dc3ad434585f0e8e4292fb55878ae036002554",
+      "research/resource_sources.lock.json": "c7d544fbf5881bb26a14d70471a282f1dd277f4678aa37731884b9a3a18b5b04"
+    },
+    "artifacts": [
+      {
+        "file": "inline.xlsx",
+        "sha256": "3f141d897e627a789ef36b022307c1e9197eea821406dc0f1a5b2a8f158e96cd",
+        "bytes": 5310
+      },
+      {
+        "file": "inline-result.xlsx",
+        "sha256": "e0ec9d209df53efea3c3300abe87993a285298a4e69eaf169c4b3644e8e47b0c",
+        "bytes": 17653
+      },
+      {
+        "file": "rich.xlsx",
+        "sha256": "fed5b9ff68211ed367615a1ba15bdca2cd81a16b9227e0cceec4842291217009",
+        "bytes": 5344
+      },
+      {
+        "file": "rich-result.xlsx",
+        "sha256": "fd58c4f73945233248f5c9ba64e8408962781b49ac5c779143a97c26f8fae17e",
+        "bytes": 17698
+      },
+      {
+        "file": "shared.xlsx",
+        "sha256": "880d787cd2d89371d30acfb29f734920a48c7e57098811d93a55da2eb581b680",
+        "bytes": 5625
+      },
+      {
+        "file": "shared-result.xlsx",
+        "sha256": "6b2797802872ff1af227bd562d81b693370accc5de0fcc6f6d18336302525e19",
+        "bytes": 17925
+      },
+      {
+        "file": "utf16.xlsx",
+        "sha256": "c7a86d1a66838d7ffccf9ec04c8c02ce089f1b96383fd172bb197a012d01f8f0",
+        "bytes": 5454
+      },
+      {
+        "file": "utf16-result.xlsx",
+        "sha256": "ab7098f49bf5162ad9853a6aeb239f25552763877d6b326752831b488c4b8095",
+        "bytes": 17799
+      },
+      {
+        "file": "utf8-bom.xlsx",
+        "sha256": "bb641098d3925a7ae30bf343cd4d05070d390d99f098e2430288a68daba79e74",
+        "bytes": 5326
+      },
+      {
+        "file": "utf8-bom-result.xlsx",
+        "sha256": "4a4a7612095a10e20c2c50f5998934a1b8495fd106487c6291587fd1b6a5cdd1",
+        "bytes": 17659
+      },
+      {
+        "file": "false-dimension.xlsx",
+        "sha256": "58d0679be5f6222e8cafc01cae84785629a4a353c88624f4dc396bfe70cd110a",
+        "bytes": 5321
+      },
+      {
+        "file": "false-dimension-result.xlsx",
+        "sha256": "e80929430e85965c5997b0aff471d1c67c7d9b19ee60a9041e9e7b1a585d6f42",
+        "bytes": 17694
+      },
+      {
+        "file": "bad-utf8.xlsx",
+        "sha256": "73e42af298cb8e0d2ab802714b4139b622098ed2d0273c9f245a35fc46bec009",
+        "bytes": 5327
+      },
+      {
+        "file": "wrong-encoding.xlsx",
+        "sha256": "d2a20c85b0ce9cdc2a04e34fc20f172cbb3d5b63ddb96f48e91dbadcc83dfca4",
+        "bytes": 5350
+      },
+      {
+        "file": "bad-entity.xlsx",
+        "sha256": "09406c29affbaa2567a54fa4e0359946f9fcfb40d8079740e8cf1be86f68e22c",
+        "bytes": 5337
+      },
+      {
+        "file": "truncated.xlsx",
+        "sha256": "8d63c76111a769ff125a1c01ca85d1d0bcc37a987b77453a3dd09ccc786135f8",
+        "bytes": 5316
+      },
+      {
+        "file": "missing-sheet.xlsx",
+        "sha256": "81052b94f8110945b60dc9dbf9425066e3eaab78351e67245937782c53b13ae5",
+        "bytes": 4448
+      },
+      {
+        "file": "duplicate-cell.xlsx",
+        "sha256": "f787700ef55d7232108b0b048b4993c19d8c9b2b3a87e4d4265de7ecb2931ff3",
+        "bytes": 5340
+      },
+      {
+        "file": "invalid-shared-index.xlsx",
+        "sha256": "d3541d0d31f262dd29cdeeeca7ef636c1e1a2e138d78b4524702595823d4924d",
+        "bytes": 5343
+      },
+      {
+        "file": "dtd.xlsx",
+        "sha256": "a7f52c1730a4e5a6dad079157fc9ecf5e05e0cecf127a0259121aae7370af373",
+        "bytes": 5356
+      },
+      {
+        "file": "encrypted-local.xlsx",
+        "sha256": "574840f74c417edb0b583aeddbde51b41fe95ab1be474e0f05fc1f7b6bff428a",
+        "bytes": 5322
+      },
+      {
+        "file": "encrypted-both.xlsx",
+        "sha256": "ccb6e341de543d782a11a9ffe3780112576d742c19fc8885c67035b62e3a2676",
+        "bytes": 5322
+      },
+      {
+        "file": "uncompressed-limit.xlsx",
+        "sha256": "3f141d897e627a789ef36b022307c1e9197eea821406dc0f1a5b2a8f158e96cd",
+        "bytes": 5310
+      },
+      {
+        "file": "pair-0.xlsx",
+        "sha256": "c5be910d232d1cacdca0d5607fdb101a5e6d271c93665d66e8599d08e2997956",
+        "bytes": 5280
+      },
+      {
+        "file": "pair-0-result.xlsx",
+        "sha256": "335ed75ac052c9b54568896ce0ec3e7bb80c496b384e197e7e6cea5ec14c7bbb",
+        "bytes": 17577
+      },
+      {
+        "file": "pair-1.xlsx",
+        "sha256": "8e477becefdb1892b5b5d3980a8310b7916a27f038941994c2711b6b7e9a6bcb",
+        "bytes": 5331
+      },
+      {
+        "file": "pair-1-result.xlsx",
+        "sha256": "bdb8df51c2328f816726ea6dc0a3f10149cf2069e2c30b6427780a27d89a29d8",
+        "bytes": 17937
+      },
+      {
+        "file": "pair-2.xlsx",
+        "sha256": "9e7acfb78ec0913645aad6d3a4aa3c1d23f4c07891be4dd8ad8375206d05e412",
+        "bytes": 5342
+      },
+      {
+        "file": "pair-2-result.xlsx",
+        "sha256": "3a29d3fa7f9e12adc04d285fa04d2d9b5443b1d259586057e251ab7fd99366f8",
+        "bytes": 17940
+      },
+      {
+        "file": "pair-3.xlsx",
+        "sha256": "99f89dfa594e652722bb13cf72f21780044b677f817074a6d1190da3e894e778",
+        "bytes": 5630
+      },
+      {
+        "file": "pair-3-result.xlsx",
+        "sha256": "9a6a50cba828cd71e610577b2081316991ee73abe6408fee33286dcca85ddbcd",
+        "bytes": 18048
+      },
+      {
+        "file": "pair-4.xlsx",
+        "sha256": "645109e58f7505ccc8b8dd953579bfce81fb7424701bcb7ff224ce98e49269f4",
+        "bytes": 5627
+      },
+      {
+        "file": "pair-4-result.xlsx",
+        "sha256": "1cd802a2b3409b1aae4c5950a96fa02ac96adf0896a379ca9a1cd94a87f62d47",
+        "bytes": 18089
+      },
+      {
+        "file": "pair-5.xlsx",
+        "sha256": "5e88af09f9f05422d13684f69ed659a5a43edd9c7233d7f9d3b430d1b510dc17",
+        "bytes": 5613
+      },
+      {
+        "file": "pair-5-result.xlsx",
+        "sha256": "d79126f1687c77746691b30be14f78ed03c48573b903c2db6fe1dc6c1b6163bf",
+        "bytes": 17969
+      },
+      {
+        "file": "pair-6.xlsx",
+        "sha256": "fc9d7ef4ad1d9e849bc691f8e2544cd07d76e0a05f34502ef105ab3cb663cc6b",
+        "bytes": 5324
+      },
+      {
+        "file": "pair-6-result.xlsx",
+        "sha256": "389558661c263f6f68dbdbdfc84ebc618db7c4fd02fb4751958bf41a7c66316f",
+        "bytes": 17697
+      },
+      {
+        "file": "pair-7.xlsx",
+        "sha256": "35d885b9c31f932f89db61ea2084a00790f3be3d8132cee7bd19998e71866493",
+        "bytes": 5349
+      },
+      {
+        "file": "pair-7-result.xlsx",
+        "sha256": "fd613966a4c0c0e40004ec14ee1853dcc74fcd14aa99c28f7a436d8ddfac2bd5",
+        "bytes": 17790
+      },
+      {
+        "file": "pair-8.xlsx",
+        "sha256": "f7ff55a7f9b08a5a5ee92b4bb1f6bf212bb91b017081a506c85f85c4dc486c87",
+        "bytes": 5302
+      },
+      {
+        "file": "pair-8-result.xlsx",
+        "sha256": "fdd5b2eaa9fa460038fc1a27d8547a260f29b4d3af4038cef5948c571fc548ed",
+        "bytes": 17733
+      },
+      {
+        "file": "pair-9.xlsx",
+        "sha256": "a780c573d764fa5411f74cff840e33e40306477f3bff30bf3fb4ce8ad0243fdf",
+        "bytes": 5322
+      },
+      {
+        "file": "pair-9-result.xlsx",
+        "sha256": "377748e695f13fa3bab1d16b7dd918287ee0d31f0217cb12acd6484101cebf3b",
+        "bytes": 17663
+      },
+      {
+        "file": "pair-10.xlsx",
+        "sha256": "f01f7adc5b9883a163d8fe8a8401ad0a0a8722aca79ec70176f6d4a69881bb17",
+        "bytes": 5289
+      },
+      {
+        "file": "pair-10-result.xlsx",
+        "sha256": "600d4c2677be590f266845b6bd29e1b391f3c486662c805ff6fac18119fc2fb7",
+        "bytes": 17611
+      }
+    ]
+  },
+  "prior_publication_defects": {
+    "passed": false,
+    "faults": [
+      {
+        "id": "metadata",
+        "detected": false,
+        "output_published": true,
+        "reason": "published corrupted stage"
+      },
+      {
+        "id": "change-old",
+        "detected": false,
+        "output_published": true,
+        "reason": "published corrupted stage"
+      },
+      {
+        "id": "ROW-details",
+        "detected": false,
+        "output_published": true,
+        "reason": "published corrupted stage"
+      },
+      {
+        "id": "duplicate-link",
+        "detected": false,
+        "output_published": true,
+        "reason": "published corrupted stage"
+      },
+      {
+        "id": "problem-raw",
+        "detected": false,
+        "output_published": true,
+        "reason": "published corrupted stage"
+      }
+    ],
+    "detected": 0,
+    "total": 5
+  },
+  "boolean_before_fix": {
+    "passed": false,
+    "faults": [
+      {
+        "id": "metadata",
+        "detected": true,
+        "output_published": false,
+        "reason": "INVARIANT_FAILED: \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u044b \u0438\u0441\u0445\u043e\u0434\u043d\u044b\u0435 \u043c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u0432 \u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u0435."
+      },
+      {
+        "id": "change-old",
+        "detected": true,
+        "output_published": false,
+        "reason": "INVARIANT_FAILED: \u041d\u0435\u0432\u0435\u0440\u043d\u043e\u0435 \u0438\u0441\u0445\u043e\u0434\u043d\u043e\u0435/\u0438\u0442\u043e\u0433\u043e\u0432\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 FIELD_CHANGE."
+      },
+      {
+        "id": "ROW-details",
+        "detected": true,
+        "output_published": false,
+        "reason": "INVARIANT_FAILED: \u041d\u0435\u0432\u0435\u0440\u043d\u044b\u0435 \u0434\u0435\u0442\u0430\u043b\u0438 ROW."
+      },
+      {
+        "id": "duplicate-link",
+        "detected": true,
+        "output_published": false,
+        "reason": "INVARIANT_FAILED: \u041f\u043e\u0432\u0442\u043e\u0440\u044f\u044e\u0449\u0430\u044f\u0441\u044f \u0441\u0432\u044f\u0437\u044c \u0434\u0443\u0431\u043b\u044f."
+      },
+      {
+        "id": "problem-raw",
+        "detected": true,
+        "output_published": false,
+        "reason": "INVARIANT_FAILED: \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u044b \u0438\u0441\u0445\u043e\u0434\u043d\u044b\u0435/\u043e\u0431\u0440\u0430\u0431\u043e\u0442\u0430\u043d\u043d\u044b\u0435 \u043f\u043e\u043b\u044f \u0432 \u041f\u0440\u043e\u0431\u043b\u0435\u043c\u0430\u0445."
+      },
+      {
+        "id": "raw-bool-type",
+        "detected": false,
+        "output_published": true,
+        "reason": "published corrupted stage"
+      }
+    ],
+    "detected": 5,
+    "total": 6
+  },
+  "evidence_tool_sha256": "9cea83764e8edcb4bc54d6776f3ad93e81902d02c92219c21abd8564c1002918",
+  "artifact_sha256": {
+    "generated/formal-1.6-release/critical-conditions.json": "337f19b909e71d1507906e35253257e6f9a588affe5fe28a85478929659a0ce6",
+    "generated/formal-1.6-release/exhaustive.json": "e759019a1ac674a19f495a0d2c879806054ffdbcc53da278a1b6abd78c75486f",
+    "generated/formal-1.6-release/fields.json": "30b9e0c260dc752192e1bca58eaf9863353f2056dcb513c5b4b299dcd6a678e8",
+    "generated/formal-1.6-release/mutations.json": "10afdf7ad5c3dccbbe17306913c614545e9dffabf525b84a2c739265cda26dc0",
+    "generated/formal-1.6-release/names.json": "2222eef799d0100480dc9a9e09d694f259e1b56dab8719e07e7288430b3e7b51",
+    "generated/formal-1.6-release/preservation.json": "c106db224fd73463796029c3b58fd5e0e5898b76c820ae91c1ae677e76d0e3fd",
+    "generated/formal-1.6-release/publication-faults.json": "e8561123ada600c5f5f8155b4693e2bbc726099e7fd828033395b00d8ccc4e22",
+    "generated/formal-1.6-release/results.json": "c577d71f5a6d9104938cdebe82ce991bba3c4b86e10ddd5df28d436686bf0b13",
+    "generated/formal-1.6-release/stateful.json": "5b11e1dd4ae453bb34ead227c43cacefd35f3e1c35579282d78003cdebec8d16",
+    "generated/formal-1.6-release/symbolic-deliberately_last_index.log": "2a44008e5d8bdcbf95d1097987ff1e87b9144594cd2eabdeb6eea1fa04297baa",
+    "generated/formal-1.6-release/symbolic-first_index.log": "d2ddf86b48ad54ead3921884eeaf99fcb229e30a7a5baf0b379b3cba8c392d15",
+    "generated/formal-1.6-release/symbolic.json": "3567c77275ca1d2ba3c86286da72a4637c33d02b9053c40cb2fb679bdb635664",
+    "generated/formal-1.6-release/mutants/corrupt-change-old.xlsx": "8168ae5df05b7d2b0c11793a6a29af4ffb0cf667fb462ef8864fb70b499e8f4f",
+    "generated/formal-1.6-release/mutants/corrupt-chunk.xlsx": "f2402d005e7cdc902fd165a03d7af5ee6a8dee34917dfaeec6d7b6c3a79aaea0",
+    "generated/formal-1.6-release/mutants/corrupt-data.xlsx": "3141b4406125cffeb2ff8cb595e5c85ea04213072b5864a754f90c75287258e1",
+    "generated/formal-1.6-release/mutants/corrupt-metadata.xlsx": "9ce129b86758ef88439c47aebed02a4a7fd7a2806598aad840bbee91b4a3ea68",
+    "generated/formal-1.6-release/mutants/drop-ROW.xlsx": "5b82e3124d541dc24afceb22150dc8deaace92666c3d13687f5577967b2f204e",
+    "generated/formal-1.6-release/mutants/duplicate-row-id.xlsx": "ba6e0d9e98aea19654d9368ab1fbed9000466109eb16f83199da9608e2c362d4",
+    "generated/formal-1.6-release/mutants/overwrite-original.xlsx": "459888a9f74f8e5bea2ee8dbff740742537f7f4a9cedca746394ad948a30491a",
+    "generated/formal-1.6-release/publication-faults/input.xlsx": "e1aad4adfb2973e278577a77f1fdb38542c7d3e42ed694cf6bfd0c53d8e084bf",
+    "generated/formal-1.6-release/xlsx/abstract-48-input.xlsx": "983b84442337aa02462c951d4d656459d7bb6235e74ab5db1e2efa6f079f9673",
+    "generated/formal-1.6-release/xlsx/abstract-48-output.xlsx": "1a49145f88d31e5508a47083761cfcfdaa9c8aa1e1492ff098e3340de9f74ce7",
+    "generated/formal-1.6-release/xlsx/abstract-48.log": "4face04e38975c062a3d5d9e3e20f28a410fdfc9e9533d1ba4288187744b3f99",
+    "generated/formal-1.6-release/xlsx/bad-dimension-48-input.xlsx": "8f1fc61169647b35d49122e08bd1b75cd426ffe172e9add6f6463d45595ca37d",
+    "generated/formal-1.6-release/xlsx/bad-dimension-48-output.xlsx": "041d09d919aaeb3600870161d8f52f67010c805dd01a3ba5f6641b9c45c20d79",
+    "generated/formal-1.6-release/xlsx/bad-dimension-48.log": "7c01fe83bb235b83b653f0a0ac7082ffa6296bfecf502d0d847011b51a51923c",
+    "generated/formal-1.6-release/xlsx/epoch-1904-input.xlsx": "5a1c4dfcf9cdef2a5dbd0ed45397b227bcb96155f97a3b48feb513722552d75d",
+    "generated/formal-1.6-release/xlsx/epoch-1904-output.xlsx": "e95d407c5005833bd89ae1b2da235cc71ec86c2bd33b6fa5f47fd5de083dc654",
+    "generated/formal-1.6-release/xlsx/epoch-1904.log": "036b4c7ea8d8b76f65bfccc7189ed15ece7baeb40fc315fc3bd5d9a666e0f15c",
+    "generated/formal-1.6-release/xlsx/metadata-chunks-input.xlsx": "bf35b5becd7df1c8eb0f512738b934f730034b2c390d7b49a56b411152cb10b6",
+    "generated/formal-1.6-release/xlsx/metadata-chunks-output.xlsx": "75df61e5c873d5ec57ca638f26b600f2421809717855eb397731f51c69c98367",
+    "generated/formal-1.6-release/xlsx/metadata-chunks.log": "5c98c90546f039dcaeb00176fabb2ba1cfb27b4221f3d47122b9fa7f4c18f1f9",
+    "generated/formal-1.6-release/xlsx/metadata-edge-input.xlsx": "6494b8a6573569e4bb02f40c443f6b910750b2704d9aad7c37625d9f25b6438b",
+    "generated/formal-1.6-release/xlsx/metadata-edge-output.xlsx": "171f7f8037a912edf3ebc28a5b68fb55f7e318dd705aaa9676a7265428da904f",
+    "generated/formal-1.6-release/xlsx/metadata-edge.log": "c897f15ef72f81a71ed4c78fb2f494df0d867fd88e6014fe88e8af865da654bd",
+    "generated/formal-1.6-release/xlsx/nonfinite-input.xlsx": "798ff1a3b4002c738406782250b02261fd8c9c64396ba7b4dc885dab36bca579",
+    "generated/formal-1.6-release/xlsx/nonfinite-output.xlsx": "fc4d60aeab24b2ec311cdff90e29d398cf6a1384fa3519f94460faf10f961ef9",
+    "generated/formal-1.6-release/xlsx/nonfinite.log": "147c5a84449d124c0105e4931671e427d7bca8ee71212c55e1cd58114f3af8fb",
+    "generated/formal-1.6-release/xlsx/user-5-input.xlsx": "4b7b0e77b05c4240e4122862ce8f04bb8bed0c1c0f696ed698de17ed84c58218",
+    "generated/formal-1.6-release/xlsx/user-5-output.xlsx": "55f134aebb21cc46b716c82881b65fdc38f583b71f31930dc2029ce23926ed83",
+    "generated/formal-1.6-release/xlsx/user-5.log": "aac2cbf1320d8b661f589a86da1a5267b2fab9b55daddc1f7bba1391a6565a34",
+    "generated/qa-1.6-final/combine.log": "771c6728bab81f7a1b7dad5e23efb59cfd32289c0a54f561633611814e88331c",
+    "generated/qa-1.6-final/coverage.ini": "8fe284f8d6e3e35bbb8cf4ef51d1547ccf75dec055d32305c08187d46c932483",
+    "generated/qa-1.6-final/coverage.json": "a7eabc12213a4d01c9f9a6bf795bee85564884d4c1e013aa2614eb714366b4cb",
+    "generated/qa-1.6-final/generated-statistics.json": "cdcffaee2204f602faa9b3248a198c1e18f40ce5488aaa1479c222d3131cfaad",
+    "generated/qa-1.6-final/generated-tests.json": "6ac08d57f48541005e09170da998b80a54dec6dce27d7110a870a9fcdf7ddac6",
+    "generated/qa-1.6-final/generated.log": "f5ed6138a80f9da3cb35b3190dc48068310731210ab2120e990b6fa3bb381f84",
+    "generated/qa-1.6-final/json.log": "a255f31e9826638e478a58d32800c5c78602268dacd12cd756f7ff3b1ad3bc41",
+    "generated/qa-1.6-final/p0-tests.json": "e6c314ff052dddf38fa84a127056abca08507600c274fb3b7012cd54a9bf1991",
+    "generated/qa-1.6-final/p0.log": "919fadd2e953b1c8c5b10350838fb7d5bda0a72090c510726006e1ea3e4bfdfd",
+    "generated/qa-1.6-final/results.json": "3d20d537daad6418eb2328ae487876ac5635d29cc76852d02240b2b053062c15",
+    "generated/resource-qa-1.6-release/bad-entity.log": "74009a6e39971b0a7904d5bf6a748950b23374d765d688b642b34fe573a2ba90",
+    "generated/resource-qa-1.6-release/bad-entity.xlsx": "09406c29affbaa2567a54fa4e0359946f9fcfb40d8079740e8cf1be86f68e22c",
+    "generated/resource-qa-1.6-release/bad-utf8.log": "74009a6e39971b0a7904d5bf6a748950b23374d765d688b642b34fe573a2ba90",
+    "generated/resource-qa-1.6-release/bad-utf8.xlsx": "73e42af298cb8e0d2ab802714b4139b622098ed2d0273c9f245a35fc46bec009",
+    "generated/resource-qa-1.6-release/dtd.log": "d639929001ba4bcee404a13c65c1e91440ed31b714797e89736cb4a36b2a291b",
+    "generated/resource-qa-1.6-release/dtd.xlsx": "a7f52c1730a4e5a6dad079157fc9ecf5e05e0cecf127a0259121aae7370af373",
+    "generated/resource-qa-1.6-release/duplicate-cell.log": "cb4933ae63dc325a322b7352688e392b7919e6cff9a9ee92d65b3882eb5c8c72",
+    "generated/resource-qa-1.6-release/duplicate-cell.xlsx": "f787700ef55d7232108b0b048b4993c19d8c9b2b3a87e4d4265de7ecb2931ff3",
+    "generated/resource-qa-1.6-release/encrypted-both.log": "5e9a6eca1f4b0452d8425546238fdae021d0f6e47b1e4d439d446bb5135216ec",
+    "generated/resource-qa-1.6-release/encrypted-both.xlsx": "ccb6e341de543d782a11a9ffe3780112576d742c19fc8885c67035b62e3a2676",
+    "generated/resource-qa-1.6-release/encrypted-local.log": "2833928070e72691c790b57560af325f611c038ff703eabb0cb0b74bafd0bbbb",
+    "generated/resource-qa-1.6-release/encrypted-local.xlsx": "574840f74c417edb0b583aeddbde51b41fe95ab1be474e0f05fc1f7b6bff428a",
+    "generated/resource-qa-1.6-release/false-dimension-result.xlsx": "e80929430e85965c5997b0aff471d1c67c7d9b19ee60a9041e9e7b1a585d6f42",
+    "generated/resource-qa-1.6-release/false-dimension.log": "a2df6476768ddf291db932809246bc7fc7eaec4141c79b51754833b6b2c6ce88",
+    "generated/resource-qa-1.6-release/false-dimension.xlsx": "58d0679be5f6222e8cafc01cae84785629a4a353c88624f4dc396bfe70cd110a",
+    "generated/resource-qa-1.6-release/inline-result.xlsx": "e0ec9d209df53efea3c3300abe87993a285298a4e69eaf169c4b3644e8e47b0c",
+    "generated/resource-qa-1.6-release/inline.log": "f65cdf46567a02ccb4e69dbb0d369ab5b8da6b5b95b5de7b5d0fa4883956bdb4",
+    "generated/resource-qa-1.6-release/inline.xlsx": "3f141d897e627a789ef36b022307c1e9197eea821406dc0f1a5b2a8f158e96cd",
+    "generated/resource-qa-1.6-release/invalid-shared-index.log": "83bebc275010d1439e393ea8ff7002872fb2d7791463865b3bb92e15b6fe084d",
+    "generated/resource-qa-1.6-release/invalid-shared-index.xlsx": "d3541d0d31f262dd29cdeeeca7ef636c1e1a2e138d78b4524702595823d4924d",
+    "generated/resource-qa-1.6-release/missing-sheet.log": "05c8149d9408b301d96a0cecf16117e61fb5e97387348b0473d3894c9811dac6",
+    "generated/resource-qa-1.6-release/missing-sheet.xlsx": "81052b94f8110945b60dc9dbf9425066e3eaab78351e67245937782c53b13ae5",
+    "generated/resource-qa-1.6-release/pair-0-result.xlsx": "335ed75ac052c9b54568896ce0ec3e7bb80c496b384e197e7e6cea5ec14c7bbb",
+    "generated/resource-qa-1.6-release/pair-0.log": "3736c54e45409c7fdaea22fad025363233905e2bd17573525a6bd282145a15f9",
+    "generated/resource-qa-1.6-release/pair-0.xlsx": "c5be910d232d1cacdca0d5607fdb101a5e6d271c93665d66e8599d08e2997956",
+    "generated/resource-qa-1.6-release/pair-1-result.xlsx": "bdb8df51c2328f816726ea6dc0a3f10149cf2069e2c30b6427780a27d89a29d8",
+    "generated/resource-qa-1.6-release/pair-1.log": "e2c124b5b43c2306619afcf3b712190ba705513d962535a64767fdbf2a5d876a",
+    "generated/resource-qa-1.6-release/pair-1.xlsx": "8e477becefdb1892b5b5d3980a8310b7916a27f038941994c2711b6b7e9a6bcb",
+    "generated/resource-qa-1.6-release/pair-10-result.xlsx": "600d4c2677be590f266845b6bd29e1b391f3c486662c805ff6fac18119fc2fb7",
+    "generated/resource-qa-1.6-release/pair-10.log": "5dc8adab424442589a3864c6622a2f2bbefd525e25bb8a19c9a784017ad58c3b",
+    "generated/resource-qa-1.6-release/pair-10.xlsx": "f01f7adc5b9883a163d8fe8a8401ad0a0a8722aca79ec70176f6d4a69881bb17",
+    "generated/resource-qa-1.6-release/pair-2-result.xlsx": "3a29d3fa7f9e12adc04d285fa04d2d9b5443b1d259586057e251ab7fd99366f8",
+    "generated/resource-qa-1.6-release/pair-2.log": "d8448147a0f636e43509561bf961c391c21b53dc90a1398c689b975630a2192b",
+    "generated/resource-qa-1.6-release/pair-2.xlsx": "9e7acfb78ec0913645aad6d3a4aa3c1d23f4c07891be4dd8ad8375206d05e412",
+    "generated/resource-qa-1.6-release/pair-3-result.xlsx": "9a6a50cba828cd71e610577b2081316991ee73abe6408fee33286dcca85ddbcd",
+    "generated/resource-qa-1.6-release/pair-3.log": "b001f9dc4ba511dd9fc6f745d824a262bb2e1d818d11889eb5068f70064e1d1b",
+    "generated/resource-qa-1.6-release/pair-3.xlsx": "99f89dfa594e652722bb13cf72f21780044b677f817074a6d1190da3e894e778",
+    "generated/resource-qa-1.6-release/pair-4-result.xlsx": "1cd802a2b3409b1aae4c5950a96fa02ac96adf0896a379ca9a1cd94a87f62d47",
+    "generated/resource-qa-1.6-release/pair-4.log": "accac4dade7641259d13a04425f08b2920c30b8c55d00a8c67a6aa28faf90375",
+    "generated/resource-qa-1.6-release/pair-4.xlsx": "645109e58f7505ccc8b8dd953579bfce81fb7424701bcb7ff224ce98e49269f4",
+    "generated/resource-qa-1.6-release/pair-5-result.xlsx": "d79126f1687c77746691b30be14f78ed03c48573b903c2db6fe1dc6c1b6163bf",
+    "generated/resource-qa-1.6-release/pair-5.log": "c605a689be278e01c34faebe6808d639a07063b2b9d077acebeb5f0b5c394746",
+    "generated/resource-qa-1.6-release/pair-5.xlsx": "5e88af09f9f05422d13684f69ed659a5a43edd9c7233d7f9d3b430d1b510dc17",
+    "generated/resource-qa-1.6-release/pair-6-result.xlsx": "389558661c263f6f68dbdbdfc84ebc618db7c4fd02fb4751958bf41a7c66316f",
+    "generated/resource-qa-1.6-release/pair-6.log": "c821645c72a5dc50d4dff45fdcb16b3a56da33b655ced0e30cf1644da0a7d0d8",
+    "generated/resource-qa-1.6-release/pair-6.xlsx": "fc9d7ef4ad1d9e849bc691f8e2544cd07d76e0a05f34502ef105ab3cb663cc6b",
+    "generated/resource-qa-1.6-release/pair-7-result.xlsx": "fd613966a4c0c0e40004ec14ee1853dcc74fcd14aa99c28f7a436d8ddfac2bd5",
+    "generated/resource-qa-1.6-release/pair-7.log": "518d7936b544de6e0a1c7eaabf95ea357b84b70973711044be117b3a12e5ba31",
+    "generated/resource-qa-1.6-release/pair-7.xlsx": "35d885b9c31f932f89db61ea2084a00790f3be3d8132cee7bd19998e71866493",
+    "generated/resource-qa-1.6-release/pair-8-result.xlsx": "fdd5b2eaa9fa460038fc1a27d8547a260f29b4d3af4038cef5948c571fc548ed",
+    "generated/resource-qa-1.6-release/pair-8.log": "462d8c3d2ef3b58ecc1c5b7038f586aea0b20d8d78d049c207cf0359825abdb0",
+    "generated/resource-qa-1.6-release/pair-8.xlsx": "f7ff55a7f9b08a5a5ee92b4bb1f6bf212bb91b017081a506c85f85c4dc486c87",
+    "generated/resource-qa-1.6-release/pair-9-result.xlsx": "377748e695f13fa3bab1d16b7dd918287ee0d31f0217cb12acd6484101cebf3b",
+    "generated/resource-qa-1.6-release/pair-9.log": "98e2d511a666dc28b563328e6b3a6a7f65a5bf4b4be1d2fe900dc31f922cd0b7",
+    "generated/resource-qa-1.6-release/pair-9.xlsx": "a780c573d764fa5411f74cff840e33e40306477f3bff30bf3fb4ce8ad0243fdf",
+    "generated/resource-qa-1.6-release/results.json": "77b576469dd0bc057b34200f75f44d7d41038cbe41dbb8f1ec997595547ded8c",
+    "generated/resource-qa-1.6-release/rich-result.xlsx": "fd58c4f73945233248f5c9ba64e8408962781b49ac5c779143a97c26f8fae17e",
+    "generated/resource-qa-1.6-release/rich.log": "0f33d3a285a016785ee29cada67f8f62806cf6d81aaab761b3b95e18aa60eb51",
+    "generated/resource-qa-1.6-release/rich.xlsx": "fed5b9ff68211ed367615a1ba15bdca2cd81a16b9227e0cceec4842291217009",
+    "generated/resource-qa-1.6-release/shared-result.xlsx": "6b2797802872ff1af227bd562d81b693370accc5de0fcc6f6d18336302525e19",
+    "generated/resource-qa-1.6-release/shared.log": "6ce42fcd57d8e411679509b1e7e1e093df005f7c7d8e3ec945b19018f74b9ec4",
+    "generated/resource-qa-1.6-release/shared.xlsx": "880d787cd2d89371d30acfb29f734920a48c7e57098811d93a55da2eb581b680",
+    "generated/resource-qa-1.6-release/truncated.log": "74009a6e39971b0a7904d5bf6a748950b23374d765d688b642b34fe573a2ba90",
+    "generated/resource-qa-1.6-release/truncated.xlsx": "8d63c76111a769ff125a1c01ca85d1d0bcc37a987b77453a3dd09ccc786135f8",
+    "generated/resource-qa-1.6-release/uncompressed-limit.log": "9f12d69daff2ef27ebe4cd5a0e4e1242df5b61b79b01033d8b66d655a80d2758",
+    "generated/resource-qa-1.6-release/uncompressed-limit.xlsx": "3f141d897e627a789ef36b022307c1e9197eea821406dc0f1a5b2a8f158e96cd",
+    "generated/resource-qa-1.6-release/utf16-result.xlsx": "ab7098f49bf5162ad9853a6aeb239f25552763877d6b326752831b488c4b8095",
+    "generated/resource-qa-1.6-release/utf16.log": "eb7c448ddcf12c8671eddadb636a9f9ef0650f09eac1493c343ba334ef1932b5",
+    "generated/resource-qa-1.6-release/utf16.xlsx": "c7a86d1a66838d7ffccf9ec04c8c02ce089f1b96383fd172bb197a012d01f8f0",
+    "generated/resource-qa-1.6-release/utf8-bom-result.xlsx": "4a4a7612095a10e20c2c50f5998934a1b8495fd106487c6291587fd1b6a5cdd1",
+    "generated/resource-qa-1.6-release/utf8-bom.log": "55233e74719681b1ea4228801d4d24de21afd7e11488610c3588b2ae41a40411",
+    "generated/resource-qa-1.6-release/utf8-bom.xlsx": "bb641098d3925a7ae30bf343cd4d05070d390d99f098e2430288a68daba79e74",
+    "generated/resource-qa-1.6-release/wrong-encoding.log": "74009a6e39971b0a7904d5bf6a748950b23374d765d688b642b34fe573a2ba90",
+    "generated/resource-qa-1.6-release/wrong-encoding.xlsx": "d2a20c85b0ce9cdc2a04e34fc20f172cbb3d5b63ddb96f48e91dbadcc83dfca4",
+    "generated/spec-1.6-final-suite/cases.json": "407d265e1a30bffecc08dfb4e1577691187f3703029bbae630298da417b1cdf9",
+    "generated/spec-1.6-final-suite/clean.xlsx": "95bca98292102993d1ccdf27eff7bdf9bf65d06f24e1ca49855b8867177c5d61",
+    "generated/spec-1.6-final-suite/corrupt.xlsx": "c4d5d2bed73ed33fecb990dd1eeb0a8bfcc135f3c06b6ebe269a42e16d0180ff",
+    "generated/spec-1.6-final-suite/dirty.xlsx": "71a64f17e9b3001b022420a038fd129dde0bfec54d0be6b6cf49bfe9f8d79bf1",
+    "generated/spec-1.6-final-suite/duplicates.xlsx": "776d6ec5f27876a7a60edc0fcc9dc683891a0fed3d8f78fee7faa49179658114",
+    "generated/spec-1.6-final-suite/duplicate_header.xlsx": "6e0575158f7420c3c0ecb7deb2b184c1a922f7eb131ffa692d6b2def0baac305",
+    "generated/spec-1.6-final-suite/empty_book.xlsx": "54db950e6f19c5aa242d0ea056b846d659699766507151f22c3656558efe2f29",
+    "generated/spec-1.6-final-suite/epoch_1900.xlsx": "b3d26b4586fa62b27c699015749ee42fb9ce940fba31ff4093cfd2c3b2d80898",
+    "generated/spec-1.6-final-suite/epoch_1904.xlsx": "7770d7d12581fe2cf019f46fee99afc0cbaae4d609fc73f9f22b72112c55456b",
+    "generated/spec-1.6-final-suite/extra_header.xlsx": "f63be9fe5368c4aef3b47aeb05d31131e592c849bb4ef60aafb9e839101ab806",
+    "generated/spec-1.6-final-suite/headers_only.xlsx": "d5f989ac850e089430d91cb01ec387355d7bed1be6132f50542f54bb02a9f04c",
+    "generated/spec-1.6-final-suite/manifest.json": "2b3f6664e5d79b8dff756a32d4589e970b35dcfc1a7e0db16143e7d09e080edb",
+    "generated/spec-1.6-final-suite/merged.xlsx": "904c1dad6337ed2271f3a81503713a529d99ab76903c2d3bd9c2d92a6064a246",
+    "generated/spec-1.6-final-suite/missing_header.xlsx": "e06cdbd887b13226d462f0667bb04d144b61eac199671be8ef5b2afcc1be52b9",
+    "generated/spec-1.6-final-suite/mixed.xlsx": "777d3da9e6ebf6092c3c335c589a2af0675948e728fb195baa3c035392a825ea",
+    "generated/spec-1.6-final-suite/multiple_sheets.xlsx": "d707cddbe25552b2f2dd0dd2afccf257fce9e53b2b46d1238743a2b236592288"
+  },
+  "limitations": "Finite model and concrete fixtures only; no population precision or whole-program proof"
+}

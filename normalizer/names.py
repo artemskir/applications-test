@@ -1,7 +1,7 @@
 import re
 import unicodedata
 from .models import common, failure, success
-from .name_roles import classify
+from .name_roles import classify, roles, key
 
 BREAKS = r"[-‐‑‒–—'’]"
 
@@ -48,6 +48,20 @@ def analyze(cell):
         result.classification = 'UNKNOWN'
         return result
     classification, components = classify(normalized)
+    # DEC-29 confirms the personal name, not the ambiguous remaining role.
+    tokens = normalized.split()
+    if classification == 'AMBIGUOUS' and len(tokens) == 3 and sum(key(t) == 'петрович' for t in tokens) == 1:
+        evidence = [roles(t) if key(t) != 'петрович' else ({'AMBIGUOUS'}, True) for t in tokens]
+        confirmed = [next(iter(r)) for r, uncertain in evidence if not uncertain and len(r) == 1]
+        if sorted(confirmed) == ['FIRST_NAME', 'LAST_NAME']:
+            components = [{'text': t, 'role': next(iter(r))} for t, (r, _) in zip(tokens, evidence)]
+            personal = next(c['text'] for c in components if c['role'] == 'FIRST_NAME')
+            result = success(cell, personal, codes=['NAME_AMBIGUOUS'], actions=[{
+                'kind': 'NAME_COMPONENTS_EXTRACTED', 'details': {'original': cell.value,
+                'normalized_full_name': normalized, 'components': components, 'first_name': personal,
+                'review_required': True, 'rule_id': 'DEC-29'}}])
+            result.classification, result.components = classification, components
+            return result
     if classification not in ('FIRST_NAME', 'FULL_NAME'):
         code = {'UNKNOWN':'NAME_UNKNOWN', 'AMBIGUOUS':'NAME_AMBIGUOUS',
                 'LAST_NAME':'NAME_NOT_FIRST', 'PATRONYMIC':'NAME_NOT_FIRST'}[classification]

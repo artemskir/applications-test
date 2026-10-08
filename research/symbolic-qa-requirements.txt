@@ -1,0 +1,13 @@
+# Optional research tool only; never imported by normalize.py.
+-r local-qa-requirements.txt
+crosshair-tool==0.0.111
+packaging==26.3
+z3-solver==5.1.0.0
+typing_extensions==4.16.0
+typing-inspect==0.9.0
+mypy_extensions==1.1.0
+typeshed-client==2.13.0
+pygls==2.1.1
+lsprotocol==2025.0.0
+attrs==26.1.0
+cattrs==26.2.1

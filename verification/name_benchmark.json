@@ -1,0 +1,27 @@
+{
+  "provenance": {
+    "url": "https://github.com/petrovich/pytrovich/blob/1f33dc81ec795155fa040707a1a39ccd9ac9692a/tests/test_maker.py",
+    "commit": "1f33dc81ec795155fa040707a1a39ccd9ac9692a",
+    "source_file_sha256": "26cc9ccb37593e4f931ba5cc62045e17bbb3fa43da614a705150b17b028297d7",
+    "scope": "15 original_name arguments in test_common_names; roles explicitly supplied by author as NamePart, not inferred from gender",
+    "license": "MIT; Copyright (c) 2020-2026 Petrovich Developers",
+    "limitation": "Small external role-annotated developer corpus; may overlap production dictionaries; not a random population sample"
+  },
+  "examples": [
+    {"text":"Мария","label":"FIRST_NAME"},
+    {"text":"Василий","label":"FIRST_NAME"},
+    {"text":"Ксюша","label":"FIRST_NAME"},
+    {"text":"Паша","label":"FIRST_NAME"},
+    {"text":"Елена","label":"FIRST_NAME"},
+    {"text":"Геннадиевна","label":"PATRONYMIC"},
+    {"text":"Васильевич","label":"PATRONYMIC"},
+    {"text":"Васильевна","label":"PATRONYMIC"},
+    {"text":"Павлович","label":"PATRONYMIC"},
+    {"text":"Павловна","label":"PATRONYMIC"},
+    {"text":"Цветаева","label":"LAST_NAME"},
+    {"text":"Толстой","label":"LAST_NAME"},
+    {"text":"Ахматова","label":"LAST_NAME"},
+    {"text":"Лермонтов","label":"LAST_NAME"},
+    {"text":"Баркова","label":"LAST_NAME"}
+  ]
+}

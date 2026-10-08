@@ -83,19 +83,42 @@ def verify_resource_qa(directory):
             'verified_artifacts':len(result['artifacts'])}
 
 
+def verify_formal_qa(directory):
+    result = read(directory / 'results.json')
+    if result.get('passed') is not True or result.get('status') != 'P0 PASS' or result.get('failed'):
+        raise ValueError('Formal QA is incomplete or failed')
+    required = ('exhaustive', 'fields', 'stateful', 'preservation', 'critical-conditions', 'publication-faults', 'names', 'mutations')
+    if any(result['steps'].get(name) is not True for name in required):
+        raise ValueError('Missing formal QA steps')
+    for name, expected in result['source_sha256'].items():
+        path = (ROOT / name).resolve()
+        if not path.is_relative_to(ROOT) or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError('Formal QA source changed: ' + name)
+    verify_hashes(directory, [{'file':name, 'sha256':value} for name,value in result['artifact_sha256'].items()])
+    exhaustive = read(directory / 'exhaustive.json')
+    if exhaustive['counts'] != {'0':1, '1':48, '2':2304, '3':110592} or exhaustive['total_sequences'] != 112945:
+        raise ValueError('Incomplete ordered enumeration')
+    for name in required:
+        if read(directory / (name + '.json')).get('passed') is not True:
+            raise ValueError('Failed formal step: ' + name)
+    return {'directory':str(directory), 'sequences':112945, 'verified_artifacts':len(result['artifact_sha256'])}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--suite', type=Path)
     parser.add_argument('--experiment', type=Path, action='append', default=[])
     parser.add_argument('--resource-qa', type=Path, action='append', default=[])
+    parser.add_argument('--formal-qa', type=Path, action='append', default=[])
     args = parser.parse_args()
-    if not args.suite and not args.experiment and not args.resource_qa:
-        parser.error('Supply --suite, --experiment or --resource-qa')
+    if not args.suite and not args.experiment and not args.resource_qa and not args.formal_qa:
+        parser.error('Supply --suite, --experiment, --resource-qa or --formal-qa')
     try:
         summaries = ([verify_suite(args.suite)] if args.suite else [])
         summaries.extend(verify_experiment(directory) for directory in args.experiment)
         summaries.extend(verify_resource_qa(directory) for directory in args.resource_qa)
-    except (OSError, ValueError, KeyError, StopIteration) as exc:
+        summaries.extend(verify_formal_qa(directory) for directory in args.formal_qa)
+    except (OSError, ValueError, KeyError, TypeError, StopIteration) as exc:
         print('Verification failed: ' + str(exc), file=sys.stderr)
         return 1
     print(json.dumps(summaries, ensure_ascii=False))

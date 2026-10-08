@@ -1,6 +1,6 @@
 # Очистка заявок XLSX с сохранением исходных данных
 
-Контракт разработки: [docs/SPECIFICATION.md](docs/SPECIFICATION.md), версия **1.5**.
+Контракт разработки: [docs/SPECIFICATION.md](docs/SPECIFICATION.md), версия **1.6**.
 Реализованы обработчик `normalize.py`, восстановление `restore.py`, генератор
 тестовых данных и два экспериментальных стенда.
 Исходники задания — files/task.txt, files/task.pdf; файла zayavki.xlsx в проекте нет.
@@ -53,6 +53,9 @@
 `К. Белоусов`, неизвестные компоненты и неоднозначные Ким/Али/Ли направляются на проверку.
 Полный ФИО остаётся в «Оригинале» и аудите; при дублях разные фамилии не скрываются за
 одинаковым извлечённым именем. Отсутствие в словаре не доказывает недействительность имени.
+`Иван Иванов Петрович` → `Иван` с NAME_AMBIGUOUS: подтверждённое имя видно в
+«Проблемах», вся исходная запись — в «Проверить»/«Оригинале», остальные компоненты
+остаются на проверку. Такая заявка не допускается в «Данные».
 
 Даты: `09/03/2026` → `2026-03-09` по приоритету день/месяц. Если этот порядок невозможен,
 но месяц/день даёт существующую дату, используется однозначный запасной порядок:
@@ -98,7 +101,8 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ~~~
 
-Для обработки, восстановления, генератора и тестов достаточно корневого requirements.txt.
+Для обработки, восстановления и генератора достаточно корневого requirements.txt.
+Для текущих тестов дополнительно нужен research/local-qa-requirements.txt.
 Для двух исследовательских стендов дополнительно выполните:
 
 ~~~powershell
@@ -124,14 +128,14 @@ python -m venv .venv
 ~~~powershell
 .\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-suite --mode suite
 .\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-clean --mode clean --rows 1000 --seed 42
-.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-dirty --mode dirty --rows 215
+.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-dirty --mode dirty --rows 216
 .\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-mixed --mode mixed --rows 48
-.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-1904 --mode dirty --rows 215 --epoch 1904
+.\.venv\Scripts\python.exe tools/generate_data.py --output-dir generated/my-1904 --mode dirty --rows 216 --epoch 1904
 ~~~
 
 suite создаёт **14 XLSX**: clean, dirty, mixed, duplicates, две системы дат,
 отсутствующие/повторяющиеся/лишние заголовки, объединённые ячейки, несколько листов,
-только заголовки, пустая книга, повреждённый файл. Полный каталог — **215 сценариев**.
+только заголовки, пустая книга, повреждённый файл. Полный каталог — **216 сценариев**.
 Режим dirty содержит и исправимые значения, и ошибки; при меньшем количестве строк
 он не покрывает весь каталог. --rows допускает 0…100 000, default — 48.
 
@@ -142,7 +146,10 @@ cases.json — снимок каталога. Для отдельной книг
 
 ## Запуск проверок
 
+Основной набор 1.6, включая проверку stateful seed, требует локальные QA-зависимости:
+
 ~~~powershell
+.\.venv\Scripts\python.exe -m pip install -r research/local-qa-requirements.txt
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe research/run_experiments.py --output-dir generated/my-research
 .\.venv\Scripts\python.exe experiments/run_checks.py --output-dir generated/my-gaps --scale-rows 1000
@@ -185,7 +192,50 @@ ZIP/XML, недостоверный dimension, CRC, дубли ZIP-частей,
 .\.venv\Scripts\python.exe tools/render_catalog.py
 ~~~
 
-## Локальная архитектура и проверки версии 1.5
+## Независимая проверка модели, версия 1.6
+
+Локальная программа сохраняет прежние рабочие зависимости. Независимый эталон находится
+в `verification/reference.py` и не вызывает функции нормализатора для ожидаемых ответов.
+Математическая модель: [FORMAL_MODEL.md](docs/FORMAL_MODEL.md); результаты и границы:
+[FORMAL_VERIFICATION_REPORT.md](docs/FORMAL_VERIFICATION_REPORT.md).
+
+~~~powershell
+.\.venv\Scripts\python.exe -m pip install -r research/local-qa-requirements.txt
+.\.venv\Scripts\python.exe -X utf8 tools/run_qa.py --mode all --seed 20261008 --examples 1000 --output-dir generated/my-qa-1.6
+.\.venv\Scripts\python.exe -X utf8 tools/run_formal_qa.py --seed 20261008 --examples 300 --output-dir generated/my-formal-1.6
+.\.venv\Scripts\python.exe -X utf8 tools/verify_artifacts.py --formal-qa generated/my-formal-1.6
+~~~
+
+Для дополнительного символического эксперимента CrossHair:
+
+~~~powershell
+.\.venv\Scripts\python.exe -m pip install -r research/symbolic-qa-requirements.txt
+.\.venv\Scripts\python.exe -X utf8 tools/run_formal_qa.py --symbolic --seed 20261008 --examples 300 --output-dir generated/my-formal-symbolic-1.6
+~~~
+
+Все каталоги результатов должны быть новыми. Стенды работают локально. `all` запускает
+основной и генеративный наборы, включая adversarial; фактические ID, исходы тестов и
+статистика генераций записываются в JSON. Пустой набор, пропуск, повтор теста и timeout
+считаются провалом. Coverage включает Python subprocess и CLI; это не MC/DC всей программы.
+Формальный стенд отдельно сохраняет полный перебор, stateful-трассу, независимый ZIP/XML-
+инвентарь, результаты настоящего CLI, мутации и хеши. Код завершения 0 означает успех
+обязательных проверок; 1 — провал. Без `--symbolic` дополнительный шаг явно NOT_REQUESTED.
+
+Приёмка 1.6: **54 основных + 13 генеративных тестов**, 216 полевых эталонов,
+**112945 последовательностей** конечной модели, **112944 условия** ресурсного корпуса;
+7 книг/139 исходных строк независимо восстановлены. Все 11 целевых мутаций обнаружены,
+все 6 повреждений стадии блокируются до публикации. Контрпримеров в конечной модели нет.
+Пример пятилистового результата:
+[dirty_result.xlsx](generated/normalizer-1.6-final/dirty_result.xlsx) — 216 исходных,
+55 проверенных, 161 проблемная запись, 29 дублей; исходник восстановлен побайтно.
+
+Эти проверки доказывают согласие на указанной области и сохранность конкретных файлов.
+Они не доказывают распознавание всех человеческих имён или корректность любого будущего XLSX.
+Локальные свидетельства: `generated/qa-1.6-final/`, `generated/formal-1.6-release/`,
+`generated/resource-qa-1.6-release/`. В Git сохраняется
+[снимок доказательств](docs/FORMAL_VERIFICATION_EVIDENCE.json); `generated/` остаётся локальным.
+
+## Ресурсные проверки и историческая приёмка версии 1.5
 
 Рабочая цепочка: снимок XLSX → проверка ZIP/XML и типов ячеек → независимые анализаторы
 имени/телефона/даты → первый представитель телефона → пять листов → проверка инвентаризации
@@ -226,7 +276,8 @@ RU/KZ и телефонные группировки, комбинации Hypot
 ## Исторические массовые проверки, версия 1.4
 
 План до изменений: [QA_PLAN.md](docs/QA_PLAN.md); дефекты и фактические результаты:
-[QA_REPORT.md](docs/QA_REPORT.md). Базовые тесты не требуют исследовательских зависимостей.
+[QA_REPORT.md](docs/QA_REPORT.md). Базовые тесты этой исторической версии не требовали исследовательских зависимостей;
+для текущего набора 1.6 требуется research/local-qa-requirements.txt.
 Для расширенного QA:
 
 ~~~powershell
@@ -312,7 +363,7 @@ RU/KZ и телефонные группировки, комбинации Hypot
 
 Пятилистовая обработка и восстановление через CLI реализованы и проверены.
 Исторические исследовательские отчёты описывают отдельные модели; приёмочные тесты
-обработчика находятся в tests/test_normalizer.py. Зашифрованные книги, XLS/XLSM,
+обработчика находятся в tests/test_normalizer.py и tests/test_formal.py. Зашифрованные книги, XLS/XLSM,
 DTD/ENTITY и повреждённые контейнеры отклоняются. Проверенная платформа — Windows;
 гонка публикации на POSIX не испытана. Исторический массовый замер относится к генерации
 и чтению фикстуры; отдельный новый замер 99,789 с относится к полному обработчику.

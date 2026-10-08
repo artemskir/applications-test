@@ -276,6 +276,13 @@ for entry in CASES:
         entry["status"] = "MISSING" if any(c.endswith("_MISSING") for c in entry["codes"]) else "UNCHANGED" if entry["diagnostic_codes"] else "PROBLEM"
 
 
+# DEC-29: usable personal-name projection with unresolved remaining components.
+partial_name = case('N43', 'Имя', 'Иван Иванов Петрович', 'Иван', ['NAME_AMBIGUOUS'],
+                    'Имя подтверждено; остальные компоненты на проверку; полный ФИО сохраняется', 'user-formal-review')
+partial_name.update(canonical='Иван', status='NORMALIZED', problem_list=True, diagnostic_codes=[])
+CASES.append(partial_name)
+
+
 def materialize(value):
     if not isinstance(value, dict):
         return value
