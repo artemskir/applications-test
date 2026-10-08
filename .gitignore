@@ -5,3 +5,15 @@ generated/
 .hypothesis/
 .coverage*
 .pytest_cache/
+
+# Local testing materials and privacy tooling
+/grok-test/
+/opencode-test/
+/test_project/
+/tools/redact_session.py
+/files/*.jsonl
+/files/session-redaction-report.json
+
+# Prepared delivery files
+/submission/
+/submission.zip
