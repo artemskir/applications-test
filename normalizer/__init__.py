@@ -1,3 +1,3 @@
-"""Deterministic offline XLSX normalization under SPECIFICATION.md 1.6."""
-SPEC_VERSION = '1.6'
-SOFTWARE_VERSION = '1.3.0'
+"""Deterministic offline XLSX normalization under SPECIFICATION.md 1.7."""
+SPEC_VERSION = '1.7'
+SOFTWARE_VERSION = '1.4.0'

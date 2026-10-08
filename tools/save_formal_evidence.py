@@ -9,6 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from tools.verify_artifacts import verify_formal_qa, verify_resource_qa, verify_suite
 from verification.test_driver import validate
+from normalizer import SPEC_VERSION
 
 
 def read(path):
@@ -40,7 +41,7 @@ def main():
         for p in folder.rglob('*'):
             if p.is_file() and not p.name.startswith('.coverage'):
                 artifacts[str(p.resolve().relative_to(ROOT)).replace('\\','/')]=sha256(p.read_bytes()).hexdigest()
-    result={'status':'P0 PASS','spec_version':'1.6','baseline_commit':'f1a1bde','verifications':checks,
+    result={'status':'P0 PASS','spec_version':SPEC_VERSION,'baseline_commit':'0d9c203','verifications':checks,
             'formal_summary':formal,'formal_steps':steps,'qa_summary':qa,
             'executed_tests':{label:read(args.qa/(label+'-tests.json')) for label in ('p0','generated')},
             'generation_statistics':stats,'coverage_totals':read(args.qa/'coverage.json')['totals'],

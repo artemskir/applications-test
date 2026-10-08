@@ -50,19 +50,46 @@ def roles(token):
     return result, len(result) > 1
 
 
+def contextual_roles(token):
+    """Do not promote unsupported FIRST evidence; retain other dictionary roles."""
+    result, uncertain = roles(token)
+    normalized = key(token)
+    if normalized in AMBIGUOUS_WORDS:
+        return set()
+    if not result and uncertain:
+        reference = lexicon()
+        return {role for role in (LAST_NAME, PATRONYMIC) if normalized in reference[role]}
+    return result
+
+
+def assignments(text):
+    tokens = text.split()
+    if not 2 <= len(tokens) <= 3:
+        return []
+    evidence = [contextual_roles(token) for token in tokens]
+    return [list(combo) for combo in itertools.product(*(sorted(r) for r in evidence))
+            if combo.count(FIRST_NAME) == 1 and len(set(combo)) == len(combo)]
+
+
 def classify(text):
     tokens = text.split()
     if len(tokens) > 3 or not tokens:
         return 'UNKNOWN', []
     evidence = [roles(token) for token in tokens]
-    if any(uncertain for _,uncertain in evidence):
-        return 'AMBIGUOUS', []
-    if any(not role_set for role_set,_ in evidence):
-        return 'UNKNOWN', []
     if len(tokens) == 1:
+        reference = lexicon()
+        raw_roles = {r for r in (FIRST_NAME,LAST_NAME,PATRONYMIC) if key(tokens[0]) in reference[r]}
+        if len(raw_roles) > 1:
+            return 'AMBIGUOUS', [{'text':tokens[0],'role':'|'.join(sorted(raw_roles))}]
+        if evidence[0][1]:
+            return 'AMBIGUOUS', []
+        if not evidence[0][0]:
+            return 'UNKNOWN', []
         return next(iter(evidence[0][0])), [{'text':tokens[0],'role':next(iter(evidence[0][0]))}]
-    assignments = [combo for combo in itertools.product(*(entry[0] for entry in evidence))
-                   if combo.count(FIRST_NAME) == 1 and len(set(combo)) == len(combo)]
-    if len(assignments) != 1:
+    if any(not contextual_roles(t) for t in tokens):
+        return ('AMBIGUOUS' if any(uncertain for _, uncertain in evidence) else 'UNKNOWN'), []
+    alternatives = assignments(text)
+    if not alternatives or len({a.index(FIRST_NAME) for a in alternatives}) != 1:
         return 'AMBIGUOUS', []
-    return 'FULL_NAME', [{'text':token,'role':role} for token,role in zip(tokens,assignments[0])]
+    return 'FULL_NAME', [{'text':token, 'role':'|'.join(sorted({a[i] for a in alternatives}))}
+                         for i, token in enumerate(tokens)]

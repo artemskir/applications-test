@@ -138,7 +138,7 @@ class PipelineTests(unittest.TestCase):
                     summary = normalize(source, output)
                     self.assertEqual(restore_bytes(output)[0], original)
                     if entry['file'] == 'duplicates.xlsx':
-                        self.assertEqual((summary['input_rows'], summary['data_rows'], summary['duplicates'], summary['problem_rows']), (12, 2, 5, 9))
+                        self.assertEqual((summary['input_rows'], summary['data_rows'], summary['duplicates'], summary['problem_rows']), (12, 4, 5, 8))
                         problems = self.read(output, 'Проблемы')[1:]
                         self.assertEqual([r[2] for r in problems], entry['expected']['problem_rows'])
                         self.assertEqual([r[2] for r in problems if 'DUPLICATE_' in r[6]], entry['expected']['duplicate_conflict_rows'])
@@ -171,7 +171,7 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(self.read(output, 'Проблемы')[1][8], '  McDONALD John  ')
 
     def test_permuted_columns_blank_and_hidden_rows_unknown_sources(self):
-        source = self.input([['custom', '2026-10-01', '+79174005219', 'иван'],
+        source = self.input([['custom', '2026-10-01', '+79174005219', 'кирилл'],
                              [None, None, None, None], ['new', '2026-09-06', '+79174005220', 'пётр']],
                             headers=['Источник', 'Дата заявки', 'Телефон', 'Имя'])
         wb = load_workbook(source)
@@ -182,7 +182,7 @@ class PipelineTests(unittest.TestCase):
         summary = normalize(source, output)
         self.assertEqual((summary['input_rows'], summary['data_rows'], summary['problem_rows']), (3, 2, 1))
         data = self.read(output, 'Данные')
-        self.assertEqual(data[1], ('Иван', '+79174005219', '2026-10-01', 'custom'))
+        self.assertEqual(data[1], ('Кирилл', '+79174005219', '2026-10-01', 'custom'))
         self.assertEqual(self.read(output, 'Оригинал')[2][3:7], (None, None, None, None))
         self.assertEqual(data[2][0], 'Пётр')
 

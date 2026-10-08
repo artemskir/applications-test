@@ -21,7 +21,7 @@ def main():
     args=parser.parse_args()
     if args.examples < 1: parser.error('--examples must be positive')
     output=args.output_dir.resolve(); output.mkdir(parents=True,exist_ok=False)
-    from verification import exhaustive, practical, stateful, name_quality
+    from verification import exhaustive, practical, stateful, name_quality, reconciliation
     results={}; failed=[]
     def run(label,operation):
         started=time.perf_counter()
@@ -49,6 +49,7 @@ def main():
     run('critical-conditions',practical.critical_conditions)
     run('publication-faults',lambda:practical.publication_faults(output/'publication-faults'))
     run('names',name_quality.check)
+    run('reconciliation',lambda:reconciliation.check(output/'reconciliation'))
     if results['preservation']['passed']:
         run('mutations',lambda:practical.mutations(output/'mutants',output/'xlsx/user-5-input.xlsx',output/'xlsx/user-5-output.xlsx'))
     else:

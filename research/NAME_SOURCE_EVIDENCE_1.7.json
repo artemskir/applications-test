@@ -1,0 +1,1839 @@
+{
+  "source_manifest": {
+    "format_version": 1,
+    "sources": {
+      "russiannames": {
+        "commit": "ac26a24a9bf0ac05e3330668c5103400a1cbf4ea",
+        "license": "BSD-3-Clause"
+      },
+      "nen-imena-dataset": {
+        "commit": "38b3cad3aa123326be8bb97b0e9a3c0e5c7f54e6",
+        "license": "CC-BY-4.0"
+      }
+    },
+    "source_sha256": {
+      "russiannames\\russiannames\\data\\names.parquet": "f5406cf3049175e0e6fcca2355d11796e0dd5e26ef2ac433d239438ac4b407f4",
+      "russiannames\\russiannames\\data\\surnames.parquet": "292a6d97dc58252432b8426e33d2d753a10a1182d6e46a3dd5df31832aaccfe6",
+      "russiannames\\russiannames\\data\\midnames.parquet": "f29e9a6f37ba6528b46c76ddfbb0be676458fc57110f3f0989525c2dceb06b55",
+      "nen-imena-dataset\\data\\names.json": "3f6ccc6e91c6143f0cab881dfee7efa0ac89e20002c89ec9839c70f3f869b9f3"
+    },
+    "bundle_sha256": "1cc36bfe7aef97f53b81a892a32eb089a7f2cb4dbcfdba0b2e37975a19b4d8cf",
+    "counts": {
+      "FIRST_NAME": 30867,
+      "LAST_NAME": 368919,
+      "PATRONYMIC": 46787,
+      "NEN_FIRST_NAME": 8517
+    }
+  },
+  "intersections": {
+    "FIRST_NAME+LAST_NAME": 2972,
+    "FIRST_NAME+PATRONYMIC": 184,
+    "LAST_NAME+PATRONYMIC": 1217,
+    "FIRST_NAME+LAST_NAME+PATRONYMIC": 99
+  },
+  "tokens": {
+    "Иван": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 90136,
+            "text": "Иван",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "И",
+            "gender": "m"
+          },
+          {
+            "count": 6,
+            "text": "иван",
+            "ethnic": null,
+            "lett": "и",
+            "gender": "m"
+          },
+          {
+            "count": 416,
+            "text": "ИВАН",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 2,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Иван"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029a97"
+            },
+            "count": 90136,
+            "text": "Иван",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "И",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "4ca07bf09d5582342e235b2c"
+            },
+            "count": 6,
+            "text": "иван",
+            "lett": "и",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f7666e49de961352f213c8"
+            },
+            "count": 416,
+            "text": "ИВАН"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca079299d5582342e213552"
+            },
+            "count": 2,
+            "text": "Иван"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Иван",
+          "url": "https://n-e-n.ru/imena/imya/ivan/",
+          "short_forms": [
+            "Ваня",
+            "Ванюша",
+            "Ивашка"
+          ],
+          "international_forms": [
+            "John",
+            "Jean",
+            "Juan",
+            "Giovanni",
+            "Jan"
+          ]
+        },
+        {
+          "name": "Иоанн",
+          "url": "https://n-e-n.ru/imena/imya/ioann/",
+          "short_forms": [
+            "Иван",
+            "Иоанчик",
+            "Ванюша",
+            "Ванютка",
+            "Иоша"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Ильвина",
+          "url": "https://n-e-n.ru/imena/imya/ilvina/",
+          "short_forms": [
+            "Иль",
+            "Ильва",
+            "Ильво",
+            "Ильвин",
+            "Иван",
+            "Ильвинчик",
+            "Ильвинчёнок",
+            "Ильвиночек"
+          ],
+          "international_forms": []
+        }
+      ]
+    },
+    "Андрей": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 53632,
+            "text": "Андрей",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "А",
+            "gender": "m"
+          },
+          {
+            "count": 1653,
+            "text": "АНДРЕЙ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 1,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Андрей"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029ab1"
+            },
+            "count": 53632,
+            "text": "Андрей",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "А",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e0449de961352f20ba5"
+            },
+            "count": 1653,
+            "text": "АНДРЕЙ"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca33ae59d558206cf025300"
+            },
+            "count": 1,
+            "text": "Андрей"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Андрей",
+          "url": "https://n-e-n.ru/imena/imya/andrey/",
+          "short_forms": [
+            "Андрюша",
+            "Дрон"
+          ],
+          "international_forms": [
+            "Andrew",
+            "André",
+            "Andrea",
+            "Anders"
+          ]
+        }
+      ]
+    },
+    "Мария": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 47828,
+            "text": "Мария",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "М",
+            "gender": "f"
+          },
+          {
+            "count": 162,
+            "text": "МАРИЯ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [],
+        "PATRONYMIC": [
+          {
+            "count": 1,
+            "gender": null,
+            "ethnic": null,
+            "lett": null,
+            "fname": null,
+            "text": "МАРИЯ"
+          }
+        ]
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029a9b"
+            },
+            "count": 47828,
+            "text": "Мария",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "М",
+            "gender": "f"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e2949de961352f20d56"
+            },
+            "count": 162,
+            "text": "МАРИЯ"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "_id": {
+              "$oid": "58f7751849de961352f25f36"
+            },
+            "count": 1,
+            "text": "МАРИЯ"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Мария",
+          "url": "https://n-e-n.ru/imena/imya/mariya/",
+          "short_forms": [
+            "Маша",
+            "Маруся",
+            "Мари"
+          ],
+          "international_forms": [
+            "Maria",
+            "Mary",
+            "Marie"
+          ]
+        },
+        {
+          "name": "Марьям",
+          "url": "https://n-e-n.ru/imena/imya/maryam/",
+          "short_forms": [
+            "Маря",
+            "Маша",
+            "Мария",
+            "Марьяна",
+            "Марьямочка",
+            "Марьямушка",
+            "Марьямонька",
+            "Марьямчик"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Мариян",
+          "url": "https://n-e-n.ru/imena/imya/mariyan/",
+          "short_forms": [
+            "Мар",
+            "Ман",
+            "Мари",
+            "Мария",
+            "Маня",
+            "Маричка"
+          ],
+          "international_forms": []
+        }
+      ]
+    },
+    "Павел": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 31791,
+            "text": "Павел",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "П",
+            "gender": "m"
+          },
+          {
+            "count": 582,
+            "text": "ПАВЕЛ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 3,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Павел"
+          },
+          {
+            "count": 1,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "ПАВЕЛ"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029aa1"
+            },
+            "count": 31791,
+            "text": "Павел",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "П",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e7249de961352f2101a"
+            },
+            "count": 582,
+            "text": "ПАВЕЛ"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca077d69d5582342e201b75"
+            },
+            "count": 3,
+            "text": "Павел"
+          },
+          {
+            "_id": {
+              "$oid": "58f774fc49de961352f25e32"
+            },
+            "count": 1,
+            "text": "ПАВЕЛ"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Павел",
+          "url": "https://n-e-n.ru/imena/imya/pavel/",
+          "short_forms": [
+            "Паша",
+            "Павлуша"
+          ],
+          "international_forms": [
+            "Paul",
+            "Paolo",
+            "Pablo"
+          ]
+        }
+      ]
+    },
+    "Вера": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 20237,
+            "text": "Вера",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "В",
+            "gender": "f"
+          },
+          {
+            "count": 65,
+            "text": "ВЕРА",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 1,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "ВЕРА"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029aab"
+            },
+            "count": 20237,
+            "text": "Вера",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "В",
+            "gender": "f"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e6049de961352f20f86"
+            },
+            "count": 65,
+            "text": "ВЕРА"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "58f76a5449de961352f22f67"
+            },
+            "count": 1,
+            "text": "ВЕРА"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Вера",
+          "url": "https://n-e-n.ru/imena/imya/vera/",
+          "short_forms": [
+            "Верочка",
+            "Веруня"
+          ],
+          "international_forms": [
+            "Vera"
+          ]
+        },
+        {
+          "name": "Вероника",
+          "url": "https://n-e-n.ru/imena/imya/veronika/",
+          "short_forms": [
+            "Ника",
+            "Вера",
+            "Роня"
+          ],
+          "international_forms": [
+            "Veronica",
+            "Véronique"
+          ]
+        },
+        {
+          "name": "Венер",
+          "url": "https://n-e-n.ru/imena/imya/vener/",
+          "short_forms": [
+            "Вен",
+            "Вера",
+            "Нера",
+            "Рен",
+            "Нев",
+            "Венечка",
+            "Венеченька",
+            "Венечок"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Авенир",
+          "url": "https://n-e-n.ru/imena/imya/avenir/",
+          "short_forms": [
+            "Ава",
+            "Вень",
+            "Вера",
+            "Нир",
+            "Авень",
+            "Авенька",
+            "Авеньчик",
+            "Авешенька"
+          ],
+          "international_forms": []
+        }
+      ]
+    },
+    "Нина": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 29959,
+            "text": "Нина",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "Н",
+            "gender": "f"
+          },
+          {
+            "count": 81,
+            "text": "НИНА",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 1,
+            "gender": "f",
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Нина"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029aa4"
+            },
+            "count": 29959,
+            "text": "Нина",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "Н",
+            "gender": "f"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e5f49de961352f20f7f"
+            },
+            "count": 81,
+            "text": "НИНА"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca07b249d5582342e22c3c1"
+            },
+            "count": 1,
+            "text": "Нина",
+            "gender": "f"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Нина",
+          "url": "https://n-e-n.ru/imena/imya/nina/",
+          "short_forms": [
+            "Нинуся",
+            "Ниночка"
+          ],
+          "international_forms": [
+            "Nina"
+          ]
+        },
+        {
+          "name": "Антонина",
+          "url": "https://n-e-n.ru/imena/imya/antonina/",
+          "short_forms": [
+            "Тоня",
+            "Тося",
+            "Нина"
+          ],
+          "international_forms": [
+            "Antonina",
+            "Antonia"
+          ]
+        },
+        {
+          "name": "Нинель",
+          "url": "https://n-e-n.ru/imena/imya/ninel/",
+          "short_forms": [
+            "Ниня",
+            "Нини",
+            "Нина",
+            "Нинёк",
+            "Нинелька",
+            "Нинюша",
+            "Нинютка",
+            "Нинсик"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Янина",
+          "url": "https://n-e-n.ru/imena/imya/yanina/",
+          "short_forms": [
+            "Янинка",
+            "Яна",
+            "Янни",
+            "Янка",
+            "Яня",
+            "Нина",
+            "Нинка",
+            "Янишка"
+          ],
+          "international_forms": []
+        }
+      ]
+    },
+    "Денис": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 10628,
+            "text": "Денис",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "Д",
+            "gender": "m"
+          },
+          {
+            "count": 530,
+            "text": "ДЕНИС",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 121,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Денис"
+          },
+          {
+            "count": 2,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "ДЕНИС"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029b7c"
+            },
+            "count": 10628,
+            "text": "Денис",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "Д",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e1d49de961352f20cc6"
+            },
+            "count": 530,
+            "text": "ДЕНИС"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca05ad59d5582342e01a051"
+            },
+            "count": 121,
+            "text": "Денис"
+          },
+          {
+            "_id": {
+              "$oid": "58f7774c49de961352f26bcd"
+            },
+            "count": 2,
+            "text": "ДЕНИС"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Денис",
+          "url": "https://n-e-n.ru/imena/imya/denis/",
+          "short_forms": [
+            "Дениска",
+            "Ден"
+          ],
+          "international_forms": [
+            "Denis",
+            "Dennis"
+          ]
+        }
+      ]
+    },
+    "Виктор": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 47289,
+            "text": "Виктор",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "В",
+            "gender": "m"
+          },
+          {
+            "count": 699,
+            "text": "ВИКТОР",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 4,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Виктор"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029aa0"
+            },
+            "count": 47289,
+            "text": "Виктор",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "В",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e9749de961352f2111f"
+            },
+            "count": 699,
+            "text": "ВИКТОР"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca060369d5582342e0a2fbe"
+            },
+            "count": 4,
+            "text": "Виктор"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Виктор",
+          "url": "https://n-e-n.ru/imena/imya/viktor/",
+          "short_forms": [
+            "Витя",
+            "Витюша"
+          ],
+          "international_forms": [
+            "Victor",
+            "Vittorio"
+          ]
+        }
+      ]
+    },
+    "Олег": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 25414,
+            "text": "Олег",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "О",
+            "gender": "m"
+          },
+          {
+            "count": 740,
+            "text": "ОЛЕГ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 4,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Олег"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029ae1"
+            },
+            "count": 25414,
+            "text": "Олег",
+            "ethnic": [
+              "slav"
+            ],
+            "lett": "О",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e1c49de961352f20cbe"
+            },
+            "count": 740,
+            "text": "ОЛЕГ"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca05f0c9d5582342e08a4c9"
+            },
+            "count": 4,
+            "text": "Олег"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Олег",
+          "url": "https://n-e-n.ru/imena/imya/oleg/",
+          "short_forms": [
+            "Олежка",
+            "Лега"
+          ],
+          "international_forms": [
+            "Oleg"
+          ]
+        }
+      ]
+    },
+    "Николаев": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 5,
+            "text": "Николаев",
+            "ethnic": null,
+            "lett": "Н",
+            "gender": "m"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 2112,
+            "gender": "m",
+            "ethnic": null,
+            "f_form": "Николаева",
+            "fname": null,
+            "text": "Николаев"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "count": 1,
+            "gender": null,
+            "ethnic": null,
+            "lett": null,
+            "fname": null,
+            "text": "НИКОЛАЕВ"
+          }
+        ]
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a5102b73b"
+            },
+            "count": 5,
+            "text": "Николаев",
+            "lett": "Н",
+            "gender": "m"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13d9d55821a5100001c"
+            },
+            "count": 2112,
+            "text": "Николаев",
+            "f_form": "Николаева",
+            "gender": "m"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "_id": {
+              "$oid": "58f76ced49de961352f241f5"
+            },
+            "count": 1,
+            "text": "НИКОЛАЕВ"
+          }
+        ]
+      },
+      "nen": []
+    },
+    "Степанова": {
+      "russiannames": {
+        "FIRST_NAME": [],
+        "LAST_NAME": [
+          {
+            "count": 1877,
+            "gender": "f",
+            "ethnic": [
+              "slav"
+            ],
+            "f_form": null,
+            "fname": "Степан",
+            "text": "Степанова"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "count": 2,
+            "gender": null,
+            "ethnic": null,
+            "lett": null,
+            "fname": null,
+            "text": "Степанова"
+          },
+          {
+            "count": 1,
+            "gender": null,
+            "ethnic": null,
+            "lett": null,
+            "fname": null,
+            "text": "СТЕПАНОВА"
+          }
+        ]
+      },
+      "russian_names": {
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13d9d55821a51000048"
+            },
+            "count": 1877,
+            "gender": "f",
+            "text": "Степанова",
+            "fname": "Степан",
+            "ethnic": [
+              "slav"
+            ],
+            "m_form": "Степанов"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "_id": {
+              "$oid": "4d8e4b049d55824184002a45"
+            },
+            "count": 2,
+            "text": "Степанова"
+          },
+          {
+            "_id": {
+              "$oid": "58f7760b49de961352f264fa"
+            },
+            "count": 1,
+            "text": "СТЕПАНОВА"
+          }
+        ]
+      },
+      "nen": []
+    },
+    "Макарова": {
+      "russiannames": {
+        "FIRST_NAME": [],
+        "LAST_NAME": [
+          {
+            "count": 1746,
+            "gender": "f",
+            "ethnic": [
+              "slav"
+            ],
+            "f_form": null,
+            "fname": "Макар",
+            "text": "Макарова"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13d9d55821a51000066"
+            },
+            "count": 1746,
+            "gender": "f",
+            "text": "Макарова",
+            "fname": "Макар",
+            "ethnic": [
+              "slav"
+            ],
+            "m_form": "Макаров"
+          }
+        ]
+      },
+      "nen": []
+    },
+    "Григорьев": {
+      "russiannames": {
+        "FIRST_NAME": [],
+        "LAST_NAME": [
+          {
+            "count": 1986,
+            "gender": "m",
+            "ethnic": null,
+            "f_form": "Григорьева",
+            "fname": null,
+            "text": "Григорьев"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13d9d55821a51000022"
+            },
+            "count": 1986,
+            "text": "Григорьев",
+            "f_form": "Григорьева",
+            "gender": "m"
+          }
+        ]
+      },
+      "nen": []
+    },
+    "Романов": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 2,
+            "text": "Романов",
+            "ethnic": null,
+            "lett": "Р",
+            "gender": "m"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 2010,
+            "gender": "m",
+            "ethnic": [
+              "slav"
+            ],
+            "f_form": "Романова",
+            "fname": "Роман",
+            "text": "Романов"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca058309d558233dc023f2e"
+            },
+            "count": 2,
+            "text": "Романов",
+            "lett": "Р",
+            "gender": "m"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13d9d55821a51000023"
+            },
+            "count": 2010,
+            "gender": "m",
+            "ethnic": [
+              "slav"
+            ],
+            "f_form": "Романова",
+            "fname": "Роман",
+            "text": "Романов"
+          }
+        ]
+      },
+      "nen": []
+    },
+    "Смирнов": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 1,
+            "text": "Смирнов",
+            "ethnic": null,
+            "lett": "С",
+            "gender": "m"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 4406,
+            "gender": "m",
+            "ethnic": null,
+            "f_form": "Смирнова",
+            "fname": null,
+            "text": "Смирнов"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca3622c9d558206cf068d7d"
+            },
+            "count": 1,
+            "text": "Смирнов",
+            "lett": "С",
+            "gender": "m"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13d9d55821a51000002"
+            },
+            "count": 4406,
+            "text": "Смирнов",
+            "f_form": "Смирнова",
+            "gender": "m"
+          }
+        ]
+      },
+      "nen": []
+    },
+    "Ким": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 279,
+            "text": "Ким",
+            "ethnic": null,
+            "lett": "К",
+            "gender": "m"
+          },
+          {
+            "count": 2,
+            "text": "КИМ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 369,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Ким"
+          },
+          {
+            "count": 336,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "КИМ"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029b37"
+            },
+            "count": 279,
+            "text": "Ким",
+            "lett": "К",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f76d8b49de961352f24707"
+            },
+            "count": 2,
+            "text": "КИМ"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13e9d55821a51001d58"
+            },
+            "count": 369,
+            "text": "Ким"
+          },
+          {
+            "_id": {
+              "$oid": "58f7668749de961352f214cf"
+            },
+            "count": 336,
+            "text": "КИМ"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Ким",
+          "url": "https://n-e-n.ru/imena/imya/kim/",
+          "short_forms": [
+            "Акимка",
+            "Акимушка",
+            "Кима",
+            "Якимка"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Керим",
+          "url": "https://n-e-n.ru/imena/imya/kerim/",
+          "short_forms": [
+            "Кека",
+            "Керо",
+            "Рим",
+            "Ким",
+            "Рик",
+            "Керимочка",
+            "Керимуля",
+            "Керимик"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Хаким",
+          "url": "https://n-e-n.ru/imena/imya/khakim/",
+          "short_forms": [
+            "Хак",
+            "Ким",
+            "Хаши",
+            "Аки",
+            "Кика",
+            "Хакимчик",
+            "Хакимуля",
+            "Хакимончик"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Карима",
+          "url": "https://n-e-n.ru/imena/imya/karima/",
+          "short_forms": [
+            "Кар",
+            "Карр",
+            "Кари",
+            "Карим",
+            "Ким",
+            "Кариночка",
+            "Каришенька",
+            "Каринуля"
+          ],
+          "international_forms": []
+        }
+      ]
+    },
+    "Али": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 233,
+            "text": "Али",
+            "ethnic": null,
+            "lett": "А",
+            "gender": "m"
+          },
+          {
+            "count": 25,
+            "text": "АЛИ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 20,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Али"
+          },
+          {
+            "count": 6,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "АЛИ"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "count": 8,
+            "gender": null,
+            "ethnic": null,
+            "lett": null,
+            "fname": null,
+            "text": "АЛИ"
+          }
+        ]
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa14b9d55821a51029bad"
+            },
+            "count": 233,
+            "text": "Али",
+            "lett": "А",
+            "gender": "m"
+          },
+          {
+            "_id": {
+              "$oid": "58f7667949de961352f21448"
+            },
+            "count": 25,
+            "text": "АЛИ"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca0635d9d5582342e0dcabb"
+            },
+            "count": 20,
+            "text": "Али"
+          },
+          {
+            "_id": {
+              "$oid": "58f7668d49de961352f214fe"
+            },
+            "count": 6,
+            "text": "АЛИ"
+          }
+        ],
+        "PATRONYMIC": [
+          {
+            "_id": {
+              "$oid": "58f75e2e49de961352f20d99"
+            },
+            "count": 8,
+            "text": "АЛИ"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Али",
+          "url": "https://n-e-n.ru/imena/imya/ali/",
+          "short_forms": [
+            "Алик"
+          ],
+          "international_forms": [
+            "Ali"
+          ]
+        },
+        {
+          "name": "Алихан",
+          "url": "https://n-e-n.ru/imena/imya/alikhan/",
+          "short_forms": [
+            "Али",
+            "Алька",
+            "Хан",
+            "Алиханчик",
+            "Алиханушка",
+            "Альчик",
+            "Ханчик",
+            "Ханушка"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Алибек",
+          "url": "https://n-e-n.ru/imena/imya/alibek/",
+          "short_forms": [
+            "Али",
+            "Бек",
+            "Либ",
+            "Ибек",
+            "Лик",
+            "Алибечка",
+            "Алибеченька",
+            "Алибешенька"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Алима",
+          "url": "https://n-e-n.ru/imena/imya/alima/",
+          "short_forms": [
+            "Али",
+            "Лима",
+            "Лим",
+            "Аля",
+            "Има",
+            "Алимочка",
+            "Алимушечка",
+            "Алимуля"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Алий",
+          "url": "https://n-e-n.ru/imena/imya/alii/",
+          "short_forms": [
+            "Али",
+            "Ли",
+            "Иль",
+            "Лей",
+            "Лия",
+            "Алишка",
+            "Алька",
+            "Алиночка"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Альфир",
+          "url": "https://n-e-n.ru/imena/imya/alfir/",
+          "short_forms": [
+            "Альф",
+            "Али",
+            "Арфи",
+            "Фир",
+            "Аль",
+            "Альфирушка",
+            "Альфирчик",
+            "Альфиренька"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Алиасхаб",
+          "url": "https://n-e-n.ru/imena/imya/aliaskhab/",
+          "short_forms": [
+            "Али",
+            "Шаб",
+            "Алис",
+            "Шас",
+            "Аби",
+            "Алишка",
+            "Алишечка",
+            "Алишуня"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Алимжан",
+          "url": "https://n-e-n.ru/imena/imya/alimzhan/",
+          "short_forms": [
+            "Али",
+            "Жан",
+            "Мжан",
+            "Жа",
+            "Алим",
+            "Алимжанчик",
+            "Алимжанюшка",
+            "Алимжанешенька"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Элиф",
+          "url": "https://n-e-n.ru/imena/imya/elif/",
+          "short_forms": [
+            "Эли",
+            "Лиф",
+            "Лифа",
+            "Али",
+            "Фли",
+            "Элечка",
+            "Эличонка",
+            "Эличка"
+          ],
+          "international_forms": []
+        }
+      ]
+    },
+    "Ли": {
+      "russiannames": {
+        "FIRST_NAME": [
+          {
+            "count": 8,
+            "text": "Ли",
+            "ethnic": null,
+            "lett": "Л",
+            "gender": "u"
+          },
+          {
+            "count": 3,
+            "text": "ЛИ",
+            "ethnic": null,
+            "lett": null,
+            "gender": null
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "count": 146,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "Ли"
+          },
+          {
+            "count": 215,
+            "gender": null,
+            "ethnic": null,
+            "f_form": null,
+            "fname": null,
+            "text": "ЛИ"
+          }
+        ],
+        "PATRONYMIC": []
+      },
+      "russian_names": {
+        "FIRST_NAME": [
+          {
+            "_id": {
+              "$oid": "4ca05a7b9d5582342e0115f6"
+            },
+            "count": 8,
+            "text": "Ли",
+            "lett": "Л",
+            "gender": "u"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e3b49de961352f20e45"
+            },
+            "count": 3,
+            "text": "ЛИ"
+          }
+        ],
+        "LAST_NAME": [
+          {
+            "_id": {
+              "$oid": "4bdaa13f9d55821a51004eb7"
+            },
+            "count": 146,
+            "text": "Ли"
+          },
+          {
+            "_id": {
+              "$oid": "58f75e3949de961352f20e2b"
+            },
+            "count": 215,
+            "text": "ЛИ"
+          }
+        ]
+      },
+      "nen": [
+        {
+          "name": "Лиана",
+          "url": "https://n-e-n.ru/imena/imya/liana/",
+          "short_forms": [
+            "Ли",
+            "Лина",
+            "Лиане",
+            "Лианка",
+            "Линуха",
+            "Линуша",
+            "Лана",
+            "Анна"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Рузалия",
+          "url": "https://n-e-n.ru/imena/imya/ruzaliya/",
+          "short_forms": [
+            "Руз",
+            "Зали",
+            "Ли",
+            "Ру",
+            "За",
+            "Рузя",
+            "Рузенька",
+            "Рузяша"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Лира",
+          "url": "https://n-e-n.ru/imena/imya/lira/",
+          "short_forms": [
+            "Лир",
+            "Ли",
+            "Лирочка",
+            "Лирушенька",
+            "Лироченька",
+            "Лиречка",
+            "Лирюша",
+            "Лирюшенька"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Алий",
+          "url": "https://n-e-n.ru/imena/imya/alii/",
+          "short_forms": [
+            "Али",
+            "Ли",
+            "Иль",
+            "Лей",
+            "Лия",
+            "Алишка",
+            "Алька",
+            "Алиночка"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Адиль",
+          "url": "https://n-e-n.ru/imena/imya/adil/",
+          "short_forms": [
+            "Ади",
+            "Диль",
+            "Ад",
+            "Дил",
+            "Ли",
+            "Адилька",
+            "Адиляша",
+            "Адиляндрик"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Линара",
+          "url": "https://n-e-n.ru/imena/imya/linara/",
+          "short_forms": [
+            "Ли",
+            "Лина"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Салихат",
+          "url": "https://n-e-n.ru/imena/imya/salikhat/",
+          "short_forms": [
+            "Са",
+            "Сали",
+            "Лих",
+            "Ли",
+            "Хат",
+            "Салихатуля",
+            "Салихаточка",
+            "Салихатиночка"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Галимат",
+          "url": "https://n-e-n.ru/imena/imya/galimat/",
+          "short_forms": [
+            "Га",
+            "Гал",
+            "Ли",
+            "Ма",
+            "Ат",
+            "Галюшка",
+            "Галинка",
+            "Галинушка"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Амилия",
+          "url": "https://n-e-n.ru/imena/imya/amiliya/",
+          "short_forms": [
+            "Ами",
+            "Мили",
+            "Лия",
+            "Ам",
+            "Ли",
+            "Амиличка",
+            "Амиляшечка",
+            "Амилянька"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Лили",
+          "url": "https://n-e-n.ru/imena/imya/lili/",
+          "short_forms": [
+            "Лия",
+            "Ли",
+            "Лиль",
+            "Ляля",
+            "Лилок"
+          ],
+          "international_forms": []
+        },
+        {
+          "name": "Галинур",
+          "url": "https://n-e-n.ru/imena/imya/galinur/",
+          "short_forms": [
+            "Гал",
+            "Гали",
+            "Галина",
+            "Ли",
+            "Нур",
+            "Галечка",
+            "Галюша",
+            "Галюся"
+          ],
+          "international_forms": []
+        }
+      ]
+    }
+  },
+  "limitations": "Source membership/frequency is evidence, never a proof of role for an arbitrary individual."
+}

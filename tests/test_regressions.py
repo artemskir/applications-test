@@ -54,15 +54,15 @@ class ReviewRegressions(unittest.TestCase):
                         self.assertEqual(source.read_bytes(),before)
 
     def test_personal_name_extraction_and_conservative_abstention(self):
-        for raw, expected in [('Влад','Влад'), ('Зайцев Кирилл','Кирилл'), ('Кирилл Зайцев','Кирилл'),
+        for raw, expected in [('Кирилл','Кирилл'), ('Зайцев Кирилл','Кирилл'), ('Кирилл Зайцев','Кирилл'),
                               ('Ирина Львовна','Ирина'), ('Волков Егор','Егор'), ('ПАВЛОВА анастасия','Анастасия'),
                               ('Кирилл Зайцев Андреевич','Кирилл'), ('Жан-Поль','Жан-Поль')]:
             with self.subTest(raw=raw):
                 result = names.analyze(RawCell(raw))
                 self.assertEqual(result.canonical, expected)
                 self.assertEqual(result.codes, [])
-        for raw, code in [('К. Белоусов','NAME_INCOMPLETE'), ('Волков','NAME_NOT_FIRST'),
-                          ('Андреевич','NAME_NOT_FIRST'), ('Ким','NAME_AMBIGUOUS'), ('Али','NAME_AMBIGUOUS'),
+        for raw, code in [('К. Белоусов','NAME_INCOMPLETE'), ('Волков','NAME_AMBIGUOUS'),
+                          ('Андреевич','NAME_AMBIGUOUS'), ('Влад','NAME_AMBIGUOUS'), ('Ким','NAME_AMBIGUOUS'), ('Али','NAME_AMBIGUOUS'),
                           ('Ли','NAME_AMBIGUOUS'), ('Клиент Кирилл','NAME_UNKNOWN'),
                           ('не знаю','NAME_UNKNOWN'), ('Даздраперма','NAME_UNKNOWN'),
                           ('Кирилл Ирина','NAME_AMBIGUOUS')]:
@@ -80,7 +80,7 @@ class ReviewRegressions(unittest.TestCase):
                 book.active.append([name,'+79174005219','2026-09-06','сайт'])
             book.save(source)
             result = normalize(source,output)
-            self.assertEqual((result['data_rows'],result['duplicates'],result['problem_rows']),(0,1,2))
+            self.assertEqual((result['data_rows'],result['duplicates'],result['problem_rows']),(1,1,2))
             self.assertEqual(result['codes']['DUPLICATE_NAME_CONFLICT'],2)
             self.assertEqual(restore_bytes(output)[0],source.read_bytes())
 
@@ -141,7 +141,7 @@ class ReviewRegressions(unittest.TestCase):
             book = Workbook()
             book.active.append(HEADERS)
             raw_rows = [
-                ['Иван', '+79174005219', '09/25/2026', 'сайт'],
+                ['Дарья', '+79174005219', '09/25/2026', 'сайт'],
                 ['Кирилл', 'не знаю', 'хх.09.2026', 'email'],
                 [None, None, None, None],
                 ['Пётр', '+79174005220 доб. 123', '2026-09-06', 'звонок'],
@@ -157,7 +157,7 @@ class ReviewRegressions(unittest.TestCase):
             result = load_workbook(output, read_only=True)
             try:
                 self.assertEqual(result.sheetnames, ['Данные', 'Проблемы', 'Оригинал', 'Аудит', 'Проверить'])
-                self.assertEqual(list(result['Данные'].values)[1:], [('Иван', '+79174005219', '2026-09-25', 'сайт')])
+                self.assertEqual(list(result['Данные'].values)[1:], [('Дарья', '+79174005219', '2026-09-25', 'сайт')])
                 rows = list(result['Проверить'].values)
                 self.assertEqual(rows[0], (*HEADERS, 'Лист входа', 'Строка входа', 'Что не так'))
                 self.assertEqual([tuple(r[:4]) for r in rows[1:]], [tuple(r) for r in raw_rows[1:]])

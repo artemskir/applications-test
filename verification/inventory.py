@@ -235,7 +235,7 @@ def reconcile(input_bytes, output_bytes, selected=None):
         assert sorted(r[3] for _, r in admitted) == list(range(2, 2+len(values['Данные']))), 'Data bijection'
         assert len({r[1] for r in values['Данные']}) == len(values['Данные']), 'unique Data phone keys'
         for ident, r in admitted:
-            assert not unpack(r[9])['codes'] and unpack(r[9])['disposition'] != 'DUPLICATE', 'Data admission'
+            assert unpack(r[9])['disposition'] == 'REPRESENTATIVE', 'Data admission representative'
         for row in values['Данные']:
             assert isinstance(row[1],str) and len(row[1])==12 and row[1].startswith('+7') and all(c in '0123456789' for c in row[1][1:]), 'canonical phone grammar'
             assert isinstance(row[2],str) and len(row[2])==10 and row[2][4]==row[2][7]=='-', 'canonical date grammar'
@@ -263,8 +263,47 @@ def reconcile(input_bytes, output_bytes, selected=None):
             assert canonical(old) == canonical({'type': cell['kind'], 'value': cell['value']}), 'FIELD_CHANGE old value/types'
             assert change[2] == cell['coordinate'] and change[6], 'change provenance/rule'
             displays[change[1]][field] = new['value']
+        resolutions = [r for r in audit if r[0] == 'GROUP_RESOLUTION']
+        assert Counter(r[1] for r in resolutions) == Counter(i for i,r in ledger.items()
+                    if unpack(r[9])['disposition'] == 'REPRESENTATIVE'), 'group resolutions exact'
+        resolved = {r[1]:unpack(r[9]) for r in resolutions}
+        field_issues = {(a[1],a[5]) for a in audit if a[0]=='FIELD_ISSUE' and not str(a[6]).startswith('DUPLICATE_')}
+        member_ids = {}
+        for ident,record in ledger.items():
+            member_ids.setdefault(record[4],[]).append(ident)
+        for resolution in resolutions:
+            ident = resolution[1]; record = ledger[ident]; details = resolved[ident]
+            assert resolution[3:7] == (record[3],ident,None,'DEC-31'), 'group provenance'
+            assert details['rule_id'] == 'DEC-31' and details['admitted'] == (record[3] is not None), 'group admission'
+            assert [f['field'] for f in details['fields']] == list(HEADERS), 'group field order'
+            assert details['conflict_codes'] == [c for c in unpack(record[9])['codes'] if c.startswith('DUPLICATE_')], 'group conflicts'
+            members = member_ids[ident]
+            candidates_by_field = [[i for i in members if (i,HEADERS[field]) not in field_issues] for field in range(3)]
+            eligible = all(candidates_by_field) and (ident,HEADERS[3]) not in field_issues
+            assert (record[3] is not None) == eligible, 'independent group admission'
+            for field, choice in enumerate(details['fields']):
+                candidates = candidates_by_field[field] if field<3 else []
+                donor = choice['donor_row_id']
+                if field==3:
+                    assert donor == ident and choice['rule_id']=='KEEP_FIRST_SOURCE', 'first source'
+                elif donor is not None:
+                    assert candidates and donor == candidates[0] and choice['rule_id']=='FIRST_CONFIRMED_VALUE', 'first confirmed donor'
+                else:
+                    assert not candidates and (ident,HEADERS[field]) in field_issues, 'unconfirmed field accounted'
+                    assert choice['rule_id']=='NO_CONFIRMED_VALUE' and choice['input_cell'] is None, 'missing donor'
+                source_id = donor if donor is not None else ident
+                assert source_id in members, 'donor belongs to phone group'
+                assert choice['value'] == displays[source_id][field], 'group value has source trail'
+                if donor is not None:
+                    source_cell = expected[ids.index(donor)]['cells'][field]
+                    assert choice['input_cell'] == source_cell['coordinate'], 'donor cell'
+                    if field<3:
+                        assert choice['canonical']==choice['value'], 'confirmed canonical matches display'
+            if record[3] is not None:
+                assert all(c['donor_row_id'] is not None and c['canonical'] is not None for c in details['fields'][:3]), 'complete group result'
+                assert not any(a[0]=='FIELD_ISSUE' and a[1]==ident and a[5]==HEADERS[3] for a in audit), 'source issue blocks Data'
         for ident, r in admitted:
-            assert list(values['Данные'][r[3]-2]) == displays[ident], 'Data values match complete change trail'
+            assert list(values['Данные'][r[3]-2]) == [f['value'] for f in resolved[ident]['fields']], 'Data matches group trail'
         for p in problems:
             assert list(p[9::2]) == displays[p[0]], 'problem displays match complete change trail'
         semantic_fields = 0

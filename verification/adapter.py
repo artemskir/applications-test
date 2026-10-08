@@ -15,7 +15,7 @@ def make_rows(records, analyze=False):
         else:
             # Hand-built specification states isolate grouping from field parsing.
             canonicals = (r.name, '+79174005219' if r.telephone in PHONES[:2] else r.telephone,
-                          r.date if r.date == '2026-09-06' else None, r.source)
+                          r.date if r.date in ('2026-09-06','2026-09-07') else None, r.source)
             fields = []
             for j, (cell, canonical) in enumerate(zip(cells, canonicals)):
                 codes = (['NAME_MISSING'] if j == 0 and canonical is None else
@@ -29,7 +29,11 @@ def make_rows(records, analyze=False):
 
 def observe(rows):
     lookup = {r.raw.row_id: i for i, r in enumerate(rows)}
-    return tuple(Outcome(lookup[r.representative_id], r.disposition, frozenset(r.codes), r.output_row) for r in rows)
+    return tuple(Outcome(lookup[r.representative_id], r.disposition, frozenset(r.codes), r.output_row,
+                         tuple(f.display for f in r.data_fields) if r.resolution is not None else None,
+                         tuple(lookup[f['donor_row_id']] if f['donor_row_id'] is not None else None
+                               for f in r.resolution['fields']) if r.resolution is not None else None)
+                 for r in rows)
 
 
 def actual(records, analyze=False):

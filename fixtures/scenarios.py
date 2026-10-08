@@ -282,6 +282,31 @@ partial_name = case('N43', 'Имя', 'Иван Иванов Петрович', '
 partial_name.update(canonical='Иван', status='NORMALIZED', problem_list=True, diagnostic_codes=[])
 CASES.append(partial_name)
 
+# DEC-35 supersedes old single-token overrides; dictionary intersections are reviewed.
+for entry in CASES:
+    if entry['id'] in {'N36','N41'}:
+        entry.update(expected=entry['input'],canonical=None,codes=['NAME_AMBIGUOUS'],status='PROBLEM',
+                     problem_list=True,diagnostic_codes=[])
+        entry['note']='DEC-35: пересечение исходных ролей одиночного слова; ручное исключение не применяется'
+
+# DEC-30/34: independently labelled context and Unicode boundary examples.
+for ident, raw, expected, codes in [
+    ('N44','Николаев Павел','Павел',[]), ('N45','Степанова Вера','Вера',[]),
+    ('N46','Макарова Нина','Нина',[]), ('N47','Григорьев Денис','Денис',[]),
+    ('N48','Романов Виктор','Виктор',[]), ('N49','Смирнов Олег','Олег',[]),
+    ('N50','Смирнов Олег\u200b','Олег',[]), ('N51','\ufeffСмирнов Олег\ufeff','Олег',[]),
+    ('N52','Ол\u200bег','Ол\u200bег',['NAME_INVALID']),
+    ('N53','Ол\ufeffег','Ол\ufeffег',['NAME_INVALID']),
+    ('N54','Олег\u200d','Олег\u200d',['NAME_INVALID']),
+    ('N55','\u202eОлег','\u202eОлег',['NAME_INVALID']),
+    ('N56','\u200b\ufeff','\u200b\ufeff',['NAME_INVALID']),
+    ('N57','Нина Денис','Нина Денис',['NAME_AMBIGUOUS']),
+]:
+    entry = case(ident,'Имя',raw,expected,codes,'Контекст и границы 1.7; исходник сохраняется','user-reconciliation')
+    entry.update(canonical=None if codes else expected, status='PROBLEM' if codes else 'NORMALIZED',
+                 problem_list=bool(codes),diagnostic_codes=[])
+    CASES.append(entry)
+
 
 def materialize(value):
     if not isinstance(value, dict):

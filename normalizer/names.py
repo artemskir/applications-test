@@ -1,9 +1,27 @@
 import re
 import unicodedata
 from .models import common, failure, success
-from .name_roles import classify, roles, key
+from .name_roles import classify, roles, key, assignments
 
 BREAKS = r"[-‐‑‒–—'’]"
+
+
+def strip_boundary_invisibles(value):
+    removed = []
+    pieces = []
+    for match in re.finditer(r'\S+|\s+', value):
+        text = match.group()
+        if not text.isspace():
+            start, stop = 0, len(text)
+            while start < stop and text[start] in '\u200b\ufeff':
+                start += 1
+            while stop > start and text[stop-1] in '\u200b\ufeff':
+                stop -= 1
+            for pos in list(range(start)) + list(range(stop, len(text))):
+                removed.append({'position':match.start()+pos, 'codepoint':f'U+{ord(text[pos]):04X}'})
+            text = text[start:stop]
+        pieces.append(text)
+    return ''.join(pieces), removed
 
 
 def analyze(cell):
@@ -13,6 +31,7 @@ def analyze(cell):
     if not isinstance(cell.value, str):
         return failure(cell, 'NAME_INVALID')
     value = unicodedata.normalize('NFC', cell.value)
+    value, removed = strip_boundary_invisibles(value)
     letters = [c for c in value if unicodedata.category(c).startswith('L')]
     latin = any('LATIN' in unicodedata.name(c, '') for c in letters)
     cyrillic = any('CYRILLIC' in unicodedata.name(c, '') for c in letters)
@@ -60,16 +79,27 @@ def analyze(cell):
                 'kind': 'NAME_COMPONENTS_EXTRACTED', 'details': {'original': cell.value,
                 'normalized_full_name': normalized, 'components': components, 'first_name': personal,
                 'review_required': True, 'rule_id': 'DEC-29'}}])
+            if removed:
+                result.actions.insert(0, {'kind':'NAME_INVISIBLES_REMOVED', 'details':{'original':cell.value,
+                    'working_value':value, 'removed':removed, 'rule_id':'DEC-34'}})
             result.classification, result.components = classification, components
             return result
     if classification not in ('FIRST_NAME', 'FULL_NAME'):
         code = {'UNKNOWN':'NAME_UNKNOWN', 'AMBIGUOUS':'NAME_AMBIGUOUS',
                 'LAST_NAME':'NAME_NOT_FIRST', 'PATRONYMIC':'NAME_NOT_FIRST'}[classification]
         result = failure(cell, code)
+        if classification == 'AMBIGUOUS' and len(tokens)==1 and components:
+            result.actions.append({'kind':'NAME_ROLE_EVIDENCE','details':{'original':cell.value,
+                'normalized':normalized, 'possible_roles':components[0]['role'].split('|'),
+                'rule_id':'DEC-35', 'source':'russiannames pinned role dictionaries'}})
     else:
         personal = next(component['text'] for component in components if component['role'] == 'FIRST_NAME')
         actions = [{'kind':'NAME_COMPONENTS_EXTRACTED', 'details':{'original':cell.value,
-                    'normalized_full_name':normalized, 'components':components, 'first_name':personal}}] if classification == 'FULL_NAME' else []
+                    'normalized_full_name':normalized, 'components':components, 'first_name':personal,
+                    'role_assignments':assignments(normalized), 'rule_id':'DEC-30'}}] if classification == 'FULL_NAME' else []
+        if removed:
+            actions.insert(0, {'kind':'NAME_INVISIBLES_REMOVED', 'details':{'original':cell.value,
+                'working_value':value, 'removed':removed, 'rule_id':'DEC-34'}})
         result = success(cell, personal, actions=actions)
     result.classification, result.components = classification, components
     return result

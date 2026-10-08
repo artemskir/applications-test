@@ -105,6 +105,12 @@ class RowResult:
     representative_id: str = ''
     output_row: int | None = None
     conflicts: list = field(default_factory=list)
+    resolved_fields: list | None = None
+    resolution: dict | None = None
+
+    @property
+    def data_fields(self):
+        return self.resolved_fields if self.resolved_fields is not None else self.fields
 
     @property
     def codes(self):
@@ -112,4 +118,5 @@ class RowResult:
 
     @property
     def admitted(self):
-        return self.disposition != 'DUPLICATE' and not self.codes and all(r.canonical is not None for r in self.fields[:3])
+        return (self.disposition != 'DUPLICATE' and not any(r.codes for r in self.data_fields)
+                and all(r.canonical is not None for r in self.data_fields[:3]))

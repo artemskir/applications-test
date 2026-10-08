@@ -4,7 +4,7 @@ from hashlib import sha256
 from itertools import product, combinations
 import json
 from pathlib import Path
-from .reference import ALPHABET, evaluate
+from .reference import ALPHABET, Record, evaluate
 from .adapter import actual
 
 
@@ -37,6 +37,20 @@ def check(max_length=3):
             assert covered == wanted
             expected_count += len(wanted); measured_count += len(covered)
         interactions[str(strength)] = {'covered': measured_count, 'required': expected_count}
+    # An extra independent alphabet covers date conflicts absent from the original 48.
+    date_alphabet = tuple(Record(n,p,d,'сайт') for n,p,d in product(
+        ('Кирилл','Дарья',None), ('+79174005219','+79174005220'), ('2026-09-06','2026-09-07','broken_date')))
+    focused = {}
+    for length in range(max_length+1):
+        count = 0
+        for records in product(date_alphabet, repeat=length):
+            expected, got = evaluate(records), actual(records)
+            if got != expected:
+                return {'passed':False, 'counts':counts, 'counterexample':[asdict(r) for r in records],
+                        'expected':repr(expected),'actual':repr(got),'model':'date-conflicts-18'}
+            count += 1
+        focused[str(length)] = count
     return {'passed': True, 'alphabet': 48, 'parser_bridge_states': 48, 'counts': counts,
             'total_sequences': sum(counts.values()), 'enumeration_sha256': checksum.hexdigest(),
-            'interactions': interactions, 'counterexamples': [], 'scope': 'grouping on abstract fields; length <= 3'}
+            'interactions': interactions, 'date_conflict_model':{'alphabet':18,'counts':focused,'total_sequences':sum(focused.values())},
+            'counterexamples': [], 'scope': 'grouping, conflicts, field choices and donors on abstract fields; length <= 3'}

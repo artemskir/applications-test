@@ -27,7 +27,7 @@ class FormalContracts(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             result = publication_faults(Path(folder)/'faults')
             self.assertTrue(result['passed'], result)
-            self.assertEqual(result['detected'], 6)
+            self.assertEqual(result['detected'], 10)
 
     def test_bounded_exhaustive_pairs(self):
         result = check(2)
@@ -60,17 +60,18 @@ class FormalContracts(unittest.TestCase):
             ws.append(['Иван Иванов Петрович', '8 (917) 400-52-19', '09/25/2026', 'сайт'])
             ws.append(['Иван Иванов', '+79174005219', '25.09.2026', 'email'])
             ws.append(['Кирилл', None, 'хх.09.2026', '=1+1'])
-            ws.append(['Иван', '+79174005220', '2026-09-06', 'сайт'])
+            ws.append(['Дарья', '+79174005220', '2026-09-06', 'сайт'])
             book.save(input_path); book.close()
             normalize(input_path, output_path)
             evidence = reconcile(input_path.read_bytes(), output_path.read_bytes())
             self.assertEqual(evidence['rows'], 4)
-            self.assertEqual(evidence['data_rows'], 1)
+            self.assertEqual(evidence['data_rows'], 2)
             result = load_workbook(output_path, read_only=True)
             try:
                 problems = list(result['Проблемы'].values)
                 self.assertEqual(problems[1][9], 'Иван')
                 self.assertEqual(list(result['Проверить'].values)[1][0], 'Иван Иванов Петрович')
-                self.assertIn('DUPLICATE_NAME_CONFLICT', problems[1][6])
+                self.assertIn('NAME_AMBIGUOUS', problems[1][6])
+                self.assertNotIn('DUPLICATE_NAME_CONFLICT', problems[1][6])
             finally:
                 result.close()

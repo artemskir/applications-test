@@ -87,7 +87,7 @@ def verify_formal_qa(directory):
     result = read(directory / 'results.json')
     if result.get('passed') is not True or result.get('status') != 'P0 PASS' or result.get('failed'):
         raise ValueError('Formal QA is incomplete or failed')
-    required = ('exhaustive', 'fields', 'stateful', 'preservation', 'critical-conditions', 'publication-faults', 'names', 'mutations')
+    required = ('exhaustive', 'fields', 'stateful', 'preservation', 'critical-conditions', 'publication-faults', 'names', 'mutations', 'reconciliation')
     if any(result['steps'].get(name) is not True for name in required):
         raise ValueError('Missing formal QA steps')
     for name, expected in result['source_sha256'].items():
@@ -98,6 +98,9 @@ def verify_formal_qa(directory):
     exhaustive = read(directory / 'exhaustive.json')
     if exhaustive['counts'] != {'0':1, '1':48, '2':2304, '3':110592} or exhaustive['total_sequences'] != 112945:
         raise ValueError('Incomplete ordered enumeration')
+    focused = exhaustive.get('date_conflict_model', {})
+    if focused.get('counts') != {'0':1,'1':18,'2':324,'3':5832} or focused.get('total_sequences') != 6175:
+        raise ValueError('Incomplete date-conflict enumeration')
     for name in required:
         if read(directory / (name + '.json')).get('passed') is not True:
             raise ValueError('Failed formal step: ' + name)

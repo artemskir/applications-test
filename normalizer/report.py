@@ -18,7 +18,7 @@ PROBLEM_HEADERS = ['row_id', 'Лист входа', 'Строка входа', '
 REVIEW_HEADERS = [*HEADERS, 'Лист входа', 'Строка входа', 'Что не так']
 KINDS = {'RUN', 'ROW', 'FIELD_CHANGE', 'PHONE_CONTEXT_EXTRACTED', 'DATE_TIME_PRESERVED', 'FIELD_ISSUE',
          'DUPLICATE_LINKED', 'DUPLICATE_CONFLICT', 'INPUT_CHUNK', 'CELL_METADATA_CHUNK', 'VALUE_CHUNK',
-         'DATE_ORDER_RESOLVED', 'NAME_COMPONENTS_EXTRACTED'}
+         'DATE_ORDER_RESOLVED', 'NAME_COMPONENTS_EXTRACTED', 'NAME_INVISIBLES_REMOVED', 'NAME_ROLE_EVIDENCE', 'GROUP_RESOLUTION'}
 MESSAGES = {
     'CELL_NUMERIC_INVALID': 'Неконечное числовое значение Excel; исходная запись сохранена',
     'PHONE_MISSING': 'Нет телефона', 'PHONE_INVALID': 'Телефон не соответствует допустимой структуре',
@@ -127,7 +127,7 @@ def write_report(path, rows, groups, snapshot, source, selection):
             raw = row.raw
             displays = [result.display for result in row.fields]
             if row.admitted:
-                writer.put('Данные', displays)
+                writer.put('Данные', [result.display for result in row.data_fields])
             meta = {HEADERS[i]: cell.metadata for i, cell in enumerate(raw.cells)}
             metadata_json = writer.pack(dumps(meta), 'CELL_METADATA_CHUNK', raw.row_id)
             writer.put('Оригинал', [raw.row_id, raw.sheet, raw.number, *[cell.value for cell in raw.cells], metadata_json])
@@ -142,6 +142,9 @@ def write_report(path, rows, groups, snapshot, source, selection):
                 writer.put('Проверить', [*[cell.value for cell in raw.cells], raw.sheet, raw.number, '; '.join(simple)])
             writer.audit('ROW', raw.row_id, output_row=row.output_row, representative=row.representative_id,
                          details={'disposition': row.disposition, 'canonical_phone': row.fields[1].canonical, 'codes': row.codes})
+            if row.resolution is not None:
+                writer.audit('GROUP_RESOLUTION', raw.row_id, output_row=row.output_row,
+                             representative=row.representative_id, rule='DEC-31', details=row.resolution)
             for index, result in enumerate(row.fields):
                 cell = raw.cells[index]
                 if type(cell.value) is not type(visible(result.display)) or cell.value != visible(result.display) or cell.kind in ('f', 'e', 'd') or cell.metadata.get('parse_issue'):

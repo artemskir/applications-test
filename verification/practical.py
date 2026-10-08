@@ -55,7 +55,7 @@ def cli_preservation(folder):
             ('ПАВЛОВА анастасия','89032118241','05.09.2026','звонок'),
             ('Ирина Львовна','+7 (913) 211-88-41','09/05/2026','сайт'),
             ('Павлов  Андрей','7 925 601 32 12','6 сентября 2026','звонок')]
-    edge = [('Иван',f'+7917400{i:04d}', '2026-09-06', 'сайт') for i in range(12)]
+    edge = [('Кирилл',f'+7917400{i:04d}', '2026-09-06', 'сайт') for i in range(12)]
     edge[0] = ('Иван Иванов Петрович', '+79174005219', '09/25/2026', 'сайт')
     edge[1] = ('Иван Иванов', '+79174005219', '25.09.2026', 'email')
     edge[7] = (None, None, None, None)
@@ -64,7 +64,7 @@ def cli_preservation(folder):
     fixtures = [('abstract-48', abstract, 1900, False), ('user-5', user, 1900, False),
                 ('metadata-edge', edge, 1900, True), ('epoch-1904', edge, 1904, True),
                 ('bad-dimension-48', abstract, 1900, False), ('nonfinite', edge, 1900, True)]
-    chunk_rows = [('Иван','+79174005219','2026-09-06','я'*16000),
+    chunk_rows = [('Дарья','+79174005219','2026-09-06','я'*16000),
                   ('Кирилл',None,'broken_date','я'*16000)]
     fixtures.append(('metadata-chunks',chunk_rows,1900,False))
     results = []
@@ -204,20 +204,41 @@ def publication_faults(folder):
                          ('Иван','+79174005219','09.03.2026','email')])
     initial=original.read_bytes()
     put, audit = report.Writer.put, report.Writer.audit
-    for label in ('metadata', 'change-old', 'ROW-details', 'duplicate-link', 'problem-raw', 'raw-bool-type'):
+    for label in ('metadata', 'change-old', 'ROW-details', 'duplicate-link', 'problem-raw', 'raw-bool-type',
+                  'group-donor', 'group-value', 'group-repeat', 'group-missing'):
+        # Every fault starts from a fresh eligible phone group. Previous faults
+        # intentionally use a Boolean/malformed phone and cannot be reused here.
+        save_book(original, [('Кирилл','8 (917) 400-52-19','09/03/2026','сайт'),
+                             ('Кирилл','+79174005219','09.03.2026','email')])
+        initial=original.read_bytes()
         output=folder/(label+'.xlsx')
+        injections=[]
         def broken_put(writer,sheet,values):
             values=list(values)
             if label=='metadata' and sheet=='Оригинал' and values[0]!='row_id':
+                injections.append(label)
                 meta=json.loads(values[7]); meta['Имя']['style_id']=987; values[7]=json.dumps(meta)
-            if label=='problem-raw' and sheet=='Проблемы' and values[0]!='row_id': values[8]='erased'
-            if label=='raw-bool-type' and sheet=='Оригинал' and values[0]!='row_id': values[4]=1
+            if label=='problem-raw' and sheet=='Проблемы' and values[0]!='row_id':
+                injections.append(label); values[8]='erased'
+            if label=='raw-bool-type' and sheet=='Оригинал' and values[0]!='row_id':
+                injections.append(label); values[4]=1
             return put(writer,sheet,values)
         def broken_audit(writer,kind,*args,**kwargs):
-            if label=='change-old' and kind=='FIELD_CHANGE': kwargs['old']={'type':'s','value':'erased'}
-            if label=='ROW-details' and kind=='ROW': kwargs['details']={'disposition':'DUPLICATE','canonical_phone':None,'codes':['WRONG']}
+            if label.startswith('group-') and kind=='GROUP_RESOLUTION':
+                injections.append(label)
+                if label=='group-missing': return
+                # Work on a copy: never corrupt the validator's expected object.
+                kwargs=json.loads(json.dumps(kwargs))
+                if label=='group-donor': kwargs['details']['fields'][0]['donor_row_id']='s1:r3'
+                if label=='group-value': kwargs['details']['fields'][0]['value']='wrong'
+                if label=='group-repeat': audit(writer,kind,*args,**kwargs)
+            if label=='change-old' and kind=='FIELD_CHANGE':
+                injections.append(label); kwargs['old']={'type':'s','value':'erased'}
+            if label=='ROW-details' and kind=='ROW':
+                injections.append(label); kwargs['details']={'disposition':'DUPLICATE','canonical_phone':None,'codes':['WRONG']}
             result=audit(writer,kind,*args,**kwargs)
-            if label=='duplicate-link' and kind=='DUPLICATE_LINKED': audit(writer,kind,*args,**kwargs)
+            if label=='duplicate-link' and kind=='DUPLICATE_LINKED':
+                injections.append(label); audit(writer,kind,*args,**kwargs)
             return result
         if label in ('problem-raw', 'raw-bool-type'):
             # Context ensures Problems is nonempty while keeping a valid phone key.
@@ -229,5 +250,6 @@ def publication_faults(folder):
                 detected=exc.exit_code==4 and not output.exists(); reason=exc.code+': '+str(exc)
             else: detected=False; reason='published corrupted stage'
         assert original.read_bytes()==initial
-        results.append({'id':label,'detected':detected,'output_published':output.exists(),'reason':reason})
+        results.append({'id':label,'detected':detected and bool(injections),'injections':len(injections),
+                        'output_published':output.exists(),'reason':reason})
     return {'passed':all(r['detected'] for r in results),'faults':results,'detected':sum(r['detected'] for r in results),'total':len(results)}

@@ -87,8 +87,8 @@ class GeneratorTests(unittest.TestCase):
                 wb.close()
         dup = next(item for item in manifest["files"] if item["file"] == "duplicates.xlsx")
         self.assertEqual(set(dup["expected"]["representative_or_ungrouped_rows"]) | set(dup["expected"]["duplicate_rows"]), set(range(2, 14)))
-        self.assertEqual(dup["expected"]["data_input_rows"], [11, 12])
-        self.assertEqual(dup["expected"]["duplicate_conflict_rows"], [2, 3, 4, 5, 8, 9])
+        self.assertEqual(dup["expected"]["data_input_rows"], [2, 8, 11, 12])
+        self.assertEqual(dup["expected"]["duplicate_conflict_rows"], [2, 3, 4, 5])
         disk = json.loads((self.root / "suite" / "manifest.json").read_text(encoding="utf-8"))
         self.assertEqual(manifest, disk)
 

@@ -30,7 +30,8 @@ SEED = int(os.environ.get('QA_SEED', '42'))
 settings.register_profile('qa', max_examples=EXAMPLES, deadline=None)
 settings.load_profile('qa')
 digits9 = st.text(alphabet='0123456789', min_size=9, max_size=9).map(lambda tail: '9' + tail)
-personal_names = st.sampled_from(['Андрей','Влад','Кирилл','Пётр','Семён','Анна','Любовь'])
+from tools.generate_data import clean_name_pool
+personal_names = st.sampled_from(clean_name_pool())
 calendar = st.dates(min_value=date(1,1,1),max_value=date(9999,12,31))
 missing = st.sampled_from([None, '', ' ', '\u00a0', 'нет', 'NULL', 'N/A'])
 CALLS=Counter()
@@ -135,7 +136,9 @@ class GeneratedProperties(unittest.TestCase):
     @given(personal_names,st.sampled_from(['123','😀','\u200b',' (менеджер)']))
     def test_name_mutations_are_not_accepted(self,name,suffix):
         record('invalid_names',name,suffix)
-        self.assertIsNone(names.analyze(RawCell(name+suffix)).canonical)
+        # DEC-34 permits boundary ZWSP only; an internal insertion still fails.
+        raw = name[:1]+suffix+name[1:] if suffix=='\u200b' else name+suffix
+        self.assertIsNone(names.analyze(RawCell(raw)).canonical)
 
     @seed(SEED)
     @given(missing,st.sampled_from(['s','n']))
@@ -194,7 +197,7 @@ class GeneratedProperties(unittest.TestCase):
 
 class CombinatorialCLI(unittest.TestCase):
     def test_pairwise_coverage_and_dangerous_three_way_cli_inventory(self):
-        factors=[['Иван','Зайцев Кирилл',None,'К. Белоусов'],
+        factors=[['Дарья','Зайцев Кирилл',None,'К. Белоусов'],
                  ['+79174005219','не знаю',None,'+79174005219 доб. 123'],
                  ['2026-09-06','09/25/2026','хх.09.2026',None],
                  ['сайт',None,42], [False,True]]
@@ -215,8 +218,8 @@ class CombinatorialCLI(unittest.TestCase):
             rows.append(row)
             if duplicate:
                 rows.append(list(row))
-            if name in ('Иван','Зайцев Кирилл') and phone_value==unique and date_value in ('2026-09-06','09/25/2026'):
-                expected_data.append(('Иван' if name=='Иван' else 'Кирилл',unique,
+            if name in ('Дарья','Зайцев Кирилл') and phone_value==unique and date_value in ('2026-09-06','09/25/2026'):
+                expected_data.append(('Дарья' if name=='Дарья' else 'Кирилл',unique,
                                       '2026-09-06' if date_value=='2026-09-06' else '2026-09-25',source))
         # Different reproducible seeds exercise physical row orders and blank/source values.
         with tempfile.TemporaryDirectory() as folder:

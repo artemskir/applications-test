@@ -85,8 +85,8 @@ class ResourceRegressions(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             source, output = Path(directory)/'input.xlsx', Path(directory)/'output.xlsx'
             rows = [
-                ['Иван', '+79174005219', '2026-03-09', 'сайт'],
-                ['Иван', '+79174005219 доб. 917-400-52-20', '2026-03-09', 'email'],
+                ['Дарья', '+79174005219', '2026-03-09', 'сайт'],
+                ['Дарья', '+79174005219 доб. 917-400-52-20', '2026-03-09', 'email'],
                 ['Кирилл', '+79174005221', '09\u202f25\u202f2026', 'telegram'],
                 ['Анна', '89174005222\ufe0f', '2026-03-09', 'звонок'],
             ]

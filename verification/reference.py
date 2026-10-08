@@ -81,8 +81,9 @@ def role_assignments(evidence):
 
 # Explicit finite alphabet from the verification plan; not sampled from production.
 PHONES = ('+79174005219', '8 (917) 400-52-19', '+79174005220', None)
-NAMES = ('Иван', 'Кирилл', None)
+NAMES = ('Кирилл', 'Дарья', None)
 DATES = ('2026-09-06', 'broken_date')
+CONFIRMED_DATES = ('2026-09-06', '2026-09-07')
 SOURCES = ('сайт', 'звонок')
 
 
@@ -103,6 +104,8 @@ class Outcome:
     disposition: str
     codes: frozenset
     output_row: int | None
+    selected_values: tuple | None = None
+    donors: tuple | None = None
 
 
 def evaluate(records):
@@ -119,14 +122,21 @@ def evaluate(records):
             codes.add('NAME_MISSING')
         if keys[i] is None:
             codes.add('PHONE_MISSING')
-        if r.date != '2026-09-06':
+        if r.date not in CONFIRMED_DATES:
             codes.add('DATE_UNSUPPORTED')
-        if len({records[j].name for j in group}) > 1:
+        if len({records[j].name for j in group if records[j].name is not None}) > 1:
             codes.add('DUPLICATE_NAME_CONFLICT')
-        if len({records[j].date for j in group}) > 1:
+        if len({records[j].date for j in group if records[j].date in CONFIRMED_DATES}) > 1:
             codes.add('DUPLICATE_DATE_CONFLICT')
-        admitted = disposition != 'DUPLICATE' and not codes
+        name_donor = next((j for j in group if records[j].name is not None), None)
+        date_donor = next((j for j in group if records[j].date in CONFIRMED_DATES), None)
+        admitted = (disposition == 'REPRESENTATIVE' and name_donor is not None and date_donor is not None)
         output = 2 + admitted_count if admitted else None
         admitted_count += admitted
-        answer.append(Outcome(representative, disposition, frozenset(codes), output))
+        values = donors = None
+        if disposition == 'REPRESENTATIVE':
+            values = (records[name_donor].name if name_donor is not None else r.name, keys[i],
+                      records[date_donor].date if date_donor is not None else r.date, r.source)
+            donors = (name_donor, representative, date_donor, representative)
+        answer.append(Outcome(representative, disposition, frozenset(codes), output, values, donors))
     return tuple(answer)

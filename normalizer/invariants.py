@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import date
 from io import BytesIO
 import json
@@ -18,6 +18,10 @@ def validate_rows(rows):
     identities = {row.raw.row_id: row for row in rows}
     require(len(identities) == len(rows), 'Неуникальные исходные row_id.')
     phones = []
+    phone_groups = defaultdict(list)
+    for r in rows:
+        if r.fields[1].canonical is not None:
+            phone_groups[r.fields[1].canonical].append(r)
     for row in rows:
         require(row.representative_id in identities, 'Нет представителя строки.')
         representative = identities[row.representative_id]
@@ -26,6 +30,24 @@ def validate_rows(rows):
             require(row.output_row is None and representative.raw.number < row.raw.number, 'Нарушен выбор первого дубля.')
         else:
             require(row.representative_id == row.raw.row_id, 'Неверная ссылка представителя.')
+        if row.disposition == 'REPRESENTATIVE':
+            group = phone_groups[row.fields[1].canonical]
+            require(group[0] is row, 'Представитель не первая физическая строка группы.')
+            donors = [next((r for r in group if r.fields[i].canonical is not None and not r.fields[i].codes), None)
+                      for i in range(3)] + [row]
+            require(row.resolved_fields is not None and len(row.resolved_fields) == 4, 'Нет выбранных полей группы.')
+            require(all(result is (donor or row).fields[i] for i, (result, donor) in enumerate(zip(row.data_fields, donors))),
+                    'Выбрано не первое подтверждённое значение группы.')
+            expected = {'rule_id':'DEC-31', 'admitted':row.admitted,
+                        'conflict_codes':[c['code'] for c in row.conflicts], 'fields':[
+                {'field':HEADERS[i], 'donor_row_id':donor.raw.row_id if donor else None,
+                 'input_cell':donor.raw.cells[i].coordinate if donor else None, 'canonical':result.canonical,
+                 'value':result.display, 'rule_id':'KEEP_FIRST_SOURCE' if i == 3 else
+                 'FIRST_CONFIRMED_VALUE' if donor else 'NO_CONFIRMED_VALUE'}
+                for i, (result, donor) in enumerate(zip(row.data_fields, donors))]}
+            require(same_json(row.resolution, expected), 'Неверная прослеживаемость выбранных полей группы.')
+        else:
+            require(row.resolved_fields is None and row.resolution is None, 'Результат группы у дубля/строки без ключа.')
         require((row.output_row is not None) == row.admitted, 'Не совпал допуск в Данные.')
         phone = row.fields[1].canonical
         if phone is not None:
@@ -93,7 +115,7 @@ def verify_report(path, rows, snapshot, counts):
         data_rows = workbook['Данные'].iter_rows(max_col=len(HEADERS), values_only=True)
         require(list(next(data_rows)) == HEADERS, 'Неверный заголовок Данных.')
         for actual, expected in zip(data_rows, (row for row in rows if row.admitted), strict=True):
-            require(same_excel(actual, tuple(comparable(r.display) for r in expected.fields)), 'Неверное значение в Данных.')
+            require(same_excel(actual, tuple(comparable(r.display) for r in expected.data_fields)), 'Неверное значение в Данных.')
         problem_rows = workbook['Проблемы'].iter_rows(max_col=len(PROBLEM_HEADERS), values_only=True)
         require(list(next(problem_rows)) == PROBLEM_HEADERS, 'Неверный заголовок Проблем.')
         problems = list(problem_rows)
@@ -109,7 +131,7 @@ def verify_report(path, rows, snapshot, counts):
         for actual, expected in zip(review, (row for row in rows if row.codes), strict=True):
             require(same_excel(actual[:4], tuple(comparable(c.value) for c in expected.raw.cells)), 'Потеря исходных полей в Проверить.')
             require(actual[4:6] == (expected.raw.sheet, expected.raw.number) and isinstance(actual[6], str) and bool(actual[6]), 'Неверная идентичность или причина в Проверить.')
-        row_records, changes, links = {}, {}, {}
+        row_records, changes, links, resolutions = {}, {}, {}, {}
         identities = {r.raw.row_id: r for r in rows}
         for record in audit_records():
             if record[0] == 'ROW':
@@ -123,14 +145,22 @@ def verify_report(path, rows, snapshot, counts):
             elif record[0] == 'DUPLICATE_LINKED':
                 require(record[1] not in links, 'Повторяющаяся связь дубля.')
                 links[record[1]] = record
+            elif record[0] == 'GROUP_RESOLUTION':
+                require(record[1] not in resolutions, 'Повторяющееся согласование группы.')
+                resolutions[record[1]] = record
         require(Counter(row_records.keys()) == Counter(actual_ids), 'Не совпала инвентаризация ROW.')
         require(set(links) == {r.raw.row_id for r in rows if r.disposition == 'DUPLICATE'}, 'Не совпали связи дублей.')
+        require(set(resolutions) == {r.raw.row_id for r in rows if r.disposition == 'REPRESENTATIVE'}, 'Неполный реестр согласования групп.')
         expected_changes = set()
         for row in rows:
             record = row_records[row.raw.row_id]
             require(record[3] == row.output_row and record[4] == row.representative_id, 'Неверная судьба ROW.')
             require(same_json(unpack(record[9]), {'disposition': row.disposition, 'canonical_phone': row.fields[1].canonical,
                                          'codes': row.codes}), 'Неверные детали ROW.')
+            if row.resolution is not None:
+                resolution = resolutions[row.raw.row_id]
+                require(resolution[2:7] == (None, row.output_row, row.representative_id, None, 'DEC-31') and
+                        same_json(unpack(resolution[9]), row.resolution), 'Изменён аудит выбора значений группы.')
             if row.disposition == 'DUPLICATE':
                 require(row.raw.row_id in links, 'Нет связи дубля.')
                 link = links[row.raw.row_id]

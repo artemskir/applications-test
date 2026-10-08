@@ -1,6 +1,7 @@
 """Generate labeled XLSX fixtures; deliberately does not clean user data."""
 import argparse
 import hashlib
+import gzip
 import json
 import math
 import os
@@ -9,6 +10,8 @@ import random
 import shutil
 import sys
 import tempfile
+import unicodedata
+from functools import lru_cache
 from datetime import date, datetime, timedelta
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -16,12 +19,27 @@ from fixtures.scenarios import CASES, HEADERS, materialize
 from openpyxl import Workbook
 from openpyxl.utils.datetime import CALENDAR_MAC_1904, to_excel
 
-SPEC_VERSION = "1.6"
+SPEC_VERSION = "1.7"
+
+
+@lru_cache(maxsize=1)
+def clean_name_pool():
+    folder = Path(__file__).resolve().parents[1] / 'normalizer/data'
+    payload = (folder/'name_lexicon.json.gz').read_bytes()
+    expected = json.loads((folder/'manifest.json').read_text('utf-8'))
+    if hashlib.sha256(payload).hexdigest() != expected['bundle_sha256']:
+        raise ValueError('Name source hash mismatch')
+    reference = {r:set(v) for r,v in json.loads(gzip.decompress(payload)).items()}
+    words = (reference['FIRST_NAME'] & reference['NEN_FIRST_NAME']) - reference['LAST_NAME'] - reference['PATRONYMIC']
+    return tuple(sorted(word.capitalize() for word in words if word and
+                        all(c.isalpha() and 'CYRILLIC' in unicodedata.name(c,'') for c in word)))
 
 
 def clean_rows(count, seed):
     rng = random.Random(seed)
-    names = ["Андрей", "Егор", "Анастасия", "Ирина", "Влад"]
+    names = clean_name_pool()
+    if not names:
+        raise ValueError('No unambiguous names in frozen reference resources')
     sources = ["сайт", "звонок", "telegram", "email", "партнёр"]
     return [[rng.choice(names), f"+79{100000000 + i:09}",
              (date(2026, 9, 1) + timedelta(days=rng.randrange(30))).isoformat(),
@@ -98,15 +116,15 @@ def suite(stage, count, seed):
                   ["Егор Волков", "+79174005219", "10.03.2026", "звонок"],
                   [None, None, "bad", "сайт"], [None, None, "bad", "сайт"],
                   [None, "+79174005220", "31.04.2026", "сайт"],
-                  ["Ирина", "+79174005220", "2026-04-30", "email"],
-                  [None, None, None, None], ["Егор", "+79174005221", "2026-09-06", "сайт"],
+                  ["Ирина Львовна", "+79174005220", "2026-04-30", "email"],
+                  [None, None, None, None], ["Егор Волков", "+79174005221", "2026-09-06", "сайт"],
                   ["Пётр", "+79174005222", "2026-09-06", "сайт"],
                   ["Пётр", "+79174005222", "2026-09-06", "email"]]
     write_workbook(stage / "duplicates.xlsx", duplicates)
     files.append({"file": "duplicates.xlsx", "rows": 12,
-                  "expected": {"data_input_rows": [11, 12], "representative_or_ungrouped_rows": [2, 6, 7, 8, 10, 11, 12], "duplicate_rows": [3, 4, 5, 9, 13],
-                               "duplicate_conflict_rows": [2, 3, 4, 5, 8, 9],
-                               "problem_rows": [2, 3, 4, 5, 6, 7, 8, 9, 10]},
+                  "expected": {"data_input_rows": [2, 8, 11, 12], "representative_or_ungrouped_rows": [2, 6, 7, 8, 10, 11, 12], "duplicate_rows": [3, 4, 5, 9, 13],
+                               "duplicate_conflict_rows": [2, 3, 4, 5],
+                               "problem_rows": [2, 3, 4, 5, 6, 7, 8, 10]},
                   "note": "Rows 12/13 differ only by source and are audit-only. All participants of conflicting groups are problematic; empty phones never deduplicate."})
     baseline = clean_rows(2, seed)
     for epoch in (1900, 1904):
