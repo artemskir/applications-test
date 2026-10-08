@@ -1,0 +1,657 @@
+{
+  "created_utc": "2026-10-08T18:20:45.516021+00:00",
+  "spec_version": "1.4",
+  "status": "P0 PASS for executed set",
+  "main_tests": 36,
+  "qa_tests": 13,
+  "catalog_cases": 181,
+  "skipped": 0,
+  "recorded_runner_invocations": 7,
+  "recorded_suite_executions": 12,
+  "runner_results": [
+    {
+      "directory": "generated\\qa-1.4-seed42",
+      "mode": "all",
+      "seed": 42,
+      "examples_per_property_limit": 300,
+      "passed": true,
+      "runs": [
+        {
+          "label": "p0",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 4.638
+        },
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "--append",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 11.323
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": null
+    },
+    {
+      "directory": "generated\\qa-1.4-seed7",
+      "mode": "generated",
+      "seed": 7,
+      "examples_per_property_limit": 1000,
+      "passed": true,
+      "runs": [
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 13.387
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": {
+        "seed": 7,
+        "calls": {
+          "valid_dates": 1000,
+          "excel_types": 12,
+          "invalid_dates": 1000,
+          "invalid_phone_letters": 1000,
+          "missing": 14,
+          "multiple_and_prefix": 1000,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 1000,
+          "sequences": 30
+        },
+        "unique_examples": {
+          "valid_dates": 1000,
+          "excel_types": 12,
+          "invalid_dates": 1000,
+          "invalid_phone_letters": 1000,
+          "missing": 14,
+          "multiple_and_prefix": 1000,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 1000,
+          "sequences": 28
+        },
+        "extra": {
+          "pairwise_rows": 18,
+          "covered_pairs": 114,
+          "dangerous_triples": 8,
+          "cli_combination_runs": 3,
+          "rows_per_cli": 39,
+          "cli_nan_inf_runs": 3
+        }
+      }
+    },
+    {
+      "directory": "generated\\qa-1.4-seed2026",
+      "mode": "generated",
+      "seed": 2026,
+      "examples_per_property_limit": 1000,
+      "passed": true,
+      "runs": [
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 13.234
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": {
+        "seed": 2026,
+        "calls": {
+          "valid_dates": 1000,
+          "excel_types": 12,
+          "invalid_dates": 1000,
+          "invalid_phone_letters": 1000,
+          "missing": 14,
+          "multiple_and_prefix": 1000,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 1000,
+          "sequences": 30
+        },
+        "unique_examples": {
+          "valid_dates": 1000,
+          "excel_types": 12,
+          "invalid_dates": 1000,
+          "invalid_phone_letters": 1000,
+          "missing": 14,
+          "multiple_and_prefix": 1000,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 1000,
+          "sequences": 28
+        },
+        "extra": {
+          "pairwise_rows": 18,
+          "covered_pairs": 114,
+          "dangerous_triples": 8,
+          "cli_combination_runs": 3,
+          "rows_per_cli": 39,
+          "cli_nan_inf_runs": 3
+        }
+      }
+    },
+    {
+      "directory": "generated\\qa-1.4-final",
+      "mode": "all",
+      "seed": 89,
+      "examples_per_property_limit": 300,
+      "passed": false,
+      "runs": [
+        {
+          "label": "p0",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 4.89
+        },
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "--append",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 1,
+          "seconds": 10.729
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": {
+        "seed": 89,
+        "calls": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 300,
+          "sequences": 30
+        },
+        "unique_examples": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 300,
+          "sequences": 27
+        },
+        "extra": {
+          "pairwise_rows": 18,
+          "covered_pairs": 114,
+          "dangerous_triples": 8,
+          "cli_combination_runs": 3,
+          "rows_per_cli": 39,
+          "cli_nan_inf_runs": 3
+        }
+      }
+    },
+    {
+      "directory": "generated\\qa-1.4-final-fixed",
+      "mode": "all",
+      "seed": 89,
+      "examples_per_property_limit": 300,
+      "passed": true,
+      "runs": [
+        {
+          "label": "p0",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 5.806
+        },
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "--append",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 11.743
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": {
+        "seed": 89,
+        "calls": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 300,
+          "sequences": 30
+        },
+        "unique_examples": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 300,
+          "sequences": 27
+        },
+        "extra": {
+          "pairwise_rows": 18,
+          "covered_pairs": 114,
+          "dangerous_triples": 8,
+          "cli_combination_runs": 3,
+          "rows_per_cli": 39,
+          "cli_nan_inf_runs": 3
+        }
+      }
+    },
+    {
+      "directory": "generated\\qa-1.4-acceptance",
+      "mode": "all",
+      "seed": 123,
+      "examples_per_property_limit": 300,
+      "passed": true,
+      "runs": [
+        {
+          "label": "p0",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 5.641
+        },
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "--append",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 11.601
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": {
+        "seed": 123,
+        "calls": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 300,
+          "sequences": 30
+        },
+        "unique_examples": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "valid_phone": 300,
+          "sequences": 29
+        },
+        "extra": {
+          "cli_nonfinite_runs": 4,
+          "pairwise_rows": 18,
+          "covered_pairs": 114,
+          "dangerous_triples": 8,
+          "cli_combination_runs": 3,
+          "rows_per_cli": 39
+        }
+      }
+    },
+    {
+      "directory": "generated\\qa-1.4-complete",
+      "mode": "all",
+      "seed": 314,
+      "examples_per_property_limit": 300,
+      "passed": true,
+      "runs": [
+        {
+          "label": "p0",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 5.651
+        },
+        {
+          "label": "generated",
+          "command": [
+            "F:\\test-project\\.venv\\Scripts\\python.exe",
+            "-m",
+            "coverage",
+            "run",
+            "--branch",
+            "--source=normalizer",
+            "--append",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests_qa",
+            "-v"
+          ],
+          "exit_code": 0,
+          "seconds": 14.873
+        }
+      ],
+      "coverage_limitation": "Parent-process coverage only; subprocess CLI not instrumented",
+      "statistics": {
+        "seed": 314,
+        "calls": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "name_nfc_nfd": 7,
+          "valid_phone": 300,
+          "sequences": 30
+        },
+        "unique_examples": {
+          "valid_dates": 300,
+          "excel_types": 12,
+          "invalid_dates": 300,
+          "invalid_phone_letters": 300,
+          "missing": 14,
+          "multiple_and_prefix": 300,
+          "valid_names": 56,
+          "invalid_names": 28,
+          "name_nfc_nfd": 7,
+          "valid_phone": 300,
+          "sequences": 29
+        },
+        "extra": {
+          "cli_nonfinite_runs": 4,
+          "pairwise_rows": 18,
+          "covered_pairs": 114,
+          "dangerous_triples": 8,
+          "cli_combination_runs": 3,
+          "rows_per_cli": 39
+        }
+      }
+    }
+  ],
+  "final_coverage": {
+    "covered_lines": 989,
+    "num_statements": 1081,
+    "percent_covered": 89.34686112872542,
+    "percent_covered_display": "89",
+    "missing_lines": 92,
+    "excluded_lines": 0,
+    "percent_statements_covered": 91.48936170212765,
+    "percent_statements_covered_display": "91",
+    "num_branches": 496,
+    "num_partial_branches": 72,
+    "covered_branches": 420,
+    "missing_branches": 76,
+    "percent_branches_covered": 84.6774193548387,
+    "percent_branches_covered_display": "85"
+  },
+  "mutations": {
+    "passed": true,
+    "mutations": [
+      {
+        "id": "M01-strip-all-leading-eights",
+        "detected": true,
+        "failures": 2,
+        "errors": 0,
+        "test": "FieldTests.test_all_catalog_oracles"
+      },
+      {
+        "id": "M02-accept-partial-phone",
+        "detected": true,
+        "failures": 3,
+        "errors": 0,
+        "test": "FieldTests.test_all_catalog_oracles"
+      },
+      {
+        "id": "M03-swap-day-month",
+        "detected": true,
+        "failures": 29,
+        "errors": 0,
+        "test": "FieldTests.test_all_catalog_oracles"
+      },
+      {
+        "id": "M04-disable-calendar-check",
+        "detected": true,
+        "failures": 1,
+        "errors": 0,
+        "test": "FieldTests.test_all_catalog_oracles"
+      },
+      {
+        "id": "M05-incorrect-missing",
+        "detected": true,
+        "failures": 14,
+        "errors": 0,
+        "test": "FieldTests.test_all_catalog_oracles"
+      },
+      {
+        "id": "M06-last-duplicate",
+        "detected": true,
+        "failures": 0,
+        "errors": 3,
+        "test": "PipelineTests.test_actual_suite_valid_inputs_and_structural_refusals"
+      },
+      {
+        "id": "M07-drop-ROW-audit",
+        "detected": true,
+        "failures": 0,
+        "errors": 1,
+        "test": "ReviewRegressions.test_clean_sheet_and_plain_review_preserve_every_problem"
+      },
+      {
+        "id": "M08-overwrite-original",
+        "detected": true,
+        "failures": 0,
+        "errors": 1,
+        "test": "ReviewRegressions.test_clean_sheet_and_plain_review_preserve_every_problem"
+      },
+      {
+        "id": "M09-merge-missing-phones",
+        "detected": true,
+        "failures": 1,
+        "errors": 0,
+        "test": "PipelineTests.test_actual_suite_valid_inputs_and_structural_refusals"
+      }
+    ]
+  },
+  "mixed_10000": {
+    "sheets": {
+      "Данные": 5018,
+      "Проблемы": 4982,
+      "Оригинал": 10000,
+      "Аудит": 21384,
+      "Проверить": 4982
+    },
+    "exact_restore": true,
+    "independent_raw_xml_cells_checked": 40000,
+    "input_sha256": "0ce242fa78cc0ee4ddf5fe2923dacd326eec41207779aab235c888c07d10e2ee",
+    "output_sha256": "a643dd84700e2b2e3e0cba36a832c04cb54a0000f61adc8deb00efd2a9a5f3df"
+  },
+  "source_sha256": {
+    "normalizer\\__init__.py": "0febb43196c50b9b90a5286bd4f93c2ac9a4ef15f08ecd51a9a19f6fd6be153b",
+    "normalizer\\dates.py": "d6416ecc184776d5c3e927fb580bb9bcf64f3d069c089155260a4d8c208b55e5",
+    "normalizer\\deduplicate.py": "9ee91bcf82b02e9306f1f3dd068dd5a325a239b3d2b0db8225a4a5b3e815e11a",
+    "normalizer\\files.py": "6aa9e7d2a3df058a9a6cb03b15202e513baff61290c00fa6f100b15fe5c82d92",
+    "normalizer\\invariants.py": "7b0a921ebb818d3e5ae572b67bc4ae314de2a04c25de213b3aafdaf04236fec4",
+    "normalizer\\models.py": "7d503d94977cd20e2cdf39a49da4102b732107f21a6f229f3dd46364a4651a9a",
+    "normalizer\\name_roles.py": "78416c7efdec4af53372378dd4386464c5977f83f0ecadcda9e2d0a4dbbb5cc4",
+    "normalizer\\names.py": "7f29f6a2abd824f815d33e0ed3f8fc3a483e8f2b98ac3f30c97a6531b599a40c",
+    "normalizer\\phone.py": "c7e9eafbb80eb8f2954f80a8e1c75255c960303458992a6802e2fcd33d94ea97",
+    "normalizer\\pipeline.py": "217de31499c9f381aa58a040bfe9eb02ddff88008de47206c6aa9da1183c54ee",
+    "normalizer\\preservation.py": "926a77757c2ebe2604dd6d123535d7dc47d68a49813ab0f4dc4d04ec4378690a",
+    "normalizer\\reader.py": "bb526d99f31e7d0141e7cf088f5a9227129e939e61e17aaf90b347dbb0189dfc",
+    "normalizer\\report.py": "40dbf05111ffe8a7c4e9a46871cfb8d57277221506b040e1e54258880482545c",
+    "fixtures\\scenarios.py": "efd731af757c593fe896404a38a3cddc8ef337e65656be957d7eb91d4d20bf53",
+    "tests\\test_generator.py": "f2b2d90d441eb26296a850e4bc8edad35249286af909b56120186f0b6d7017a6",
+    "tests\\test_normalizer.py": "cc23def011d97b8a3be1c73719b6709c0ed9d83895257a478f2202b5efd492f7",
+    "tests\\test_regressions.py": "b66630a3e129600676506276e569779f464ae7d3644f257f8e02ee920db9ca2e",
+    "tests_qa\\test_generated.py": "ecdfc05055e41ea4490cdb58a2ba2ebc148177d3fddafbc65a2c5baf65fbf2b6",
+    "tools\\build_name_lexicon.py": "833e84197632fc5b6489fcd0c044604599bddadc770e7b85512b54049e0679ed",
+    "tools\\check_mutations.py": "5fffeef16d0186d1cc9cd1eab76080dbc5495f1133983074383c51a44c88c2fc",
+    "tools\\generate_data.py": "75c7237834a296336288e36071e761cd262d260c457e5c82ede2af23e0524f03",
+    "tools\\render_catalog.py": "306ed8b025d414e8f111aeca4c48e94b851baefd92420ac3f8164b81c1460b8a",
+    "tools\\run_qa.py": "e4b759c78163cafd9c0f8a98d8b2f86b97141c5c6eeb0aed5b35170ac5308bf1",
+    "tools\\verify_artifacts.py": "5fef97fa8cc25f0a5fc594fc8cbe85952f1ebcbb4e2244b2a7706d037f1c9071",
+    "normalize.py": "6feb1af4c7e16bd301d28f9dd7909e10e6ea0c3ecdb9541ea7667713062ed362",
+    "restore.py": "3a8375f99a22104a45a28ed6b748365594313be8eae9f722354e9e613bc2cdfc",
+    "docs/SPECIFICATION.md": "c8d6603dfa5f1ad53e6aa45485854d522c0d8442f58e2458ca068b06b25cd958",
+    "research/name_gold.json": "6f7cecb8bdfdd5c6e243141595a20f0bab55b0c3eb5cc975c4444bb1d3c9721a",
+    "normalizer/data/name_lexicon.json.gz": "1cc36bfe7aef97f53b81a892a32eb089a7f2cb4dbcfdba0b2e37975a19b4d8cf"
+  }
+}

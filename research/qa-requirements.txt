@@ -1,0 +1,4 @@
+-r requirements.txt
+duckdb==1.5.6
+coverage==7.16.2
+allpairspy==2.5.1
